@@ -46,10 +46,18 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Backgound_.cs" />
      <Compile Include="Assets\Script\Camera_.cs" />
-     <Compile Include="Assets\Script\Enemy0_.cs" />
+     <Compile Include="Assets\Script\Enemy_.cs" />
+     <Compile Include="Assets\Script\FeedFishManager_.cs" />
+     <Compile Include="Assets\Script\FeedFish_.cs" />
+     <Compile Include="Assets\Script\GameOver_.cs" />
+     <Compile Include="Assets\Script\InfoText_.cs" />
      <Compile Include="Assets\Script\MainGame_.cs" />
+     <Compile Include="Assets\Script\PathFinder_.cs" />
+     <Compile Include="Assets\Script\PathNode_.cs" />
      <Compile Include="Assets\Script\Player_.cs" />
      <Compile Include="Assets\Script\Spawner_.cs" />
+     <Compile Include="Assets\Script\TerrainManager_.cs" />
+     <Compile Include="Assets\Script\TerrainPartFactory_.cs" />
      <Compile Include="Assets\Script\Util_.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCamera.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraAnchor.cs" />

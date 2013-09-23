@@ -1,21 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MyDir4_{
+public class MyAABB_{
 	public float left;
 	public float right;
 	public float up;
 	public float down;
 	
-	public MyDir4_(){
+	public MyAABB_(){
 		left = right = up = down = 0;
 	}
 	
-	MyDir4_(float left_, float right_, float up_, float down_){
-		SetDir(left_, right_, up_, down_);
+	public MyAABB_(float left_, float right_, float up_, float down_){
+		Set(left_, right_, up_, down_);
 	}
 	
-	public void SetDir(float left_, float right_, float up_, float down_){
+	public void Set(float left_, float right_, float up_, float down_){
 		left = left_; right = right_; up = up_; down = down_;
 	}
 	
@@ -43,9 +43,9 @@ public class AnimationHelper_ {
 		if(len < 0.1f)
 			return len;
 		else{
-			Vector2 midVec0 = BezierCurveAtVec2(p0, p1, p2, 0.25f);// = new Vector2((p0.x + p1.x) / 2, (p0.y + p0.y) / 2);
+			Vector2 midVec0 = BezierCurveAtVec2(p0, p1, p2, 0.25f);
 			float subLen0 = SubBezierCurveVec2Lenth(p0, midVec0, p1);
-			Vector2 midVec1 = BezierCurveAtVec2(p0, p1, p2, 0.75f);// = new Vector2((p0.x + p1.x) / 2, (p0.y + p0.y) / 2);
+			Vector2 midVec1 = BezierCurveAtVec2(p0, p1, p2, 0.75f);
 			float subLen1 = SubBezierCurveVec2Lenth(p1, midVec1, p2);
 			return subLen0 + subLen1;
 		}

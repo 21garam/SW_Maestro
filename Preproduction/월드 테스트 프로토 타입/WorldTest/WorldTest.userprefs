@@ -1,17 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Enemy0_.cs">
-    <Files>
-      <File FileName="Assets/Script/Player_.cs" Line="146" Column="3" />
-      <File FileName="Assets/Script/Camera_.cs" Line="60" Column="10" />
-      <File FileName="Assets/Script/Enemy0_.cs" Line="64" Column="26" />
-      <File FileName="Assets/Script/MainGame_.cs" Line="9" Column="1" />
-      <File FileName="Assets/TK2DROOT/tk2d/Editor/Sprites/tk2dSpriteCollectionBuilder.cs" Line="236" Column="1" />
-      <File FileName="Assets/Script/Spawner_.cs" Line="3" Column="1" />
-      <File FileName="Assets/Script/Util_.cs" Line="40" Column="9" />
-      <File FileName="Assets/Script/Backgound_.cs" Line="10" Column="46" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

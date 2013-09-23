@@ -5,8 +5,10 @@ using System.Collections;
 public class Camera_ : MonoBehaviour {
 	public tk2dCamera m_cam;
 	public Backgound_ m_backGround;
+	public InfoText_ m_infoText;
+	
 	Vector2 m_centerPos = new Vector2();
-	MyDir4_ m_bound = new MyDir4_();
+	MyAABB_ m_bound = new MyAABB_();
 	Vector2 m_boundSize = new Vector2();
 	
 	void Start () {
@@ -24,15 +26,15 @@ public class Camera_ : MonoBehaviour {
 			boundW = m_cam.nativeResolutionWidth * (0.5f - boundBorderRate);
 		}
 		m_boundSize.Set(boundW, boundH);
-		m_cam.transform.position = new Vector3(m_cam.nativeResolutionWidth * 0.5f, m_cam.nativeResolutionHeight * 0.5f, m_cam.transform.position.z);
+		//m_cam.transform.position = new Vector3(m_cam.nativeResolutionWidth * 0.5f, m_cam.nativeResolutionHeight * 0.5f, m_cam.transform.position.z);
 	}
 	
 	void Update () {
 		m_centerPos.Set(m_cam.transform.position.x + m_cam.NativeResolution.x * 0.5f, m_cam.transform.position.y + m_cam.NativeResolution.y * 0.5f);
 	}
 	
-	public MyDir4_ GetBound(){
-		m_bound.SetDir(m_centerPos.x - m_boundSize.x, m_centerPos.x + m_boundSize.x, m_centerPos.y + m_boundSize.y, m_centerPos.y - m_boundSize.y);
+	public MyAABB_ GetBound(){
+		m_bound.Set(m_centerPos.x - m_boundSize.x, m_centerPos.x + m_boundSize.x, m_centerPos.y + m_boundSize.y, m_centerPos.y - m_boundSize.y);
 		return m_bound;
 	}
 	
@@ -51,13 +53,14 @@ public class Camera_ : MonoBehaviour {
 	public void Move(float x, float y){
 		m_cam.transform.position = new Vector3(m_cam.transform.position.x + x, m_cam.transform.position.y + y, m_cam.transform.position.z);
 		Update_WorldBound();
+		m_infoText.SetPlayerInfoPos(m_cam.transform.position);
 	}
 	
 	private void Update_WorldBound(){
 		float interDisX = 0;
 		float interDisY = 0;
 		
-		MyDir4_ bound = m_backGround.GetBound();
+		MyAABB_ bound = m_backGround.GetBound();
 		//Debug.Log(bound.ToString());
 		
 		float maxRightBound = bound.right - m_cam.nativeResolutionWidth; 
