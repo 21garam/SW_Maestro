@@ -14,8 +14,8 @@ public class InfoText_ : MonoBehaviour {
 	string enemyInfoHeadStr = "<Enemy>\n";
 	// Use this for initialization
 	void Awake(){
-		m_textPlayerInfo = GameObject.Instantiate(m_textPrefab, new Vector3(), new Quaternion()) as tk2dTextMesh;
-		m_textEnemyInfo = GameObject.Instantiate(m_textPrefab, new Vector3(), new Quaternion()) as tk2dTextMesh;
+		m_textPlayerInfo = GameObject.Instantiate(m_textPrefab, transform.position, new Quaternion()) as tk2dTextMesh;
+		m_textEnemyInfo = GameObject.Instantiate(m_textPrefab, transform.position, new Quaternion()) as tk2dTextMesh;
 	}
 	
 	void Start () {

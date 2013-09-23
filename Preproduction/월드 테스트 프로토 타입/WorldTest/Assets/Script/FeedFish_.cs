@@ -18,6 +18,7 @@ public class FeedFish_ : MonoBehaviour {
 	public int m_colPos;
 	tk2dTextMesh m_text;
 	
+	float m_textZpos = -1;
 	void Start () {
 		//Debug.Log(m_sprite.color.a);
 		//Initialize();
@@ -40,7 +41,7 @@ public class FeedFish_ : MonoBehaviour {
 	public void Initialize(float dir, int row, int col){
 		m_rowPos = row;
 		m_colPos = col;
-		m_text = GameObject.Instantiate(m_textPrefabs, transform.position, transform.rotation) as tk2dTextMesh;
+		m_text = GameObject.Instantiate(m_textPrefabs, new Vector3(transform.position.x, transform.position.y, m_textZpos), transform.rotation) as tk2dTextMesh;
 		SubInitialize(dir);
 		state = State_.INIT;
 	}
@@ -118,7 +119,7 @@ public class FeedFish_ : MonoBehaviour {
 				m_text.text = "P-";
 			break;
 		}
-		m_text.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+		m_text.transform.position = new Vector3(transform.position.x, transform.position.y, m_textZpos);
 		m_text.Commit();
 	}
 	
@@ -153,9 +154,9 @@ public class FeedFish_ : MonoBehaviour {
 				if(ExistInitialize(m_dir))
 					state = State_.ALIVE;
 				else{
-					state = State_.NOT;
+					state = State_.NOT;//new Vector3(transform.position.x, transform.position.y, m_textZpos)
 					transform.position = new Vector3(-100, -100, transform.position.z);
-					m_text.transform.position = new Vector3(-100, -100, transform.position.z);
+					m_text.transform.position = new Vector3(-100, -100, m_textZpos);
 				}
 			break;
 			
@@ -172,9 +173,9 @@ public class FeedFish_ : MonoBehaviour {
 				m_nextPos.x = transform.position.x;
 				Update_MerryGoRound();
 				Update_View(m_dir);
-				transform.position = new Vector3(m_nextPos.x, this.transform.position.y, this.transform.position.z);
+				transform.position = new Vector3(m_nextPos.x, this.transform.position.y, transform.position.z);
 				if(m_text != null)
-					m_text.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+					m_text.transform.position = new Vector3(transform.position.x, transform.position.y, m_textZpos);
 			break;
 			
 			case State_.DIE:
@@ -222,7 +223,7 @@ public class FeedFish_ : MonoBehaviour {
 	public void Destroy(){
 		m_sprite.color = new Color(m_sprite.color.a, m_sprite.color.g, m_sprite.color.b, 0);
 		transform.position = new Vector3(-100, -100, transform.position.z);
-		m_text.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+		m_text.transform.position = new Vector3(transform.position.x, transform.position.y, m_textZpos);
 		state = State_.DIE;
 		//enabled = false;
 	}

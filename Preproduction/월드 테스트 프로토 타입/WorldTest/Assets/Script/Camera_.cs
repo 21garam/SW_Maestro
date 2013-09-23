@@ -12,7 +12,7 @@ public class Camera_ : MonoBehaviour {
 	Vector2 m_boundSize = new Vector2();
 	
 	void Start () {
-		float boundBorderRate = 0.2f; 
+		float boundBorderRate = 0.3f; 
 		// (0.0 ~ 0.5)
 		boundBorderRate = Mathf.Max(0.0f, boundBorderRate);
 		boundBorderRate = Mathf.Min(boundBorderRate, 0.5f);
