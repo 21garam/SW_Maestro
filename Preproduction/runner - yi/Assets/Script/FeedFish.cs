@@ -17,7 +17,7 @@ public class FeedFish : MonoBehaviour {
 		mSprite = GetComponent<tk2dSprite>();
 		mSprite.transform.position = new Vector3(Random.Range(40, 60), mSprite.transform.position.y, mSprite.transform.position.z);
 		//mSprite.transform.position = new Vector3(Random.Range(-40, 40), mSprite.transform.position.y, mSprite.transform.position.z);
-		velocity = Random.Range(10, 25);
+		velocity = Random.Range(8, 15);
 		dir = -1;
 		//dir = (Random.Range(-10,10)>0)?1:-1;
 		
@@ -26,7 +26,6 @@ public class FeedFish : MonoBehaviour {
 	}
 	
 	void Start () {
-		Vector2 v = Player.Instance.playerPosition;
 		default_y = mSprite.transform.position.y;
 		if(dir == -1)
 		{
@@ -51,7 +50,6 @@ public class FeedFish : MonoBehaviour {
 		{
 			return;
 		}
-		Vector2 pv = Player.Instance.playerPosition;
 		v.x = mSprite.transform.position.x + (velocity * dir * Time.deltaTime);
 		v.y = mSprite.transform.position.y;
 		v.z = mSprite.transform.position.z;
@@ -90,7 +88,7 @@ public class FeedFish : MonoBehaviour {
 	
 	void Relocation()
 	{
-		velocity = Random.Range(10, 25);
+		velocity = Random.Range(8, 15);
 		dir = -1;
 		//dir = (Random.Range(-10,10)>0)?1:-1;
 		Vector2 v = Player.Instance.playerPosition;

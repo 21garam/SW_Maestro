@@ -9,10 +9,7 @@ public class Player : MonoBehaviour {
 	
 	public tk2dSprite mSprite = null;
 	
-	public JoyStickForMouse joyStick;
-	
 	public Vector2 playerPosition;
-	public bool bJoyStick;
 	
 	public float sizeOfFish = 1;
 	private float dx = 0.0f, dy = 0.0f;
@@ -90,25 +87,6 @@ public class Player : MonoBehaviour {
 		CharacterController controller = GetComponent<CharacterController>();
 		Vector3 v;
 		
-		if(bJoyStick)
-		{
-		dx+=accelerate * joyStick.position.x * Time.deltaTime;
-		dy+=accelerate * joyStick.position.y * Time.deltaTime;
-		float _friction = friction * Time.deltaTime;
-		float _maxSpeed = maxSpeed * Time.deltaTime;
-		
-		v.x = 0;
-		//v.x = dx = (dx>_maxSpeed)?_maxSpeed:(dx<-_maxSpeed)?-_maxSpeed:dx;
-		v.y = dy = (dy>_maxSpeed)?_maxSpeed:(dy<-_maxSpeed)?-_maxSpeed:dy;
-		//v.x = dx += (dx>=_friction)?-_friction:(dx<=-_friction)?_friction:-dx;
-		v.y = dy += (dy>=_friction)?-_friction:(dy<=-_friction)?_friction:-dy;
-		v.z = 0;
-		
-		//Debug.Log("joyStick.position.y : " + joyStick.position.y + ", dy : " + dy);
-		}
-		else
-		{
-		
 		//dx+=accelerate*Input.GetAxis("Horizontal") * Time.deltaTime;
 		dy+=accelerate*Input.GetAxis("Vertical") * Time.deltaTime;
 		float _friction = friction * Time.deltaTime;
@@ -119,7 +97,7 @@ public class Player : MonoBehaviour {
 		v.x = dx += (dx>=_friction)?-_friction:(dx<=-_friction)?_friction:-dx;
 		v.y = dy += (dy>=_friction)?-_friction:(dy<=-_friction)?_friction:-dy;
 		v.z = 0;
-		}
+		
 		
 		SetFlip();
 		
@@ -135,7 +113,7 @@ public class Player : MonoBehaviour {
 		}
 		
 		ScoreScript.Score += (int)Mathf.Pow(feedFishSize*10, 2);
-		sizeOfFish += 0.05f;
+		//sizeOfFish += 0.05f;
 		transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
 		return true;
 	}
