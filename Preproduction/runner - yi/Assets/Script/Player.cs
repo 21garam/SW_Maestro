@@ -11,7 +11,7 @@ public class Player : MonoBehaviour {
 	
 	public Vector2 playerPosition;
 	
-	public float sizeOfFish = 1;
+	public float sizeOfFish;
 	private float dx = 0.0f, dy = 0.0f;
 	
 	private static Player instance;
@@ -39,30 +39,16 @@ public class Player : MonoBehaviour {
 	public void SetFlip()
 	{
 		tk2dSprite spr = mSprite;
+		transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
+		spr.scale = new Vector3(-Mathf.Abs(spr.scale.x), spr.scale.y, spr.scale.z);
 		
-		if(dx >= 0.0f)
+		if(dy > 0.0f)
 		{
-			spr.scale = new Vector3(-Mathf.Abs(spr.scale.x), spr.scale.y, spr.scale.z);
-			if(dy > 0.0f)
-			{
-				spr.transform.transform.rotation = Quaternion.Euler(0f, 0f, 10f);
-			}
-			else if(dy < 0.0f)
-			{
-				spr.transform.transform.rotation = Quaternion.Euler(0f, 0f, -10f);
-			}
+			spr.transform.transform.rotation = Quaternion.Euler(0f, 0f, 10f);
 		}
-		else if(dx <  -0.0f)
-			{
-				spr.scale = new Vector3(Mathf.Abs(spr.scale.x), spr.scale.y, spr.scale.z);
-			if(dy > 0.0f)
-			{
-				spr.transform.transform.rotation = Quaternion.Euler(0f, 0f, -10f);
-			}
-			else if(dy < 0.0f)
-			{
-				spr.transform.transform.rotation = Quaternion.Euler(0f, 0f, 10f);
-			}
+		else if(dy < 0.0f)
+		{
+			spr.transform.transform.rotation = Quaternion.Euler(0f, 0f, -10f);
 		}
 		
 		if(dy == 0.0f)
@@ -87,8 +73,15 @@ public class Player : MonoBehaviour {
 		CharacterController controller = GetComponent<CharacterController>();
 		Vector3 v;
 		
-		//dx+=accelerate*Input.GetAxis("Horizontal") * Time.deltaTime;
-		dy+=accelerate*Input.GetAxis("Vertical") * Time.deltaTime;
+		if(Input.GetMouseButton(0))
+		{
+			dy+=accelerate * Time.deltaTime;
+		}
+		else
+		{
+			dy-=accelerate * Time.deltaTime;
+		}
+		
 		float _friction = friction * Time.deltaTime;
 		float _maxSpeed = maxSpeed * Time.deltaTime;
 		
@@ -97,9 +90,9 @@ public class Player : MonoBehaviour {
 		v.x = dx += (dx>=_friction)?-_friction:(dx<=-_friction)?_friction:-dx;
 		v.y = dy += (dy>=_friction)?-_friction:(dy<=-_friction)?_friction:-dy;
 		v.z = 0;
-		
-		
+				
 		SetFlip();
+		
 		
 		controller.Move(v);
 		playerPosition = controller.transform.position;
