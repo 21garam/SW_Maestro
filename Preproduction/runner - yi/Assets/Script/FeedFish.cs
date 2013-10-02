@@ -82,7 +82,7 @@ public class FeedFish : MonoBehaviour {
 			else
 			{
 				Application.LoadLevel("MainMenuScene");
-			}				
+			}
 		}
 	}
 	

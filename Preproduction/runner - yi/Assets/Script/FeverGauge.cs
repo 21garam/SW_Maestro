@@ -42,8 +42,12 @@ public class FeverGauge : MonoBehaviour {
 	
 	public void turnEnable()
 	{
-		feverPoint = 0;
-		enable = true;
+		if(enable == false)
+		{
+			requirePoint = requirePoint*magnificationPower+magnificationAddition;
+			feverPoint = 0;
+			enable = true;
+		}
 	}
 	
 	public void turnDisable()
