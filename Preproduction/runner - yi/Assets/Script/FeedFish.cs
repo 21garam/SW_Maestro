@@ -50,7 +50,7 @@ public class FeedFish : MonoBehaviour {
 		{
 			return;
 		}
-		v.x = mSprite.transform.position.x + (velocity * dir * Time.deltaTime);
+		v.x = mSprite.transform.position.x + (velocity * dir * Time.deltaTime)*(1+Player.Instance.FeverTime*Player.Instance.FeverAcc);
 		v.y = mSprite.transform.position.y;
 		v.z = mSprite.transform.position.z;
 		

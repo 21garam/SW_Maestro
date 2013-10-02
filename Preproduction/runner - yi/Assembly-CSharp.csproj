@@ -113,6 +113,7 @@
      <Compile Include="Assets\Assets\TK2DROOT\tk2d_demo\tk2dDemoRuntimeSpriteController.cs" />
      <Compile Include="Assets\Script\BackGround.cs" />
      <Compile Include="Assets\Script\FeedFish.cs" />
+     <Compile Include="Assets\Script\FeverGauge.cs" />
      <Compile Include="Assets\Script\MainMenu.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\ScoreCamera.cs" />

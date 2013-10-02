@@ -7,12 +7,22 @@ public class Player : MonoBehaviour {
 	public float accelerate;
 	public float friction;
 	
+	public float magnificationPower;
+	public float magnificationAddition;
+	
 	public tk2dSprite mSprite = null;
 	
 	public Vector2 playerPosition;
 	
 	public float sizeOfFish;
 	private float dx = 0.0f, dy = 0.0f;
+	private FeverGauge feverInstance = null;
+	
+	public float feverLimit;
+	public float feverPower;
+	public float feverAcc;
+	private bool bFeverTime = false;
+	private float currentFeverTime = 0.0f;
 	
 	private static Player instance;
 	
@@ -36,10 +46,25 @@ public class Player : MonoBehaviour {
 		}
 	}
 	
+	public float FeverAcc
+	{
+		get
+		{
+			return feverAcc;
+		}
+	}
+	
+	public int FeverTime
+	{
+		get
+		{
+			return bFeverTime?1:0;
+		}
+	}
+	
 	public void SetFlip()
 	{
 		tk2dSprite spr = mSprite;
-		transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
 		spr.scale = new Vector3(-Mathf.Abs(spr.scale.x), spr.scale.y, spr.scale.z);
 		
 		if(dy > 0.0f)
@@ -63,10 +88,11 @@ public class Player : MonoBehaviour {
 	void Awake()
 	{
 		instance = this;
+		transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
 	}
 	
 	void Start () {
-	
+		feverInstance = FeverGauge.Instance;
 	}
 	
 	void Update () {
@@ -93,6 +119,16 @@ public class Player : MonoBehaviour {
 				
 		SetFlip();
 		
+		if(bFeverTime == true)
+		{
+			currentFeverTime += Time.deltaTime;
+			
+			if(currentFeverTime > feverLimit)
+			{
+				bFeverTime =false;
+				feverInstance.turnEnable();
+			}
+		}
 		
 		controller.Move(v);
 		playerPosition = controller.transform.position;
@@ -100,14 +136,27 @@ public class Player : MonoBehaviour {
 
 	public bool EatFeedFish(float feedFishSize)
 	{
-		if(feedFishSize>sizeOfFish)
+		if(feedFishSize>sizeOfFish && bFeverTime == false)
 		{
 			return false;
 		}
 		
+		if(feverInstance.getPoint(feedFishSize) == false)
+		{
+			if(bFeverTime==false)
+			{
+				bFeverTime = true;
+				currentFeverTime = 0.0f;
+			}
+			transform.localScale = new Vector3(3, 3, transform.localScale.z);
+		}
+		else
+		{
+			sizeOfFish = sizeOfFish*magnificationPower+magnificationAddition;
+			transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
+		}
+		
 		ScoreScript.Score += (int)Mathf.Pow(feedFishSize*10, 2);
-		//sizeOfFish += 0.05f;
-		transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
 		return true;
 	}
 }
