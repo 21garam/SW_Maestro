@@ -12,6 +12,6 @@ public class BackGround : MonoBehaviour {
 	void Update () {
 		tk2dSprite sprite = GetComponent<tk2dSprite>();
 		deltaTime -= Time.deltaTime;
-		sprite.transform.position = new Vector3(deltaTime*2, Player.Instance.playerPosition.y/10+4, 20);
+		sprite.transform.position = new Vector3(deltaTime, Player.Instance.playerPosition.y/10+4, 20);
 	}
 }
