@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
 	public Vector2 playerPosition;
 	
 	public float sizeOfFish;
+	private float baseSizeOfFish;
 	private float dx = 0.0f, dy = 0.0f;
 	private FeverGauge feverInstance = null;
 	
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour {
 	public float feverAcc;
 	private bool bFeverTime = false;
 	private float currentFeverTime = 0.0f;
+	private int feverCount = 0;
 	
 	private static Player instance;
 	
@@ -89,6 +91,7 @@ public class Player : MonoBehaviour {
 	{
 		instance = this;
 		transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
+		baseSizeOfFish = sizeOfFish;
 	}
 	
 	void Start () {
@@ -99,7 +102,7 @@ public class Player : MonoBehaviour {
 		CharacterController controller = GetComponent<CharacterController>();
 		Vector3 v;
 		
-		if(Input.GetMouseButton(0))
+		if(Input.GetMouseButton(0) || Input.touchCount > 0)
 		{
 			dy+=accelerate * Time.deltaTime;
 		}
@@ -127,6 +130,7 @@ public class Player : MonoBehaviour {
 			{
 				bFeverTime =false;
 				feverInstance.turnEnable();
+				transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
 			}
 		}
 		
@@ -145,10 +149,11 @@ public class Player : MonoBehaviour {
 		{
 			if(bFeverTime==false)
 			{
+				feverCount++;
 				bFeverTime = true;
 				currentFeverTime = 0.0f;
 			}
-			transform.localScale = new Vector3(3, 3, transform.localScale.z);
+			transform.localScale = new Vector3(3.5f, 3.5f, transform.localScale.z);
 		}
 		else
 		{
