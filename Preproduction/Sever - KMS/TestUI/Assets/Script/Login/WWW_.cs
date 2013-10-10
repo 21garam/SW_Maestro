@@ -14,12 +14,20 @@ public class WWW_ : MonoBehaviour {
 		StartCoroutine(WaitingForResponse(new WWW(URL, form), func));
 	}
 	
-	public void CreateAccount(string id, string password){
+	public void CreateAccount(string id, string password, CallBackPtr func){
 		WWWForm form = new WWWForm();
 		form.AddField("action", "Create");
 		form.AddField("id",id);
 		form.AddField("password",password);
-		StartCoroutine(WaitingForResponse(new WWW(URL, form), null));
+		form.AddField("score", 100);
+		StartCoroutine(WaitingForResponse(new WWW(URL, form), func));
+	}
+	
+	public void GetFrinedList(int count, CallBackPtr func){
+		WWWForm form = new WWWForm();
+		form.AddField("action", "GetFriendList");
+		form.AddField("count",count);
+		StartCoroutine(WaitingForResponse(new WWW(URL, form), func));
 	}
 	
 	/*

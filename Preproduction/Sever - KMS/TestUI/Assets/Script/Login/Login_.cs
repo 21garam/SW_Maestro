@@ -4,24 +4,43 @@ using System.Collections;
 public class Login_ : MonoBehaviour {
 	public tk2dUITextInput login_email;
 	public tk2dUITextInput login_password;
+	public tk2dUITextInput create_email;
+	public tk2dUITextInput create_password;
 	
 	public tk2dUIItem loginBtr;
 	public tk2dUIItem createBtr;
 	public tk2dUIItem backBtr;
 	public tk2dUIItem confirmBtr;
+	public tk2dUIItem msgBoxBtr;
 	public Camera cam;
+	public MessageBox_ messgaeBox;
 	
 	WWW_ www;
 	
 	void Start () {
 		www = GetComponent<WWW_>();
+		msgBoxBtr.OnClick += CloseMSGBox;
 	} 
 	
     void OnEnable() {
         loginBtr.OnClick += Login;
-		confirmBtr.OnClick += Confirm;
+		confirmBtr.OnClick += CreateAccountConfirm;
 		createBtr.OnClick += GoToCreateAccount;
 		backBtr.OnClick += GoToBack;
+	}
+	
+	private void CloseMSGBox(){
+		messgaeBox.transform.position = new Vector3(-3, 1, -1);
+		messgaeBox.active = false;
+		enabled = true;
+		TextClear();
+	}
+	
+	private void TextClear(){
+		login_email.Text = "";
+		login_password.Text = "";
+		create_email.Text = "";	
+		create_password.Text = "";
 	}
 	
     private void GoToCreateAccount() {
@@ -32,17 +51,39 @@ public class Login_ : MonoBehaviour {
 		GoToLocation(cam, new Vector3(0, 1, -10));
 	}
 	
-	private void Confirm() {
-		www.CreateAccount(login_email.Text, login_password.Text);
+	private void CreateAccountConfirm() {
+		if(!messgaeBox.active)
+			www.CreateAccount(create_email.Text, create_password.Text, CreateAccountMessageBox);
+	}
+	
+	public void CreateAccountMessageBox(string text){
+		if(text == "ok"){
+			messgaeBox.transform.position = new Vector3(3, 1, -1);
+			messgaeBox.SetMessage("Success Create Account");
+		}
+		else{
+			messgaeBox.transform.position = new Vector3(3, 1, -1);
+			messgaeBox.SetMessage("Fail Create Account");
+		}
 	}
 	
 	private void Login() {
-		www.Login(login_email.Text, login_password.Text, LoadLevel);
+		if(!messgaeBox.active)
+			www.Login(login_email.Text, login_password.Text, LoadLevel);
 	}
 	
-	public void LoadLevel(string str){
-		if(str == "ok")
+	public void LoadLevel(string text){
+		if(text == "ok"){
+			Static_.PLAYER_ID = login_email.Text;
 			Application.LoadLevel("Menu");
+		}
+		else
+			LoginFailMessageBox();
+	}
+	
+	private void LoginFailMessageBox(){
+		messgaeBox.transform.position = new Vector3(0, 1, -1);
+		messgaeBox.SetMessage("Login Fail");
 	}
 	
 	private void GoToLocation(Camera obj, Vector3 loc) {
