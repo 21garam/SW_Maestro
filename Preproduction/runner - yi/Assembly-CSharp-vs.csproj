@@ -115,6 +115,7 @@
      <Compile Include="Assets\Script\FeedFish.cs" />
      <Compile Include="Assets\Script\FeverGauge.cs" />
      <Compile Include="Assets\Script\MainMenu.cs" />
+     <Compile Include="Assets\Script\MainMenuUi.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\ScoreCamera.cs" />
      <Compile Include="Assets\Script\ScoreScript.cs" />

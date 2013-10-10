@@ -1,26 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Main_Script.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\TK2DROOT\tk2dUI\Code\Controls\tk2dUIBaseItemControl.cs">
     <Files>
-      <File FileName="../../../../../Desktop/App42_Push_Sample_Unity-master/App42_Push_Sample_Unity-master/Assets/PushSample.cs" Line="14" Column="10" />
-      <File FileName="Assets/Scripts/Loading_Script.cs" Line="17" Column="22" />
-      <File FileName="Assets/Scripts/Custom_Script.cs" Line="6" Column="24" />
-      <File FileName="../../../../dev/unity/testProject/Assets/Resources/Scripts/loginscript.cs" Line="8" Column="34" />
-      <File FileName="Assets/Scripts/Main_Script.cs" Line="33" Column="31" />
-      <File FileName="Assets/Scripts/Ready_Script.cs" Line="9" Column="32" />
-      <File FileName="Assets/Scripts/Result_Script.cs" Line="37" Column="30" />
+      <File FileName="Assets\Scripts\Loading_Script.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Custom_Script.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main_Script.cs" Line="28" Column="32" />
+      <File FileName="Assets\Scripts\Ready_Script.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Result_Script.cs" Line="1" Column="1" />
+      <File FileName="Assets\TK2DROOT\tk2dUI\Code\Controls\tk2dUIBaseItemControl.cs" Line="22" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="Main_Script.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
+        <State expanded="True" selected="True" />
       </Pad>
       <Pad Id="ClassPad">
         <State expanded="True" selected="True" />
