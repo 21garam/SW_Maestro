@@ -136,6 +136,17 @@ public class Player : MonoBehaviour {
 		
 		controller.Move(v);
 		playerPosition = controller.transform.position;
+		
+		if(playerPosition.y>=16.0f)
+		{
+			Vector2 tra = new Vector2(playerPosition.x, 16.0f);
+			Player.instance.transform.position = tra;
+		}
+		if(playerPosition.y<=-16.0f)
+		{
+			Vector2 tra = new Vector2(playerPosition.x, -16.0f);
+			Player.instance.transform.position = tra;
+		}
 	}
 
 	public bool EatFeedFish(float feedFishSize)
