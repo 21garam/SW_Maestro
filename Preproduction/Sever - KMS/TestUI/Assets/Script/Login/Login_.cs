@@ -20,6 +20,7 @@ public class Login_ : MonoBehaviour {
 	void Start () {
 		www = GetComponent<WWW_>();
 		msgBoxBtr.OnClick += CloseMSGBox;
+		TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, true);
 	} 
 	
     void OnEnable() {

@@ -81,7 +81,7 @@ public class FeedFish : MonoBehaviour {
 				Relocation();
 			else
 			{
-				Application.LoadLevel("MainMenuScene");
+				Application.LoadLevel("GamePlayScene");
 			}
 		}
 	}
