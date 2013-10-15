@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class WWW_ : MonoBehaviour {
 	public delegate void CallBackPtr(string str);
-	private string URL = "http://americanoninja86.appspot.com"; //"http://localhost:11080/";
+	private string URL = "http://localhost:11080/"; 
+	//private string URL = "http://americanoninja86.appspot.com";
 	
 	public void Login(string id, string password, CallBackPtr func){
 		WWWForm form = new WWWForm();
