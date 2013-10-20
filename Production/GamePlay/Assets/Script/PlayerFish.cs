@@ -20,14 +20,12 @@ public class PlayerFish : MonoBehaviour
 	public float nibbleHitPointPerSec;
 	private float curHitPoint;
 	
-	/*
 	public float feverLimit;
 	public float feverPower;
 	public float feverAcc;
 	private bool bFeverTime = false;
 	private float currentFeverTime = 0.0f;
 	private int feverCount = 0;
-	*/
 	
 	private static PlayerFish instance;
 	
@@ -86,9 +84,6 @@ public class PlayerFish : MonoBehaviour
 		}
 	}*/
 	
-	void riseFish(float feedSize)
-	{}
-	
 	void Awake()
 	{
 		instance = this;
@@ -100,7 +95,6 @@ public class PlayerFish : MonoBehaviour
 	}
 	
 	void Update () {
-		CharacterController controller = GetComponent<CharacterController>();
 		Vector3 v;
 		
 		if(Input.GetMouseButton(0) || Input.touchCount > 0)
@@ -135,17 +129,17 @@ public class PlayerFish : MonoBehaviour
 			}
 		}*/
 		
-		controller.Move(v);
-		playerPosition = controller.transform.position;
+		this.transform.position+=v;
+		playerPosition = this.transform.position;
 		
-		if(playerPosition.y>=300.0f)
+		if(playerPosition.y>=640.0f)
 		{
-			Vector2 tra = new Vector2(playerPosition.x, 300.0f);
+			Vector2 tra = new Vector2(playerPosition.x, 640.0f);
 			PlayerFish.instance.transform.position = tra;
 		}
-		if(playerPosition.y<=-300.0f)
+		if(playerPosition.y<=0.0f)
 		{
-			Vector2 tra = new Vector2(playerPosition.x, -300.0f);
+			Vector2 tra = new Vector2(playerPosition.x, 0.0f);
 			PlayerFish.instance.transform.position = tra;
 		}
 	}
