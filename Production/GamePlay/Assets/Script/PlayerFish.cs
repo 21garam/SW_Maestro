@@ -67,7 +67,7 @@ public class PlayerFish : MonoBehaviour
 		}
 	}*/
 	
-	public void SetFlip()
+	/*public void SetFlip()
 	{
 		tk2dSprite spr = GetComponent<tk2dSprite>();
 		
@@ -84,7 +84,7 @@ public class PlayerFish : MonoBehaviour
 		{
 			spr.transform.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 		}
-	}
+	}*/
 	
 	void riseFish(float feedSize)
 	{}
@@ -92,7 +92,6 @@ public class PlayerFish : MonoBehaviour
 	void Awake()
 	{
 		instance = this;
-		transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
 		baseSizeOfFish = sizeOfFish;
 	}
 	
@@ -122,7 +121,7 @@ public class PlayerFish : MonoBehaviour
 		v.y = dy += (dy>=_friction)?-_friction:(dy<=-_friction)?_friction:-dy;
 		v.z = 0;
 				
-		SetFlip();
+		//SetFlip();
 		
 		/*if(bFeverTime == true)
 		{
