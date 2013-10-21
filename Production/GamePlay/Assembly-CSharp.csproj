@@ -249,8 +249,11 @@
      <Compile Include="Assets\Asset\TK2DROOT\tk2d_demo\tk2dDemoCameraController.cs" />
      <Compile Include="Assets\Asset\TK2DROOT\tk2d_demo\tk2dDemoReloadController.cs" />
      <Compile Include="Assets\Asset\TK2DROOT\tk2d_demo\tk2dDemoRuntimeSpriteController.cs" />
+     <Compile Include="Assets\Script\BackGround.cs" />
      <Compile Include="Assets\Script\FeedFish.cs" />
+     <Compile Include="Assets\Script\FeverGauge.cs" />
      <Compile Include="Assets\Script\PlayerFish.cs" />
+     <Compile Include="Assets\Script\ScoreScript.cs" />
      <None Include="Assets\Asset\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\Asset\NGUI\Examples\Models\Orc\Orc Skin.shader" />
      <None Include="Assets\Asset\TK2DROOT\tk2d\Shaders\LitSolidVertexColor.shader" />

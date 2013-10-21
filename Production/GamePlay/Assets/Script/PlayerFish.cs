@@ -65,7 +65,7 @@ public class PlayerFish : MonoBehaviour
 		}
 	}*/
 	
-	/*public void SetFlip()
+	public void SetFlip()
 	{
 		tk2dSprite spr = GetComponent<tk2dSprite>();
 		
@@ -82,7 +82,7 @@ public class PlayerFish : MonoBehaviour
 		{
 			spr.transform.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 		}
-	}*/
+	}
 	
 	void Awake()
 	{
@@ -115,7 +115,7 @@ public class PlayerFish : MonoBehaviour
 		v.y = dy += (dy>=_friction)?-_friction:(dy<=-_friction)?_friction:-dy;
 		v.z = 0;
 				
-		//SetFlip();
+		SetFlip();
 		
 		/*if(bFeverTime == true)
 		{
@@ -132,14 +132,14 @@ public class PlayerFish : MonoBehaviour
 		this.transform.position+=v;
 		playerPosition = this.transform.position;
 		
-		if(playerPosition.y>=640.0f)
+		if(playerPosition.y>=600.0f)
 		{
-			Vector2 tra = new Vector2(playerPosition.x, 640.0f);
+			Vector2 tra = new Vector2(playerPosition.x, 600.0f);
 			PlayerFish.instance.transform.position = tra;
 		}
-		if(playerPosition.y<=0.0f)
+		if(playerPosition.y<=40.0f)
 		{
-			Vector2 tra = new Vector2(playerPosition.x, 0.0f);
+			Vector2 tra = new Vector2(playerPosition.x, 40.0f);
 			PlayerFish.instance.transform.position = tra;
 		}
 	}
@@ -167,7 +167,7 @@ public class PlayerFish : MonoBehaviour
 			transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
 		}
 		
-		/*ScoreScript.Score += (int)Mathf.Pow(feedFishSize*10, 2);*/
+		ScoreScript.Score += (int)Mathf.Pow(feedFishSize*10, 2);
 		return true;
 	}
 }
