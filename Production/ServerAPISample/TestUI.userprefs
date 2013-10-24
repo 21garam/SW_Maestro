@@ -1,42 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="NGUI" expanded="True">
-                <Node name="Scripts" expanded="True">
-                  <Node name="Internal" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Script" expanded="True">
-                <Node name="Sample" expanded="True" />
-                <Node name="XMLParser_.cs" selected="True" />
-              </Node>
-              <Node name="TK2DROOT" expanded="True">
-                <Node name="tk2dTileMap_demo" expanded="True">
-                  <Node name="Demo1" expanded="True">
-                    <Node name="Scripts" expanded="True" />
-                  </Node>
-                </Node>
-                <Node name="tk2dUI" expanded="True">
-                  <Node name="Code" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="tk2dUI_demo" expanded="True">
-                <Node name="Assets" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

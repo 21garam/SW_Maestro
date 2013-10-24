@@ -10,10 +10,11 @@ public class CamCode_ : MonoBehaviour {
 	
 	List<Vector3> windowList;
 	int currentWindowListID;
-	const int spaceCount = 4;
+	int spaceCount;
 	
 	void Start () {
 		currentWindowListID = (int)(cam.transform.position.x / 3);
+		spaceCount = currentWindowListID + 1;
 		windowList = new List<Vector3>(10);
 		for(int i = 0; i < spaceCount; i++)
 			windowList.Add(new Vector3(3*i,1,-10));

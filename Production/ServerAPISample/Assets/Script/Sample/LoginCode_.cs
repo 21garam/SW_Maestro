@@ -29,11 +29,14 @@ public class LoginCode_ : MonoBehaviour {
 		PS_TextInput.Text = "";
 	}
 	
+	public void Test(string msg){
+	}
+	
 	public void LoginMessageBox(string msg){
 		msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
-		if(msg == WWWMessage_.LOGIN_FAIL)
-			msgBox.Initalize(this, "Login Fail");
-		else if(msg == WWWMessage_.LOGIN_OK)
-			msgBox.Initalize(this, "Login OK");
+		if(msg == WWWMessage_.OK)
+			msgBox.Initalize(this, "Login Succeed");
+		else
+			msgBox.Initalize(this, WWWMessage_.FAIL_ID_NONE);
 	}
 }

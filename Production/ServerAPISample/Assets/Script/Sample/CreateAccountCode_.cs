@@ -47,9 +47,9 @@ public class CreateAccountCode_ : MonoBehaviour{
 	
 	public void CreateAccountMessageBox(string msg){
 		msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
-		if(msg == WWWMessage_.ACCOUNT_CREATE_FAIL)
-			msgBox.Initalize(this, WWWMessage_.ACCOUNT_CREATE_FAIL);
-		else if(msg == WWWMessage_.ACCOUNT_CREATE_OK)
-			msgBox.Initalize(this, WWWMessage_.ACCOUNT_CREATE_OK);
+		if(msg == WWWMessage_.OK)
+			msgBox.Initalize(this, "Account Created");
+		else
+			msgBox.Initalize(this, WWWMessage_.FAIL_ID_DUP);
 	}
 }

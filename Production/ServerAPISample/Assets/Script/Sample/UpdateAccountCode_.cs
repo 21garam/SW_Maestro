@@ -37,27 +37,27 @@ public class UpdateAccountCode_ : MonoBehaviour {
     }
 	
 	public void UpdateAccount(){
-		int scoreParam = 0;
+		int scoreParam = WWW_.INTEGER_NULL;
 		if(scoreCheck.IsOn)
 			scoreParam = Util_.ConvertStringtoInt(scoreTextInput.Text);
 		
-		int softCashParam = 0;
+		int softCashParam = WWW_.INTEGER_NULL;
 		if(softCachCheck.IsOn)
 			softCashParam = Util_.ConvertStringtoInt(softCashTextInput.Text);
 		
-		int hardCashParam = 0;
+		int hardCashParam = WWW_.INTEGER_NULL;
 		if(hardCachCheck.IsOn)
 			hardCashParam = Util_.ConvertStringtoInt(hardCashTextInput.Text);
 		
-		int equipmentParam = 0;
+		int equipmentParam = WWW_.INTEGER_NULL;
 		if(equipmentCheck.IsOn)
 			equipmentParam = Util_.ConvertStringtoInt(equipmentTextInput.Text);
 		
-		int itemParam = 0;
+		int itemParam = WWW_.INTEGER_NULL;
 		if(itemCheck.IsOn)
 			itemParam = Util_.ConvertStringtoInt(itemTextInput.Text);
 		
-		string passwordParam = null;
+		string passwordParam = WWW_.STRING_NULL;
 		if(passwordCheck.IsOn)
 			passwordParam = passwordTextInput.Text;
 		
@@ -78,9 +78,10 @@ public class UpdateAccountCode_ : MonoBehaviour {
 	
 	public void UpdateAccountMessageBox(string msg){
 		msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
-		if(msg == WWWMessage_.ACCOUNT_UPDATE_FAIL)
-			msgBox.Initalize(this, WWWMessage_.ACCOUNT_UPDATE_FAIL);
-		else if(msg == WWWMessage_.ACCOUNT_UPDATE_OK)
-			msgBox.Initalize(this, WWWMessage_.ACCOUNT_UPDATE_OK);
+		if(msg == WWWMessage_.OK)
+			msgBox.Initalize(this, "Account updated");
+		else{
+			msgBox.Initalize(this, WWWMessage_.FAIL_ID_DUP);
+		}
 	}
 }
