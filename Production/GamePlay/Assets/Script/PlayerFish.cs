@@ -26,6 +26,7 @@ public class PlayerFish : MonoBehaviour
 	private bool bFeverTime = false;
 	private float currentFeverTime = 0.0f;
 	private int feverCount = 0;
+	private FeverGauge feverInstance;
 	
 	private static PlayerFish instance;
 	
@@ -49,7 +50,7 @@ public class PlayerFish : MonoBehaviour
 		}
 	}
 	
-	/*public float FeverAcc
+	public float FeverAcc
 	{
 		get
 		{
@@ -63,7 +64,7 @@ public class PlayerFish : MonoBehaviour
 		{
 			return bFeverTime?1:0;
 		}
-	}*/
+	}
 	
 	public void SetFlip()
 	{
@@ -91,7 +92,7 @@ public class PlayerFish : MonoBehaviour
 	}
 	
 	void Start () {
-		//feverInstance = FeverGauge.Instance;
+		feverInstance = FeverGauge.Instance;
 	}
 	
 	void Update () {
@@ -117,7 +118,7 @@ public class PlayerFish : MonoBehaviour
 				
 		SetFlip();
 		
-		/*if(bFeverTime == true)
+		if(bFeverTime == true)
 		{
 			currentFeverTime += Time.deltaTime;
 			
@@ -127,7 +128,7 @@ public class PlayerFish : MonoBehaviour
 				feverInstance.turnEnable();
 				transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
 			}
-		}*/
+		}
 		
 		this.transform.position+=v;
 		playerPosition = this.transform.position;
@@ -146,12 +147,12 @@ public class PlayerFish : MonoBehaviour
 
 	public bool EatFeedFish(float feedFishSize)
 	{
-		if(feedFishSize>sizeOfFish/* && bFeverTime == false*/)
+		if(feedFishSize>sizeOfFish && bFeverTime == false)
 		{
 			return false;
 		}
 		
-		/*if(feverInstance.getPoint(feedFishSize) == false)
+		if(feverInstance.getPoint(feedFishSize) == false)
 		{
 			if(bFeverTime==false)
 			{
@@ -161,7 +162,7 @@ public class PlayerFish : MonoBehaviour
 			}
 			transform.localScale = new Vector3(3.5f, 3.5f, transform.localScale.z);
 		}
-		else*/
+		else
 		{
 			sizeOfFish = sizeOfFish*magnificationPower+magnificationAddition;
 			transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
