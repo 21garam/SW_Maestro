@@ -47,6 +47,8 @@ public class FeedFish : MonoBehaviour {
 		{
 			if(PlayerFish.Instance.EatFeedFish(sizeOfFish))
 				Relocation();
+			else
+				Application.LoadLevel("GamePlay");
 		}
 	}
 	
