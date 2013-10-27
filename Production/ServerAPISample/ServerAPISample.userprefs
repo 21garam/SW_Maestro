@@ -1,13 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/WWW_.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Equipment_.cs">
     <Files>
-      <File FileName="Assets/Script/Sample/ItemTestCode_.cs" Line="7" Column="31" />
-      <File FileName="Assets/Script/WWW_.cs" Line="16" Column="4" />
-      <File FileName="Assets/Script/XMLParser_.cs" Line="16" Column="3" />
-      <File FileName="Assets/Script/Equipment_.cs" Line="55" Column="12" />
-      <File FileName="Assets/Script/Sample/LoginCode_.cs" Line="10" Column="18" />
-      <File FileName="Assets/Script/Sample/RankingListCode_.cs" Line="76" Column="2" />
+      <File FileName="Assets/Script/Sample/ItemTestCode_.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/WWW_.cs" Line="38" Column="31" />
+      <File FileName="Assets/Script/XMLParser_.cs" Line="92" Column="52" />
+      <File FileName="Assets/Script/Equipment_.cs" Line="62" Column="3" />
+      <File FileName="Assets/Script/Sample/LoginCode_.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Sample/RankingListCode_.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Sample/CreateAccountCode_.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Sample/UpdateAccountCode_.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MessageBox_.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Sample/CamCode_.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Set_.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Static_.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,7 +22,7 @@
             <Node name="Assets" expanded="True">
               <Node name="Script" expanded="True">
                 <Node name="Sample" expanded="True" />
-                <Node name="WWW_.cs" selected="True" />
+                <Node name="Equipment_.cs" selected="True" />
               </Node>
             </Node>
           </Node>

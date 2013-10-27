@@ -17,6 +17,9 @@ public class Equipment_ {
 			EYE[i] = i<<8;
 			MOUTH[i] = i<<16;
 		}
+		//0~255 0x0000 0000 0000 0000 ~ 0x0000 0000 0000 FFFF
+		//256~  0x0000 0000 0000 0000 ~ 0x0000 0000 FFFF 0000
+		//256~  0x0000 0000 0000 0000 ~ 0x0000 FFFF 0000 0000
 		for(int i = 0; i < (KIND_COUNT / 2); i++){
 			FIN[i] = i <<24;
 		}
@@ -45,8 +48,11 @@ public class Equipment_ {
 	static private void Initialize_TAG_TO_ID(){
 		TAG_TO_ID.Add("Toy", 1);
 		TAG_TO_ID.Add("SuperMario", 2);
+		//TAG_TO_ID.Add("SuperMario", 3);
+		//TAG_TO_ID.Add("SuperMario", 4);
+		//TAG_TO_ID.Add("SuperMario", 2);
 	}
-	
+
 	public static int GetEquipmentValueFromID(int bodyID, int eyeID, int mouthID, int finID){
 		bodyID = bodyID < 0 ? 0 : bodyID;
 		eyeID = eyeID < 0 ? 0 : eyeID;
