@@ -46,8 +46,6 @@ public class FeedFish : MonoBehaviour {
 		{
 			if(PlayerFish.Instance.EatFeedFish(sizeOfFish))
 				Relocation();
-			else
-				Application.LoadLevel("GamePlay");
 		}
 	}
 	
@@ -57,7 +55,7 @@ public class FeedFish : MonoBehaviour {
 		Vector2 v = PlayerFish.Instance.playerPosition;
 		
 		mSprite.scale = new Vector3(Mathf.Abs(mSprite.scale.x), mSprite.scale.y, mSprite.scale.z);
-		mSprite.transform.position= new Vector3(mSprite.transform.position.x+1080.0f, mSprite.transform.position.y, mSprite.transform.position.z);
+		mSprite.transform.position= new Vector3(mSprite.transform.position.x+3240.0f, mSprite.transform.position.y, mSprite.transform.position.z);
 		
 		sizeOfFish = PlayerFish.Instance.SizeOfFish*(1+(Random.Range(-60, -20)/100.0f));
 		transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
