@@ -12,9 +12,8 @@ public class FeedFish : MonoBehaviour {
 
 	void Awake()
 	{
-		mSprite.transform.position = new Vector3(Random.Range(900, 1000), mSprite.transform.position.y, mSprite.transform.position.z);
-		velocity = Random.Range(120, 150);
-		sizeOfFish = 1+(Random.Range(-50, 20)/100.0f);
+		velocity = 200;
+		sizeOfFish = 1+(Random.Range(-60, -20)/100.0f);
 		transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
 	}
 	
@@ -54,13 +53,13 @@ public class FeedFish : MonoBehaviour {
 	
 	void Relocation()
 	{
-		velocity = Random.Range(120, 150);
+		velocity = 200;
 		Vector2 v = PlayerFish.Instance.playerPosition;
 		
 		mSprite.scale = new Vector3(Mathf.Abs(mSprite.scale.x), mSprite.scale.y, mSprite.scale.z);
-		mSprite.transform.position = new Vector3(900, default_y, mSprite.transform.position.z);
+		mSprite.transform.position= new Vector3(mSprite.transform.position.x+1080.0f, mSprite.transform.position.y, mSprite.transform.position.z);
 		
-		sizeOfFish = PlayerFish.Instance.SizeOfFish*(1+(Random.Range(-50, 20)/100.0f));
+		sizeOfFish = PlayerFish.Instance.SizeOfFish*(1+(Random.Range(-60, -20)/100.0f));
 		transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
 	}
 }
