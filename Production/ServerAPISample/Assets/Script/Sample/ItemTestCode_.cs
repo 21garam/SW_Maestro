@@ -47,9 +47,13 @@ public class ItemTestCode_ : MonoBehaviour {
 							  equipment);
 	}
 	
+	void Test(string msg){
+		Debug.Log(msg);	
+	}
+	
 	void AcceptCallBackFunc(string msg){
 		if(msg == WWWMessage_.OK){
-			MessageBox("Item is updated");
+			MessageBox("Update completed");
 		}
 		else
 			MessageBox("ID is not existed");
@@ -62,6 +66,7 @@ public class ItemTestCode_ : MonoBehaviour {
 	
 	void SetEquipmentInfo(string xml){
 		if(XMLParser_.PlayerInfoXMLParse(xml)){
+			//Debug.Log(XMLParser_.PlayerAccountInfo.ToString());
 			int equipment = XMLParser_.PlayerAccountInfo.equipment;
 			int body = Equipment_.GetBodyValue_FromEquipment(equipment);
 			int eye = Equipment_.GetEyeValue_FromEquipment(equipment);

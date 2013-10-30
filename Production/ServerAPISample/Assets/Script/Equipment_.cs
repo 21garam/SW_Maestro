@@ -3,11 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Equipment_ {
-	public const int KIND_COUNT = 256;
-	public static readonly int [] BODY = new int[KIND_COUNT];
+	public const int KIND_COUNT = 32; //32 fixed
+	public static readonly int[] BODY = new int[KIND_COUNT];
 	public static readonly int[] EYE = new int[KIND_COUNT];
 	public static readonly int[] MOUTH = new int[KIND_COUNT];
 	public static readonly int[] FIN = new int[KIND_COUNT];
+	//public static bool[] BUYING_BODY = new bool[KIND_COUNT];
+	//public static bool[] BUYING_EYE = new bool[KIND_COUNT];
+	//public static bool[] BUYING_MOUTH = new bool[KIND_COUNT];
+	//public static bool[] BUYING_FIN = new bool[KIND_COUNT];
 	
 	private static Dictionary<string, int> TAG_TO_ID = new Dictionary<string, int>();
 	
@@ -16,13 +20,13 @@ public class Equipment_ {
 			BODY[i] = i;
 			EYE[i] = i<<8;
 			MOUTH[i] = i<<16;
+			FIN[i] = i <<24;
 		}
 		//0~255 0x0000 0000 0000 0000 ~ 0x0000 0000 0000 FFFF
 		//256~  0x0000 0000 0000 0000 ~ 0x0000 0000 FFFF 0000
 		//256~  0x0000 0000 0000 0000 ~ 0x0000 FFFF 0000 0000
-		for(int i = 0; i < (KIND_COUNT / 2); i++){
-			FIN[i] = i <<24;
-		}
+		//for(int i = 0; i < (KIND_COUNT / 2); i++){
+		//}
 		/*
 		Debug.Log("BODY");
 		for(int i = 0; i < KIND_COUNT; i++){
@@ -46,11 +50,10 @@ public class Equipment_ {
 	}
 	
 	static private void Initialize_TAG_TO_ID(){
+		//TAG_TO_ID.Add("Default", 0);
 		TAG_TO_ID.Add("Toy", 1);
 		TAG_TO_ID.Add("SuperMario", 2);
-		//TAG_TO_ID.Add("SuperMario", 3);
-		//TAG_TO_ID.Add("SuperMario", 4);
-		//TAG_TO_ID.Add("SuperMario", 2);
+		//TAG_TO_ID.Add("Robot", 3);
 	}
 
 	public static int GetEquipmentValueFromID(int bodyID, int eyeID, int mouthID, int finID){
@@ -103,5 +106,34 @@ public class Equipment_ {
 	
 	public static int GetFinValue_FromEquipment(int equipment){
 		return equipment & 0x7F000000;
+	}
+	
+	public static int[] GetBuyingEquipment_IDList(int buying_equipment){
+		int[] buyingEquipment_IDList;
+		int count = 0;
+		for(int i = 0; i < KIND_COUNT-1; i++){
+			if(((buying_equipment >> i) & 0x00000001) == 1)
+				count++;
+		}
+		buyingEquipment_IDList = new int[count+1];
+		buyingEquipment_IDList[0] = 0;
+		count = 1;
+		for(int i = 0; i < KIND_COUNT-1; i++){
+			if(((buying_equipment >> i) & 0x00000001) == 1)
+				buyingEquipment_IDList[count++] = i+1;
+		}
+		return buyingEquipment_IDList;
+	}
+	
+	public static int GetBuyingEquipment_Value(IEnumerable<int> buyingKeyList){
+		int retValue = 0;
+		foreach(int buyingKey in buyingKeyList){
+			int operationValue = 0x00000001;
+			if(buyingKey > 0){
+				operationValue = operationValue << (buyingKey-1);
+				retValue = retValue | operationValue;
+			}
+		}
+		return retValue;
 	}
 }

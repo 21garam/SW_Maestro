@@ -164,6 +164,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Script\Equipment_.cs" />
      <Compile Include="Assets\Script\MessageBox_.cs" />
+     <Compile Include="Assets\Script\Sample\BuyTestCode_.cs" />
      <Compile Include="Assets\Script\Sample\CamCode_.cs" />
      <Compile Include="Assets\Script\Sample\CreateAccountCode_.cs" />
      <Compile Include="Assets\Script\Sample\ItemTestCode_.cs" />

@@ -36,7 +36,11 @@ public class LoginCode_ : MonoBehaviour {
 		msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
 		if(msg == WWWMessage_.OK)
 			msgBox.Initalize(this, "Login Succeed");
-		else
-			msgBox.Initalize(this, WWWMessage_.FAIL_ID_NONE);
+		else{
+			if(msg == WWWMessage_.FAIL_ID_NONE)
+				msgBox.Initalize(this, WWWMessage_.FAIL_ID_NONE);
+			else if(msg == WWWMessage_.FAIL_PS_WRONG)
+				msgBox.Initalize(this, WWWMessage_.FAIL_PS_WRONG);
+		}
 	}
 }

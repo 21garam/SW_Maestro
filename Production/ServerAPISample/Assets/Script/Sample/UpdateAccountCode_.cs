@@ -13,16 +13,32 @@ public class UpdateAccountCode_ : MonoBehaviour {
 	public tk2dUITextInput hardCashTextInput;
 	public tk2dUIToggleButton hardCachCheck;
 	
-	public tk2dUITextInput equipmentTextInput;
-	public tk2dUIToggleButton equipmentCheck;
-	
 	public tk2dUITextInput itemTextInput;
 	public tk2dUIToggleButton itemCheck;
 	
 	public tk2dUITextInput passwordTextInput;
 	public tk2dUIToggleButton passwordCheck;
 	
+	public tk2dUITextInput hp_lvTextInput;
+	public tk2dUIToggleButton hp_lvCheck;
+	
+	public tk2dUITextInput speed_lvTextInput;
+	public tk2dUIToggleButton speed_lvCheck;
+	
+	public tk2dUITextInput fever_lvTextInput;
+	public tk2dUIToggleButton fever_lvCheck;
+	
+	public tk2dUITextInput nick_nameTextInput;
+	public tk2dUIToggleButton nick_nameCheck;
+	
+	public tk2dUITextInput exp_lvTextInput;
+	public tk2dUIToggleButton exp_lvCheck;
+	
+	public tk2dUITextInput exp_subTextInput;
+	public tk2dUIToggleButton exp_subCheck;
+	
 	public tk2dUIItem acceptBtr; 
+	public tk2dUIItem searchBtr;
 	
 	public WWW_ www;
 	public MessageBox_ prefabsMsgBox;
@@ -30,58 +46,122 @@ public class UpdateAccountCode_ : MonoBehaviour {
 	
     void OnEnable() {
         acceptBtr.OnClick += UpdateAccount;
+		searchBtr.OnClick += Search;
     }
 	
 	void OnDisable() {
         acceptBtr.OnClick -= UpdateAccount;
+    	searchBtr.OnClick -= Search;
     }
 	
+	public void Search(){
+		TextClear();
+		if(ID_TextInput.Text != "")
+			www.GetPlayerInfo(ID_TextInput.Text, SetPlayerInfo);
+	}
+	
+	void SetPlayerInfo(string xml){
+		if(XMLParser_.PlayerInfoXMLParse(xml)){
+			//Debug.Log(xml);
+			scoreTextInput.Text = XMLParser_.PlayerAccountInfo.score.ToString();
+			softCashTextInput.Text = XMLParser_.PlayerAccountInfo.soft_cash.ToString();
+			hardCashTextInput.Text = XMLParser_.PlayerAccountInfo.hard_cash.ToString();
+			itemTextInput.Text = XMLParser_.PlayerAccountInfo.item.ToString();
+			passwordTextInput.Text = XMLParser_.PlayerAccountInfo.password;
+			hp_lvTextInput.Text = XMLParser_.PlayerAccountInfo.hp_lv.ToString();
+			speed_lvTextInput.Text = XMLParser_.PlayerAccountInfo.speed_lv.ToString();
+			fever_lvTextInput.Text = XMLParser_.PlayerAccountInfo.fever_lv.ToString();
+			string nick_name = XMLParser_.PlayerAccountInfo.nick_name;
+			if(nick_name == "")
+				nick_nameTextInput.Text = "NULL";
+			else
+				nick_nameTextInput.Text = nick_name;
+			exp_lvTextInput.Text = XMLParser_.PlayerAccountInfo.exp_lv.ToString();
+			exp_subTextInput.Text = XMLParser_.PlayerAccountInfo.exp_sub.ToString();
+		}
+		else
+			MessageBox("ID is not existed");
+	}
+	
 	public void UpdateAccount(){
-		int scoreParam = WWW_.INTEGER_NULL;
+		int score = WWW_.INTEGER_NULL;
 		if(scoreCheck.IsOn)
-			scoreParam = Util_.ConvertStringtoInt(scoreTextInput.Text);
+			score = Util_.ConvertStringtoInt(scoreTextInput.Text);
 		
-		int softCashParam = WWW_.INTEGER_NULL;
+		int soft_cash = WWW_.INTEGER_NULL;
 		if(softCachCheck.IsOn)
-			softCashParam = Util_.ConvertStringtoInt(softCashTextInput.Text);
+			soft_cash = Util_.ConvertStringtoInt(softCashTextInput.Text);
 		
-		int hardCashParam = WWW_.INTEGER_NULL;
+		int hard_cash = WWW_.INTEGER_NULL;
 		if(hardCachCheck.IsOn)
-			hardCashParam = Util_.ConvertStringtoInt(hardCashTextInput.Text);
+			hard_cash = Util_.ConvertStringtoInt(hardCashTextInput.Text);
 		
-		int equipmentParam = WWW_.INTEGER_NULL;
-		if(equipmentCheck.IsOn)
-			equipmentParam = Util_.ConvertStringtoInt(equipmentTextInput.Text);
-		
-		int itemParam = WWW_.INTEGER_NULL;
+		int item = WWW_.INTEGER_NULL;
 		if(itemCheck.IsOn)
-			itemParam = Util_.ConvertStringtoInt(itemTextInput.Text);
+			item = Util_.ConvertStringtoInt(itemTextInput.Text);
 		
-		string passwordParam = WWW_.STRING_NULL;
+		string password = WWW_.STRING_NULL;
 		if(passwordCheck.IsOn)
-			passwordParam = passwordTextInput.Text;
+			password = passwordTextInput.Text;
 		
-		www.UpdateAccount(ID_TextInput.Text, UpdateAccountMessageBox, 
-			scoreParam, softCashParam, hardCashParam, equipmentParam, itemParam, passwordParam);
+		int hp_lv = WWW_.INTEGER_NULL;
+		if(hp_lvCheck.IsOn)
+			hp_lv = Util_.ConvertStringtoInt(hp_lvTextInput.Text);
+		
+		int speed_lv = WWW_.INTEGER_NULL;
+		if(speed_lvCheck.IsOn)
+			speed_lv = Util_.ConvertStringtoInt(speed_lvTextInput.Text);
+		
+		int fever_lv = WWW_.INTEGER_NULL;
+		if(fever_lvCheck.IsOn)
+			fever_lv = Util_.ConvertStringtoInt(fever_lvTextInput.Text);
+		
+		string nick_name = WWW_.STRING_NULL;
+		if(nick_nameCheck.IsOn)
+			nick_name = nick_nameTextInput.Text;
+		
+		int exp_lv = WWW_.INTEGER_NULL;
+		if(exp_lvCheck.IsOn)
+			exp_lv = Util_.ConvertStringtoInt(exp_lvTextInput.Text);
+		
+		int exp_sub = WWW_.INTEGER_NULL;
+		if(exp_subCheck.IsOn)
+			exp_sub = Util_.ConvertStringtoInt(exp_subTextInput.Text);
+		
+		www.UpdateAccount(ID_TextInput.Text, UpdateAccountMessageBox, score, soft_cash, hard_cash, WWW_.INTEGER_NULL, item, 
+			WWW_.INTEGER_NULL, WWW_.INTEGER_NULL, WWW_.INTEGER_NULL, WWW_.INTEGER_NULL, hp_lv, speed_lv, fever_lv, nick_name, exp_lv, exp_sub, password);
+		
+		//www.UpdateAccount_Equipment( ... )
+		//www.UpdateAccount_Item( ... )
+		//www.UpdateAccount_Ability( ... )
+		//www.UpdateAccount_EXP( ... )
+		//www.UpdateAccount_NickName( ... )
 		TextClear();
 	}
 	
 	public void TextClear(){
-		ID_TextInput.Text = "";
 		scoreTextInput.Text = "";
 		softCashTextInput.Text = "";
 		hardCashTextInput.Text = "";
-		equipmentTextInput.Text = "";
 		itemTextInput.Text = "";
 		passwordTextInput.Text ="";
+		hp_lvTextInput.Text ="";
+		speed_lvTextInput.Text = "";
+		fever_lvTextInput.Text = "";
+		nick_nameTextInput.Text = "";
+		exp_lvTextInput.Text = "";
+		exp_subTextInput.Text = "";
 	}
 	
 	public void UpdateAccountMessageBox(string msg){
-		msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
 		if(msg == WWWMessage_.OK)
-			msgBox.Initalize(this, "Account updated");
-		else{
-			msgBox.Initalize(this, WWWMessage_.FAIL_ID_DUP);
-		}
+			MessageBox("Account updated");
+		else
+			MessageBox(WWWMessage_.FAIL_ID_DUP);
+	}
+	
+	private void MessageBox(string msg){
+		msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
+		msgBox.Initalize(this, msg);
 	}
 }
