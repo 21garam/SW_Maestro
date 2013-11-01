@@ -252,6 +252,7 @@
      <Compile Include="Assets\Script\BackGround.cs" />
      <Compile Include="Assets\Script\FeedFish.cs" />
      <Compile Include="Assets\Script\FeverGauge.cs" />
+     <Compile Include="Assets\Script\HPGauge.cs" />
      <Compile Include="Assets\Script\Obstacle.cs" />
      <Compile Include="Assets\Script\PlayerFish.cs" />
      <Compile Include="Assets\Script\ScoreScript.cs" />

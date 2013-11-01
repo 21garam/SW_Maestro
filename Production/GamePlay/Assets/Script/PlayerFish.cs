@@ -89,6 +89,7 @@ public class PlayerFish : MonoBehaviour
 	{
 		instance = this;
 		baseSizeOfFish = sizeOfFish;
+		curHitPoint = maxHitPoint;
 	}
 	
 	void Start () {
@@ -171,4 +172,6 @@ public class PlayerFish : MonoBehaviour
 		ScoreScript.Score += (int)Mathf.Pow(feedFishSize*10, 2);
 		return true;
 	}
+	
+	//public bool Smash
 }
