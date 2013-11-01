@@ -44,6 +44,7 @@ public class FeverGauge : MonoBehaviour {
 	{
 		if(enable == false)
 		{
+			feverField.transform.localScale = new Vector3(0, 1, 1);
 			requirePoint = requirePoint*magnificationPower+magnificationAddition;
 			feverPoint = 0;
 			enable = true;
