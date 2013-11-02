@@ -24,8 +24,8 @@ public class HPGauge : MonoBehaviour {
 		HPFiend.transform.localScale = new Vector3(1, 1, 1);
 	}
 	
-	void UpdateHPGauge()
+	void Update()
 	{
-		HPFiend.transform.localScale = new Vector3(1, 1, 1);
+		HPFiend.transform.localScale = new Vector3(PlayerFish.Instance.CurHitPoint/PlayerFish.Instance.maxHitPoint, 1, 1);
 	}
 }

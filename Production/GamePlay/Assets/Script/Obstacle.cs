@@ -40,7 +40,7 @@ public class Obstacle : MonoBehaviour {
 	{
 		if(coll.gameObject.tag == "Player")
 		{
-			Application.LoadLevel("GamePlay");
+			PlayerFish.Instance.Bumped();
 		}
 	}
 	

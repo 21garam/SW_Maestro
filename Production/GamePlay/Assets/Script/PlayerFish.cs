@@ -66,6 +66,14 @@ public class PlayerFish : MonoBehaviour
 		}
 	}
 	
+	public float CurHitPoint
+	{
+		get
+		{
+			return curHitPoint;
+		}
+	}
+	
 	public void SetFlip()
 	{
 		tk2dSprite spr = GetComponent<tk2dSprite>();
@@ -144,6 +152,11 @@ public class PlayerFish : MonoBehaviour
 			Vector2 tra = new Vector2(playerPosition.x, 40.0f);
 			PlayerFish.instance.transform.position = tra;
 		}
+		
+		curHitPoint -= nibbleHitPointPerSec * Time.deltaTime;
+		
+		if(curHitPoint <= 0)
+			Application.LoadLevel("GamePlay");
 	}
 
 	public bool EatFeedFish(float feedFishSize)
@@ -173,5 +186,15 @@ public class PlayerFish : MonoBehaviour
 		return true;
 	}
 	
-	//public bool Smash
+	public bool Bumped()
+	{
+		curHitPoint -= 15;
+		
+		if(curHitPoint <= 0)
+		{
+			return false;
+		}
+
+		return true;
+	}
 }
