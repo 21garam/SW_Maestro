@@ -13,8 +13,8 @@ public class WWW_ : MonoBehaviour {
 	public delegate void CallBackPtr(string str);
 	public const int INTEGER_NULL = -1;
 	public const string STRING_NULL = null;
-	//private string URL = "http://americanoninja86.appspot.com";
-	private string URL = "http://localhost:8080/"; 
+	private string URL = "http://americanoninja86.appspot.com";
+	//private string URL = "http://localhost:8080/"; 
 	
 	public void Login(string id, string password, CallBackPtr func = null){
 		WWWForm form = new WWWForm();
