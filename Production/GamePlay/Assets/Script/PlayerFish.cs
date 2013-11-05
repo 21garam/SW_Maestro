@@ -13,6 +13,7 @@ public class PlayerFish : MonoBehaviour
 	public Vector2 playerPosition;
 	
 	public float sizeOfFish;
+	private float distance;
 	private float baseSizeOfFish;
 	private float dx = 0.0f, dy = 0.0f;
 	
@@ -27,6 +28,11 @@ public class PlayerFish : MonoBehaviour
 	private float currentFeverTime = 0.0f;
 	private int feverCount = 0;
 	private FeverGauge feverInstance;
+	
+	public tk2dSprite sprBody;
+	public tk2dSprite sprEyes;
+	public tk2dSprite sprMouth;
+	public tk2dSprite sprFin;
 	
 	private static PlayerFish instance;
 	
