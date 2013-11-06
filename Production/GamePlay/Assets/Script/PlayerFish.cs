@@ -108,7 +108,11 @@ public class PlayerFish : MonoBehaviour
 	
 	void Start () {
 		feverInstance = FeverGauge.Instance;
-		//sprEyes.SetSprite("eyes_1");
+		SharedData SharedDataInstance = SharedData.Instance;
+		sprBody.SetSprite(string.Format("body_{0}", SharedDataInstance.bodyId));
+		sprEyes.SetSprite(string.Format("eyes_{0}", SharedDataInstance.eyesId));
+		sprMouth.SetSprite(string.Format("mouth_{0}", SharedDataInstance.mouthId));
+		sprFin.SetSprite(string.Format("fin_{0}", SharedDataInstance.finId));
 	}
 	
 	void Update () {
