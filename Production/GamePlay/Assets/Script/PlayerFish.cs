@@ -108,6 +108,7 @@ public class PlayerFish : MonoBehaviour
 	
 	void Start () {
 		feverInstance = FeverGauge.Instance;
+		//sprEyes.SetSprite("eyes_1");
 	}
 	
 	void Update () {
