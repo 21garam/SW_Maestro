@@ -1,6 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Equipment_.cs">
+    <Files>
+      <File FileName="Assets/Script/Static_.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/WWW_.cs" Line="50" Column="26" />
+      <File FileName="Assets/Script/XMLParser_.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Equipment_.cs" Line="16" Column="10" />
+      <File FileName="Assets/Script/Set_.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Sample/BuyTestCode_.cs" Line="14" Column="28" />
+      <File FileName="Assets/Script/Sample/UpdateAccountCode_.cs" Line="13" Column="43" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
@@ -8,8 +17,9 @@
             <Node name="Assets" expanded="True">
               <Node name="NGUI" expanded="True" />
               <Node name="Script" expanded="True">
-                <Node name="Sample" expanded="True" />
-                <Node name="Equipment_.cs" selected="True" />
+                <Node name="Sample" expanded="True">
+                  <Node name="UpdateAccountCode_.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
