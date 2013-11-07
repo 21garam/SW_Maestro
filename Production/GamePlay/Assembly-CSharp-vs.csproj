@@ -256,6 +256,7 @@
      <Compile Include="Assets\Script\Obstacle.cs" />
      <Compile Include="Assets\Script\PlayerFish.cs" />
      <Compile Include="Assets\Script\ScoreScript.cs" />
+     <Compile Include="Assets\Script\SharedData.cs" />
      <None Include="Assets\Asset\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\Asset\NGUI\Examples\Models\Orc\Orc Skin.shader" />
      <None Include="Assets\Asset\TK2DROOT\tk2d\Shaders\LitSolidVertexColor.shader" />
