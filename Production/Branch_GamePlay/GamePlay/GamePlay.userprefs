@@ -1,0 +1,34 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/AddCode/Obstacle_.cs">
+    <Files>
+      <File FileName="Assets/Script/AddCode/Spawner_.cs" Line="63" Column="36" />
+      <File FileName="Assets/Script/AddCode/GameManager_.cs" Line="142" Column="1" />
+      <File FileName="Assets/Script/AddCode/Obstacle_.cs" Line="3" Column="1" />
+      <File FileName="Assets/Script/AddCode/EnemyFish_.cs" Line="61" Column="68" />
+      <File FileName="Assets/Script/AddCode/SingleSprite_.cs" Line="7" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Script" expanded="True">
+                <Node name="AddCode" expanded="True">
+                  <Node name="Obstacle_.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
