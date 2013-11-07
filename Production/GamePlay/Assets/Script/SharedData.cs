@@ -27,11 +27,11 @@ public class SharedData : MonoBehaviour {
 	void Awake()
 	{
 		instance = this;
-		
+		/*
 		bodyId = 0;
 		eyesId = 1;
 		mouthId = 0;
-		finId = 1;
+		finId = 1;*/
 	}
 	
 	void Start () {

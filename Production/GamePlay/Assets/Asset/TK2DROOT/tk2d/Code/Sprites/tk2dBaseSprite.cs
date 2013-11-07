@@ -220,7 +220,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, tk2dRuntime.ISpriteCollect
 			SetSprite(spriteId);
 		}
 		else {
-			Debug.LogError("SetSprite - Sprite not found in collection: " + spriteName);
+			//Debug.LogError("SetSprite - Sprite not found in collection: " + spriteName);
 		}
 		return spriteId != -1;
 	}
