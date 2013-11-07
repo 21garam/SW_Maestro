@@ -4,6 +4,7 @@ using System.Collections;
 public class Obstacle : MonoBehaviour {
 	public float velocity;
 	
+	private bool isLive;
 	private float default_y;
 	
 	public tk2dSprite mSprite;
@@ -14,6 +15,7 @@ public class Obstacle : MonoBehaviour {
 	}
 	
 	void Start () {
+		isLive = true;
 		default_y = mSprite.transform.position.y;
 	}
 	
@@ -38,8 +40,9 @@ public class Obstacle : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider coll)
 	{
-		if(coll.gameObject.tag == "Player")
+		if(coll.gameObject.tag == "Player" && isLive)
 		{
+			isLive = false;
 			PlayerFish.Instance.Bumped();
 		}
 	}
@@ -49,5 +52,7 @@ public class Obstacle : MonoBehaviour {
 		Vector2 v = PlayerFish.Instance.playerPosition;
 		
 		mSprite.transform.position= new Vector3(mSprite.transform.position.x+3240.0f, mSprite.transform.position.y, mSprite.transform.position.z);
+		
+		isLive = true;
 	}
 }

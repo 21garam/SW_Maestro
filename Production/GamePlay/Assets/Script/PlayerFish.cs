@@ -34,7 +34,9 @@ public class PlayerFish : MonoBehaviour
 	public tk2dSprite sprMouth;
 	public tk2dSprite sprFin;
 	
-	private static PlayerFish instance;
+	private SharedData SharedDataInstance;
+	
+	private static PlayerFish instance;	
 	
 	public static PlayerFish Instance
 	{
@@ -108,7 +110,7 @@ public class PlayerFish : MonoBehaviour
 	
 	void Start () {
 		feverInstance = FeverGauge.Instance;
-		SharedData SharedDataInstance = SharedData.Instance;
+		SharedDataInstance = SharedData.Instance;
 		sprBody.SetSprite(string.Format("body_{0}", SharedDataInstance.bodyId));
 		sprEyes.SetSprite(string.Format("eyes_{0}", SharedDataInstance.eyesId));
 		sprMouth.SetSprite(string.Format("mouth_{0}", SharedDataInstance.mouthId));
@@ -167,7 +169,10 @@ public class PlayerFish : MonoBehaviour
 		curHitPoint -= nibbleHitPointPerSec * Time.deltaTime;
 		
 		if(curHitPoint <= 0)
+		{
+			SharedDataInstance.score = ScoreScript.Score;
 			Application.LoadLevel("GamePlay");
+		}
 	}
 
 	public bool EatFeedFish(float feedFishSize)
@@ -194,6 +199,8 @@ public class PlayerFish : MonoBehaviour
 		}
 		
 		ScoreScript.Score += (int)Mathf.Pow(feedFishSize*10, 2);
+		curHitPoint += feedFishSize/5;
+		
 		return true;
 	}
 	

@@ -8,6 +8,8 @@ public class SharedData : MonoBehaviour {
 	public int mouthId;
 	public int finId;
 	
+	public int score;
+	
 	private static SharedData instance;
 	
 	public static SharedData Instance
