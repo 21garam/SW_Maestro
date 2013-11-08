@@ -215,4 +215,13 @@ public class PlayerFish : MonoBehaviour
 
 		return true;
 	}
+	
+	void OnTriggerEnter(Collider col){
+		if(col.gameObject.tag == "EnemyFish")
+			GameObject.Destroy(col.gameObject);
+		
+		if(col.gameObject.tag == "Obstacle"){
+			Debug.Log("a");
+		}
+	}
 }

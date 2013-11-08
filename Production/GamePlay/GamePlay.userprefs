@@ -2,24 +2,25 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\GamePlay\Obstacle_.cs">
     <Files>
-      <File FileName="Assets\Script\GamePlay\Obstacle_.cs" Line="54" Column="33" />
-      <File FileName="Assets\Script\GamePlay\BackGround.cs" Line="19" Column="3" />
+      <File FileName="Assets\Script\GamePlay\Obstacle_.cs" Line="61" Column="17" />
+      <File FileName="Assets\Script\GamePlay\BackGround.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\SharedData.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\GamePlay\Spawner_.cs" Line="34" Column="20" />
+      <File FileName="Assets\Script\GamePlay\Spawner_.cs" Line="1" Column="1" />
       <File FileName="Assets\Asset\TK2DROOT\tk2d\Code\Sprites\tk2dBaseSprite.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\GamePlay\EnemyFish_.cs" Line="73" Column="15" />
-      <File FileName="Assets\Script\GamePlay\SingleSprite_.cs" Line="4" Column="33" />
-      <File FileName="Assets\Script\GamePlay\Action_.cs" Line="5" Column="11" />
-      <File FileName="Assets\Script\GamePlay\Stategy_.cs" Line="5" Column="30" />
+      <File FileName="Assets\Script\GamePlay\EnemyFish_.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\GamePlay\SingleSprite_.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\GamePlay\Action_.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\GamePlay\Stategy_.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\GamePlay\Obstacle.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\GamePlay\Settings_.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\GamePlay\ScoreScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\GamePlay\PlayerFish.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\GamePlay\ObstacleCollierFactory_.cs" Line="7" Column="30" />
+      <File FileName="Assets\Script\GamePlay\PlayerFish.cs" Line="156" Column="44" />
+      <File FileName="Assets\Script\GamePlay\ObstacleCollierFactory_.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\GamePlay\GameManager_.cs" Line="169" Column="7" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True" />
       </Pad>
       <Pad Id="ClassPad">
         <State expanded="True" selected="True" />

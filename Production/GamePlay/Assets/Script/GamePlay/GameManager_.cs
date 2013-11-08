@@ -112,7 +112,7 @@ public class GameManager_ : MonoBehaviour {
 	
 	public BackGround m_bg;
 	public tk2dCamera m_cam;
-	Spawner_ m_spawner;
+	public Spawner_ m_spawner;
 	Pattern_ m_pattern;
 	float m_time;
 	EventSet_ m_eventSetCursor = null;
@@ -166,7 +166,7 @@ public class GameManager_ : MonoBehaviour {
 				
 				m_bg.Initialize(screenWidth, screenHeight, 0.2f,  0.5f);
 				
-				m_spawner = transform.GetChild(0).GetComponent<Spawner_>();				
+				//m_spawner = transform.GetChild(0).GetComponent<Spawner_>();				
 				m_spawner.Initialize(screenWidth, screenHeight);
 				break;
 			}else
