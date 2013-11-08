@@ -79,16 +79,16 @@ public class Pattern_{
 		m_eventSet = new List<EventSet_>();
 		m_eventSet.Add(new EventSet_());
 													//float h, int size, float coolTime, string kind
-		m_eventSet[0].AddEvent(1, "EnemyFishSpawn", "0.7 5 2 KIND1");
-		m_eventSet[0].AddEvent(1, "ObstacelSpawn",  "0.0 1 0 KIND1");
-		m_eventSet[0].AddEvent(2, "EnemyFishSpawn", "0.5 5 1 KIND2");
-		m_eventSet[0].AddEvent(3, "EnemyFishSpawn", "0.2 5 2 KIND1");
+		m_eventSet[0].AddEvent(1, "SpawnEnemyFish", "0.7 5 2 KIND1");
+		m_eventSet[0].AddEvent(1, "SpawnObstacle",  "0.0 1 0 KIND1");
+		m_eventSet[0].AddEvent(2, "SpawnEnemyFish", "0.5 5 1 KIND2");
+		m_eventSet[0].AddEvent(3, "SpawnEnemyFish", "0.2 5 2 KIND1");
 		m_eventSet[0].AddEvent(15, "null", "null");
 		
 		m_eventSet.Add(new EventSet_());
-		m_eventSet[1].AddEvent(1, "EnemyFishSpawn", "0.1 3 2 KIND1");
-		m_eventSet[1].AddEvent(2, "EnemyFishSpawn", "0.3 2 3 KIND2");
-		m_eventSet[1].AddEvent(3, "EnemyFishSpawn", "0.9 5 2 KIND1");
+		m_eventSet[1].AddEvent(1, "SpawnEnemyFish", "0.1 3 2 KIND1");
+		m_eventSet[1].AddEvent(2, "SpawnEnemyFish", "0.3 2 3 KIND2");
+		m_eventSet[1].AddEvent(3, "SpawnEnemyFish", "0.9 5 2 KIND1");
 		m_eventSet[1].AddEvent(15, "null", "null");
 	}
 	
@@ -112,7 +112,7 @@ public class GameManager_ : MonoBehaviour {
 	
 	public BackGround m_bg;
 	public tk2dCamera m_cam;
-	public Spawner_ m_spawner;
+	public Spawner m_spawner;
 	Pattern_ m_pattern;
 	float m_time;
 	EventSet_ m_eventSetCursor = null;

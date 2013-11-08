@@ -62,7 +62,7 @@ public class EnemyFish_ : MonoBehaviour {
 				sprite.transform.parent = transform;
 				sprite.Initialize(100, 100, "FeedFish");
 				col = transform.collider as SphereCollider;
-				col.radius = sprite.Width() / 2;
+				//col.radius = sprite.Width() / 2;
 			break;
 				
 			case "KIND2":
@@ -71,7 +71,7 @@ public class EnemyFish_ : MonoBehaviour {
 				sprite.transform.parent = transform;
 				sprite.Initialize(50, 50, "FeedFish");
 				col = transform.collider as SphereCollider;
-				col.radius = sprite.Width() / 2;
+				//col.radius = sprite.Width() / 2;
 			break;
 		}
 	}

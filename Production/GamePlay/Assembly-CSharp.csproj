@@ -258,13 +258,12 @@
      <Compile Include="Assets\Script\GamePlay\HPGauge.cs" />
      <Compile Include="Assets\Script\GamePlay\Helper_.cs" />
      <Compile Include="Assets\Script\GamePlay\Obstacle.cs" />
-     <Compile Include="Assets\Script\GamePlay\ObstacleCollierFactory_.cs" />
-     <Compile Include="Assets\Script\GamePlay\Obstacle_.cs" />
+     <Compile Include="Assets\Script\GamePlay\ObstacleColliderFactory.cs" />
      <Compile Include="Assets\Script\GamePlay\PlayerFish.cs" />
      <Compile Include="Assets\Script\GamePlay\ScoreScript.cs" />
      <Compile Include="Assets\Script\GamePlay\Settings_.cs" />
      <Compile Include="Assets\Script\GamePlay\SingleSprite_.cs" />
-     <Compile Include="Assets\Script\GamePlay\Spawner_.cs" />
+     <Compile Include="Assets\Script\GamePlay\Spawner.cs" />
      <Compile Include="Assets\Script\GamePlay\Stategy_.cs" />
      <Compile Include="Assets\Script\SharedData.cs" />
      <None Include="Assets\Asset\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />

@@ -1,63 +1,115 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FeedFish : MonoBehaviour {
-	
-	private float sizeOfFish;
-	private float velocity;
-	
-	private float default_y;
-	
-	public tk2dSprite mSprite;
-
-	void Awake()
+public class FeedFish : MonoBehaviour 
+{
+	class Kind1_Action_ : Action_
 	{
-		velocity = 200;
-		sizeOfFish = 1+(Random.Range(-60, -20)/100.0f);
-		transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
-	}
-	
-	void Start () {
-		default_y = mSprite.transform.position.y;
-		mSprite.scale = new Vector3(Mathf.Abs(mSprite.scale.x), mSprite.scale.y, mSprite.scale.z);
-	}
-	
-	void Update () {
-		Vector3 v;
-		if(PlayerFish.Instance == false)
+		FeedFish me;
+		public Kind1_Action_(FeedFish _me)
 		{
-			return;
+			this.me = _me;
 		}
-		v.x = mSprite.transform.position.x - (velocity * Time.deltaTime);
-		v.y = mSprite.transform.position.y;
-		v.z = mSprite.transform.position.z;
 		
-		mSprite.transform.position = v;
-		
-		if(mSprite.transform.position.x < -100)
+		public void Update()
 		{
-			Relocation();
+			Strategy_.GoStraight(me.gameObject, me.velocity);		
 		}
 	}
 	
-	void OnTriggerEnter(Collider coll)
+	class Kind2_Action_ : Action_
 	{
-		if(coll.gameObject.tag == "Player")
+		FeedFish me;
+		Vector2 strPos;
+		Vector2 signSize;
+		float time;
+		
+		public Kind2_Action_(FeedFish _me)
 		{
-			if(PlayerFish.Instance.EatFeedFish(sizeOfFish))
-				Relocation();
+			this.me = _me;
+			time = 0;
+			strPos = new Vector2(me.gameObject.transform.localPosition.x,
+								me.gameObject.transform.localPosition.y);
+			signSize = new Vector2(100, 100);
+		}
+		
+		public void Update()
+		{
+			time += Time.deltaTime;
+			Strategy_.GoSignPattern(me.gameObject, signSize, strPos, me.velocity.x, time);
 		}
 	}
 	
-	void Relocation()
+	public SingleSprite_ spritePrefabs;
+	SingleSprite_ sprite;
+	Vector3 velocity;
+	Action_ action;
+	CapsuleCollider col;
+	
+	void Update () 
 	{
-		velocity = 200;
-		Vector2 v = PlayerFish.Instance.playerPosition;
-		
-		mSprite.scale = new Vector3(Mathf.Abs(mSprite.scale.x), mSprite.scale.y, mSprite.scale.z);
-		mSprite.transform.position= new Vector3(mSprite.transform.position.x+3240.0f, mSprite.transform.position.y, mSprite.transform.position.z);
-		
-		sizeOfFish = PlayerFish.Instance.SizeOfFish*(1+(Random.Range(-60, -20)/100.0f));
-		transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
+		action.Update();
+		DestroyCheck();
+	}
+	
+	public void Initialize(Transform parent, Vector3 pos, string kind)
+	{
+		SubInitializeAboutProperties(kind);
+		transform.parent = parent;
+		transform.localPosition = pos;
+		transform.localPosition += new Vector3(sprite.Width() / 2, 0, -0.1f);
+		SubInitializeAboutAction(kind);
+	}
+	
+	private void SubInitializeAboutProperties(string kind)
+	{
+		switch(kind)
+		{	
+			case "KIND1":
+				velocity = new Vector3(-100.0f, 0, 0);
+				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
+				sprite.transform.parent = transform;
+				sprite.Initialize(100, 100, "FeedFish");
+				col = transform.collider as CapsuleCollider;
+				col.radius = sprite.Width() / 2;
+			break;
+				
+			case "KIND2":
+				velocity = new Vector3(-100.0f, 0, 0);
+				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
+				sprite.transform.parent = transform;
+				sprite.Initialize(50, 50, "FeedFish");
+				col = transform.collider as CapsuleCollider;
+				col.radius = sprite.Width() / 2;
+			break;
+		}
+	}
+	
+	private void SubInitializeAboutAction(string kind)
+	{
+		switch(kind)
+		{	
+			case "KIND1":
+				action = new Kind1_Action_(this);
+			break;
+				
+			case "KIND2":
+				action = new Kind2_Action_(this);
+			break;
+		}
+	}
+	
+	public void DestroyCheck()
+	{
+		Vector3 worldPos = transform.TransformPoint(transform.position);
+		if(worldPos.x < -sprite.Width())
+		{
+			DestroyItself();
+		}
+	}
+	
+	public void DestroyItself()
+	{
+		Destroy(this.gameObject);
 	}
 }
