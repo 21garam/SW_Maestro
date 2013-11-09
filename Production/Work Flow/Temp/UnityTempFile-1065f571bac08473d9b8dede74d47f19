@@ -50,6 +50,7 @@
 'Assets/Scripts/Server/Static_.cs'
 'Assets/Scripts/Server/WWW_.cs'
 'Assets/Scripts/Server/XMLParser_.cs'
+'Assets/Scripts/Transformer_.cs'
 'Assets/TK2DROOT/tk2d/Code/Camera/tk2dCamera.cs'
 'Assets/TK2DROOT/tk2d/Code/Camera/tk2dCameraAnchor.cs'
 'Assets/TK2DROOT/tk2d/Code/Camera/tk2dCameraUtil.cs'

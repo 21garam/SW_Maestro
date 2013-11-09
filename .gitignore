@@ -213,3 +213,9 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#unity
+/Production/GamePlay/
+/Production/GamePlayAdder/
+/Production/GUISample/
+/Production/ServerAPISample/
