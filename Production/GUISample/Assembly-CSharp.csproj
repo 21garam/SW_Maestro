@@ -44,11 +44,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\Animation_.cs" />
+     <Compile Include="Assets\Script\Curtain_.cs" />
      <Compile Include="Assets\Script\FileIO_.cs" />
+     <Compile Include="Assets\Script\LoadingAni_.cs" />
      <Compile Include="Assets\Script\Loading_.cs" />
      <Compile Include="Assets\Script\Setting_.cs" />
      <Compile Include="Assets\Script\Title_.cs" />
      <Compile Include="Assets\Script\Transformer_.cs" />
+     <Compile Include="Assets\Script\WaitBackground_.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCamera.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraAnchor.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraUtil.cs" />

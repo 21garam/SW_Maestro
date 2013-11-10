@@ -3,33 +3,56 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Loading_ : MonoBehaviour {
-	//string fileName = "setting.txt";
-	//tk2dTextMesh textMesh;
+	//public tk2dCamera cam;
+	Curtain_ curtain;
+	LoadingAni_ ani;
+	//public bool isTest = false;
+	float testTime = 0;
+	
+	//public tk2dCamera SetCam{
+	//	set{
+	//		cam = value;
+	//	}
+	//}
 	
 	void Start () {
-		//string str = "abc\nabc\n"; 
-		//ParseString(str);
-		//textMesh = transform.GetChild(0).GetComponent<tk2dTextMesh>();
-		//FileIO_.WriteStringToFile("test io", fileName);
-		//textMesh.text = FileIO_.ReadStringFromFile(fileName);	
-		//textMesh.Commit();
+		enabled = false;
+		//Initalize();
+		//BeginLoading();
 	}
 	
-	private void ParseString(string str){
-		string[] words = str.Split('\n');
-		if(words.Length > 0)
-			Setting_.playerID = words[0];
+	//tk2dCamera cam
+	public void Initalize(tk2dCamera cam){
+		curtain = transform.GetChild(0).GetComponent<Curtain_>();
+		ani = transform.GetChild(1).GetComponent<LoadingAni_>();
+		curtain.Initialize(cam.nativeResolutionWidth, cam.nativeResolutionHeight, cam.CameraSettings.orthographicPixelsPerMeter / 20);
+		ani.Initialize(cam.nativeResolutionWidth, cam.nativeResolutionHeight, cam.CameraSettings.orthographicPixelsPerMeter);
+		enabled = true;
 	}
 	
-	//private void EnemyFishSpawn(Event_ eve){
-	//	string[] words = eve.m_param.Split(' ');
-	//	float h = (float)Helper_.ConvertStringtoFloat(words[0]);
-	//	int size = Helper_.ConvertStringtoInt(words[1]);
-	//	float coolTime = (float)Helper_.ConvertStringtoFloat(words[2]); 
-	//	string kind = words[3];	
-	//	StartCoroutine(EnemyFishSpawn(new Vector3(screenSize.x, screenSize.y * h, 0), size, coolTime, kind));
-	//}
-	//void Update () {
+	public void Update(){
+		//if(isTest){
+		//	testTime += Time.deltaTime;
+		//	if(testTime > 10){
+		//		EndLoading();
+		//		isTest = false;
+		//	}
+		//}
+		if(ani.IsEndLoading)
+			DestroyItself();
+	}
 	
-	//}
+	public void BeginLoading(){
+		curtain.FadeIn();
+		ani.BeginLoadingAni();
+	}
+	
+	public void EndLoading(){
+		curtain.FadeOut();
+		ani.EndLoadingAni();
+	}
+	
+	public void DestroyItself(){
+		Destroy(this.gameObject);
+	}
 }
