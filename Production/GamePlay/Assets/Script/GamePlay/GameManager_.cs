@@ -79,7 +79,7 @@ public class Pattern_{
 		m_eventSet = new List<EventSet_>();
 		m_eventSet.Add(new EventSet_());
 													//float h, int size, float coolTime, string kind
-		m_eventSet[0].AddEvent(1, "SpawnEnemyFish", "0.7 5 2 KIND1");
+		m_eventSet[0].AddEvent(1, "SpawnFeedFish", "0.7 5 2 KIND1");
 		m_eventSet[0].AddEvent(1, "SpawnObstacle",  "0.0 1 0 KIND1");
 		m_eventSet[0].AddEvent(2, "SpawnEnemyFish", "0.5 5 1 KIND2");
 		m_eventSet[0].AddEvent(3, "SpawnEnemyFish", "0.2 5 2 KIND1");

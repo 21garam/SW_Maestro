@@ -217,11 +217,20 @@ public class PlayerFish : MonoBehaviour
 	}
 	
 	void OnTriggerEnter(Collider col){
-		if(col.gameObject.tag == "EnemyFish")
+		if(col.gameObject.tag == "FeedFish")
+		{
+			EatFeedFish(1);
 			GameObject.Destroy(col.gameObject);
+		}
 		
-		if(col.gameObject.tag == "Obstacle"){
-			Debug.Log("a");
+		if(col.gameObject.tag == "EnemyFish")
+		{
+			
+		}
+		
+		if(col.gameObject.tag == "Obstacle")
+		{
+			Bumped();
 		}
 	}
 }
