@@ -10,7 +10,7 @@ public class Transformer_: MonoBehaviour {
 	public GameObject m_parent;
 	public GameObject m_target;
 	public float m_parentAniDuration = 1;
-	public float m_targetAniDuration = 1;
+	public float m_targetAniDuration = 0.5f;
 	public tk2dUIItem m_uiItem;
 	public Dir m_dir = Dir.LEFT;
 	
@@ -26,7 +26,7 @@ public class Transformer_: MonoBehaviour {
 		SetLayer(m_target, "DisalbedUI");
 		m_target.transform.localPosition = new Vector3(0, 0, 0);
 		m_target.transform.localScale = new Vector3(0, 0, 0);
-		StartCoroutine(Animation_.ScaleAToB(m_target.transform, m_targetAniDuration, new Vector3(1, 1, 1), EndTransform));
+		StartCoroutine(Animation_.ScaleAToB(m_target.transform, m_targetAniDuration, new Vector3(1.1f, 1.1f, 1), ScaleDown));
 		
 		Vector3 targetPos = new Vector3(0, 0, 0);
 		switch(m_dir){
@@ -39,6 +39,10 @@ public class Transformer_: MonoBehaviour {
 			break;
 		}
 	  	StartCoroutine(Animation_.TransformAToB(m_parent.transform, m_parentAniDuration, targetPos));
+	}
+	
+	void ScaleDown(){
+		StartCoroutine(Animation_.ScaleAToB(m_target.transform, m_targetAniDuration / 5, new Vector3(1, 1, 1), EndTransform));
 	}
 	
 	void EndTransform(){

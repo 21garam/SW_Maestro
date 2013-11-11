@@ -49,10 +49,17 @@
      <Compile Include="Assets\Script\FileIO_.cs" />
      <Compile Include="Assets\Script\LoadingAni_.cs" />
      <Compile Include="Assets\Script\Loading_.cs" />
+     <Compile Include="Assets\Script\Server\Equipment_.cs" />
+     <Compile Include="Assets\Script\Server\MessageBox_.cs" />
+     <Compile Include="Assets\Script\Server\Set_.cs" />
+     <Compile Include="Assets\Script\Server\Static_.cs" />
+     <Compile Include="Assets\Script\Server\WWW_.cs" />
+     <Compile Include="Assets\Script\Server\XMLParser_.cs" />
      <Compile Include="Assets\Script\Setting_.cs" />
      <Compile Include="Assets\Script\Title_.cs" />
      <Compile Include="Assets\Script\Transformer_.cs" />
      <Compile Include="Assets\Script\WaitBackground_.cs" />
+     <Compile Include="Assets\Script\Window\SignUpWindow_.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCamera.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraAnchor.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraUtil.cs" />
