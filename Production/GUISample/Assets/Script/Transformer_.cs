@@ -15,18 +15,18 @@ public class Transformer_: MonoBehaviour {
 	public Dir m_dir = Dir.LEFT;
 	
 	void OnEnable(){
-	   	m_uiItem.OnClick += StartTransform;
+	   	m_uiItem.OnClick += BeginTransform;
 	}
 
     void OnDisable(){
     } 
 	
-	public void StartTransform(){
+	public void BeginTransform(){
 		SetLayer(m_parent, "DisalbedUI");
 		SetLayer(m_target, "DisalbedUI");
 		m_target.transform.localPosition = new Vector3(0, 0, 0);
 		m_target.transform.localScale = new Vector3(0, 0, 0);
-		StartCoroutine(ScaleTo(m_target.transform, m_targetAniDuration, new Vector3(1, 1, 1)));
+		StartCoroutine(Animation_.ScaleAToB(m_target.transform, m_targetAniDuration, new Vector3(1, 1, 1), EndTransform));
 		
 		Vector3 targetPos = new Vector3(0, 0, 0);
 		switch(m_dir){
@@ -38,7 +38,12 @@ public class Transformer_: MonoBehaviour {
 			targetPos = new Vector3(3, 0, 0);
 			break;
 		}
-		StartCoroutine(TransformTo(m_parent.transform, m_parentAniDuration, targetPos));
+	  	StartCoroutine(Animation_.TransformAToB(m_parent.transform, m_parentAniDuration, targetPos));
+	}
+	
+	void EndTransform(){
+		SetLayer(m_parent, "EnabledUI");
+		SetLayer(m_target, "EnabledUI");
 	}
 	
 	void SetLayer(GameObject target, string layerName){
@@ -57,6 +62,7 @@ public class Transformer_: MonoBehaviour {
 		}	
 	}
 	
+	/*
 	IEnumerator ScaleTo(Transform trans, float time, Vector3 targetScale){
 		Vector3 orinScale = trans.localScale;
 		for(float t = 0; t < time; t += tk2dUITime.deltaTime){
@@ -69,7 +75,8 @@ public class Transformer_: MonoBehaviour {
 		SetLayer(m_parent, "EnabledUI");
 		SetLayer(m_target, "EnabledUI");
 	}
-	
+	*/
+	/*
 	IEnumerator TransformTo(Transform trans, float time, Vector3 targetPos){
 		Vector3 orinPos = trans.localPosition;
         Debug.Log(orinPos);
@@ -81,4 +88,5 @@ public class Transformer_: MonoBehaviour {
         }
 		trans.localPosition = targetPos;
 	}
+	*/
 }
