@@ -44,6 +44,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Adder\AnimationHelper\Animation_.cs" />
+     <Compile Include="Assets\Scripts\Adder\AnimationHelper\Transformer_.cs" />
+     <Compile Include="Assets\Scripts\Adder\Curtain_.cs" />
+     <Compile Include="Assets\Scripts\Adder\FileIO_.cs" />
+     <Compile Include="Assets\Scripts\Adder\LoadingAni_.cs" />
+     <Compile Include="Assets\Scripts\Adder\Loading_.cs" />
+     <Compile Include="Assets\Scripts\Adder\Setting_.cs" />
+     <Compile Include="Assets\Scripts\Adder\Title_.cs" />
+     <Compile Include="Assets\Scripts\Adder\WaitBackground_.cs" />
      <Compile Include="Assets\Scripts\Custom_Script.cs" />
      <Compile Include="Assets\Scripts\Game_Script.cs" />
      <Compile Include="Assets\Scripts\Loading_Script.cs" />
@@ -63,7 +72,6 @@
      <Compile Include="Assets\Scripts\Server\Static_.cs" />
      <Compile Include="Assets\Scripts\Server\WWW_.cs" />
      <Compile Include="Assets\Scripts\Server\XMLParser_.cs" />
-     <Compile Include="Assets\Scripts\Transformer_.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCamera.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraAnchor.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Code\Camera\tk2dCameraUtil.cs" />
