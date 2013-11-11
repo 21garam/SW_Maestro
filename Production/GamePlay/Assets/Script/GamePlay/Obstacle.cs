@@ -41,10 +41,10 @@ public class Obstacle : MonoBehaviour {
 	private void SubInitializeAboutProperties(string kind){
 		switch(kind){	
 			case "KIND1":
-				velocity = new Vector3(-50.0f, 0, 0);
+				velocity = new Vector3(-100.0f, 0, 0);
 				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
 				sprite.transform.parent = transform;
-				sprite.Initialize(100, 100, "Obstacle_00");
+				sprite.Initialize("Obstacle_00");
 			break;
 		}
 	}

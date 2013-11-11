@@ -104,8 +104,7 @@ public class PlayerFish : MonoBehaviour
 	void Awake()
 	{
 		instance = this;
-		baseSizeOfFish = sizeOfFish;
-		curHitPoint = maxHitPoint;
+		
 	}
 	
 	void Start () {
@@ -115,6 +114,9 @@ public class PlayerFish : MonoBehaviour
 		sprEyes.SetSprite(string.Format("eyes_{0}", SharedDataInstance.eyesId));
 		sprMouth.SetSprite(string.Format("mouth_{0}", SharedDataInstance.mouthId));
 		sprFin.SetSprite(string.Format("fin_{0}", SharedDataInstance.finId));
+		
+		baseSizeOfFish = sizeOfFish;
+		curHitPoint = maxHitPoint;
 	}
 	
 	void Update () {
@@ -168,7 +170,7 @@ public class PlayerFish : MonoBehaviour
 		
 		curHitPoint -= nibbleHitPointPerSec * Time.deltaTime;
 		
-		if(curHitPoint <= 0)
+		if(curHitPoint <= 0 && bFeverTime == false)
 		{
 			SharedDataInstance.score = ScoreScript.Score;
 			Application.LoadLevel("GamePlay");
@@ -177,11 +179,6 @@ public class PlayerFish : MonoBehaviour
 
 	public bool EatFeedFish(float feedFishSize)
 	{
-		if(feedFishSize>sizeOfFish && bFeverTime == false)
-		{
-			return false;
-		}
-		
 		if(feverInstance.getPoint(feedFishSize) == false)
 		{
 			if(bFeverTime==false)
@@ -190,7 +187,7 @@ public class PlayerFish : MonoBehaviour
 				bFeverTime = true;
 				currentFeverTime = 0.0f;
 			}
-			transform.localScale = new Vector3(3.5f, 3.5f, transform.localScale.z);
+			transform.localScale = new Vector3(3.0f, 3.0f, transform.localScale.z);
 		}
 		else
 		{
@@ -206,6 +203,11 @@ public class PlayerFish : MonoBehaviour
 	
 	public bool Bumped()
 	{
+		if(bFeverTime == true)
+		{
+			return true;
+		}
+		
 		curHitPoint -= 15;
 		
 		if(curHitPoint <= 0)
@@ -225,7 +227,7 @@ public class PlayerFish : MonoBehaviour
 		
 		if(col.gameObject.tag == "EnemyFish")
 		{
-			
+			Bumped();
 		}
 		
 		if(col.gameObject.tag == "Obstacle")

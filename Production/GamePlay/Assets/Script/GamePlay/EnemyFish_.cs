@@ -57,21 +57,21 @@ public class EnemyFish_ : MonoBehaviour {
 	private void SubInitializeAboutProperties(string kind){
 		switch(kind){	
 			case "KIND1":
-				velocity = new Vector3(-100.0f, 0, 0);
+				velocity = new Vector3(-200.0f, 0, 0);
 				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
 				sprite.transform.parent = transform;
-				sprite.Initialize(100, 100, "FeedFish");
+				sprite.Initialize("EnemyFish");
 				col = transform.collider as SphereCollider;
-				//col.radius = sprite.Width() / 2;
+				col.radius = sprite.Width() / 2;
 			break;
 				
 			case "KIND2":
-				velocity = new Vector3(-100.0f, 0, 0);
+				velocity = new Vector3(-150.0f, 0, 0);
 				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
 				sprite.transform.parent = transform;
-				sprite.Initialize(50, 50, "FeedFish");
+				sprite.Initialize("EnemyFish");
 				col = transform.collider as SphereCollider;
-				//col.radius = sprite.Width() / 2;
+				col.radius = sprite.Width() / 2;
 			break;
 		}
 	}

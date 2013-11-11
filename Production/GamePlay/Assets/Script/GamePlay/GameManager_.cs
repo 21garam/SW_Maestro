@@ -79,17 +79,17 @@ public class Pattern_{
 		m_eventSet = new List<EventSet_>();
 		m_eventSet.Add(new EventSet_());
 													//float h, int size, float coolTime, string kind
-		m_eventSet[0].AddEvent(1, "SpawnFeedFish", "0.7 5 2 KIND1");
-		m_eventSet[0].AddEvent(1, "SpawnObstacle",  "0.0 1 0 KIND1");
-		m_eventSet[0].AddEvent(2, "SpawnEnemyFish", "0.5 5 1 KIND2");
-		m_eventSet[0].AddEvent(3, "SpawnEnemyFish", "0.2 5 2 KIND1");
-		m_eventSet[0].AddEvent(15, "null", "null");
+		m_eventSet[0].AddEvent(0, "SpawnFeedFish", "0.3 8 1 FEED_SMALL");
+		m_eventSet[0].AddEvent(0, "SpawnFeedFish", "0.5 8 1 KIND2");
+		m_eventSet[0].AddEvent(0, "SpawnFeedFish", "0.7 8 1 KIND1");
+		m_eventSet[0].AddEvent(1, "SpawnObstacle",  "0.0 1 0 KIND1");	
+		m_eventSet[0].AddEvent(9, "EndOfChunk", "EndOfChunk");
 		
 		m_eventSet.Add(new EventSet_());
-		m_eventSet[1].AddEvent(1, "SpawnEnemyFish", "0.1 3 2 KIND1");
-		m_eventSet[1].AddEvent(2, "SpawnEnemyFish", "0.3 2 3 KIND2");
-		m_eventSet[1].AddEvent(3, "SpawnEnemyFish", "0.9 5 2 KIND1");
-		m_eventSet[1].AddEvent(15, "null", "null");
+		m_eventSet[1].AddEvent(1, "SpawnFeedFish", "0.1 4 1.5 KIND1");
+		m_eventSet[1].AddEvent(2, "SpawnEnemyFish", "0.3 1 0 KIND2");
+		m_eventSet[1].AddEvent(3, "SpawnFeedFish", "0.9 7 1.5 KIND1");
+		m_eventSet[1].AddEvent(13, "EndOfChunk", "EndOfChunk");
 	}
 	
 	public EventSet_ GetEventSet(int idx){
