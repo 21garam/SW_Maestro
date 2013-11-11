@@ -69,13 +69,9 @@ public class EventSet_{
 }
 
 public class Pattern_{
-	List<string> m_rawDataSet;
 	List<EventSet_> m_eventSet;
 	
-	public Pattern_(){
-		m_rawDataSet = new List<string>();
-		//m_rawDataSet.Add("1 enemyFishSpawner 0.5 5 1\n");
-		
+	public Pattern_(){		
 		m_eventSet = new List<EventSet_>();
 		m_eventSet.Add(new EventSet_());
 													//float h, int size, float coolTime, string kind
@@ -139,7 +135,7 @@ public class GameManager_ : MonoBehaviour {
 			List<Event_> eventList = m_eventSetCursor.GetEvents(m_time);
 			
 			if(m_eventSetCursor.IsEmptyEventList()){
-				Debug.Log("Set Next Phase");
+				Debug.Log(string.Format("Next Chunk : {0}", patternIDX));
 				m_eventSetCursor.RetoreEventList();
 				state = State_.InitPattern;
 			}

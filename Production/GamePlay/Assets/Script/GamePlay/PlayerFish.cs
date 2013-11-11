@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerFish : MonoBehaviour 
 {
-	public float maxSpeed;
+	public float maxYSpeed;
 	public float accelerate;
 	public float friction;
 	
@@ -14,13 +14,14 @@ public class PlayerFish : MonoBehaviour
 	
 	public float sizeOfFish;
 	private float distance;
-	private float baseSizeOfFish;
-	private float dx = 0.0f, dy = 0.0f;
+	public float dx = 0.0f, dy = 0.0f;
 	
 	public float maxHitPoint;
 	public float nibbleHitPointPerSec;
 	private float curHitPoint;
 	
+	public float maxXSpeedAtNormal;
+	public float maxXSpeedAtFeverTime;
 	public float feverLimit;
 	public float feverPower;
 	public float feverAcc;
@@ -115,13 +116,10 @@ public class PlayerFish : MonoBehaviour
 		sprMouth.SetSprite(string.Format("mouth_{0}", SharedDataInstance.mouthId));
 		sprFin.SetSprite(string.Format("fin_{0}", SharedDataInstance.finId));
 		
-		baseSizeOfFish = sizeOfFish;
 		curHitPoint = maxHitPoint;
 	}
 	
-	void Update () {
-		Vector3 v;
-		
+	void Update () {		
 		if(Input.GetMouseButton(0) || Input.touchCount > 0)
 		{
 			dy+=accelerate * Time.deltaTime;
@@ -132,13 +130,13 @@ public class PlayerFish : MonoBehaviour
 		}
 		
 		float _friction = friction * Time.deltaTime;
-		float _maxSpeed = maxSpeed * Time.deltaTime;
+		float _maxSpeed = maxYSpeed * Time.deltaTime;
 		
-		v.x = dx = (dx>_maxSpeed)?_maxSpeed:(dx<-_maxSpeed)?-_maxSpeed:dx;
-		v.y = dy = (dy>_maxSpeed)?_maxSpeed:(dy<-_maxSpeed)?-_maxSpeed:dy;
-		v.x = dx += (dx>=_friction)?-_friction:(dx<=-_friction)?_friction:-dx;
-		v.y = dy += (dy>=_friction)?-_friction:(dy<=-_friction)?_friction:-dy;
-		v.z = 0;
+		dx = (dx>_maxSpeed)?_maxSpeed:(dx<-_maxSpeed)?-_maxSpeed:dx;
+		dx += (dx>=_friction)?-_friction:(dx<=-_friction)?_friction:-dx;
+		
+		dy = (dy>_maxSpeed)?_maxSpeed:(dy<-_maxSpeed)?-_maxSpeed:dy;
+		dy += (dy>=_friction)?-_friction:(dy<=-_friction)?_friction:-dy;
 				
 		SetFlip();
 		
@@ -154,7 +152,7 @@ public class PlayerFish : MonoBehaviour
 			}
 		}
 		
-		this.transform.position+=v;
+		this.transform.position+=new Vector3(0, dy, 0);
 		playerPosition = this.transform.position;
 		
 		if(playerPosition.y>=600.0f)

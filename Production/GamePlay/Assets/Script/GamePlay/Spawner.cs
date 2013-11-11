@@ -31,7 +31,6 @@ public class Spawner : MonoBehaviour {
 			break;
 			
 			case "EndOfChunk":
-				Debug.Log("end of current chunk");
 			break;
 		}
 	}
