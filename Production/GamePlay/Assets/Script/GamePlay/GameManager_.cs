@@ -160,7 +160,7 @@ public class GameManager_ : MonoBehaviour {
 				float screenWidth = m_cam.NativeResolution.x;
 				float screenHeight = m_cam.NativeResolution.y;
 				
-				m_bg.Initialize(screenWidth, screenHeight, 0.2f,  0.5f);
+				m_bg.Initialize(screenWidth, screenHeight,  0.5f);
 				
 				//m_spawner = transform.GetChild(0).GetComponent<Spawner_>();				
 				m_spawner.Initialize(screenWidth, screenHeight);

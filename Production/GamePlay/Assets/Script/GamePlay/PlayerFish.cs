@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerFish : MonoBehaviour 
 {
 	public float maxYSpeed;
-	public float accelerate;
+	public float accelerateY;
 	public float friction;
 	
 	public float magnificationPower;
@@ -22,6 +22,8 @@ public class PlayerFish : MonoBehaviour
 	
 	public float maxXSpeedAtNormal;
 	public float maxXSpeedAtFeverTime;
+	public float accelerateAtNormal;
+	public float accelerateAtFeverTime;
 	public float feverLimit;
 	public float feverPower;
 	public float feverAcc;
@@ -119,22 +121,28 @@ public class PlayerFish : MonoBehaviour
 		curHitPoint = maxHitPoint;
 	}
 	
+	void AccelerateSwimming()
+	{
+		if(bFeverTime)
+			dx = Mathf.Min(maxXSpeedAtFeverTime, dx + (accelerateAtFeverTime * Time.deltaTime));
+		else
+			dx = Mathf.Min(maxXSpeedAtNormal, dx + (accelerateAtNormal * Time.deltaTime));
+	}
+	
 	void Update () {		
 		if(Input.GetMouseButton(0) || Input.touchCount > 0)
 		{
-			dy+=accelerate * Time.deltaTime;
+			dy+=accelerateY * Time.deltaTime;
 		}
 		else
 		{
-			dy-=accelerate * Time.deltaTime;
+			dy-=accelerateY * Time.deltaTime;
 		}
 		
 		float _friction = friction * Time.deltaTime;
 		float _maxSpeed = maxYSpeed * Time.deltaTime;
-		
-		dx = (dx>_maxSpeed)?_maxSpeed:(dx<-_maxSpeed)?-_maxSpeed:dx;
-		dx += (dx>=_friction)?-_friction:(dx<=-_friction)?_friction:-dx;
-		
+				
+		AccelerateSwimming();
 		dy = (dy>_maxSpeed)?_maxSpeed:(dy<-_maxSpeed)?-_maxSpeed:dy;
 		dy += (dy>=_friction)?-_friction:(dy<=-_friction)?_friction:-dy;
 				
