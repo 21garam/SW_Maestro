@@ -32,6 +32,10 @@ public class PlayerFish : MonoBehaviour
 	private int feverCount = 0;
 	private FeverGauge feverInstance;
 	
+	private bool isInvincible;
+	public float invincibleTime;
+	private float remainInvincibleTime;
+	
 	public tk2dSprite sprBody;
 	public tk2dSprite sprEyes;
 	public tk2dSprite sprMouth;
@@ -181,6 +185,9 @@ public class PlayerFish : MonoBehaviour
 			SharedDataInstance.score = ScoreScript.Score;
 			Application.LoadLevel("GamePlay");
 		}
+		
+		remainInvincibleTime -= Time.deltaTime;
+		isInvincible = false;
 	}
 
 	public bool EatFeedFish(float feedFishSize)
@@ -215,6 +222,9 @@ public class PlayerFish : MonoBehaviour
 		}
 		
 		curHitPoint -= 15;
+		dx = -100;
+		remainInvincibleTime = invincibleTime;
+		isInvincible = true;
 		
 		if(curHitPoint <= 0)
 		{
@@ -236,7 +246,7 @@ public class PlayerFish : MonoBehaviour
 			Bumped();
 		}
 		
-		if(col.gameObject.tag == "Obstacle")
+		if(col.gameObject.tag == "Obstacle" && isInvincible == false)
 		{
 			Bumped();
 		}
