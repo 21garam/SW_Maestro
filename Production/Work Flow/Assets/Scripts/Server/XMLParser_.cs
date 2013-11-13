@@ -194,7 +194,7 @@ public class XMLParser_ {
 				XmlAttribute scoreAtt = root.ChildNodes[i].Attributes["score"];
 				if(i != userLength-1){
 					UserRankingInfo userInfo = new UserRankingInfo(Util_.ConvertStringtoInt((string)rankingAtt.Value), 
-													  (string)idAtt.Value, 
+													  (string)idAtt.Value,
 													  Util_.ConvertStringtoInt((string)scoreAtt.Value));
 					otherUserInfoList.Add(userInfo);
 				}
