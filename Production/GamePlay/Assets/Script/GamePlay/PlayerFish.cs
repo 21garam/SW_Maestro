@@ -222,7 +222,7 @@ public class PlayerFish : MonoBehaviour
 		}
 		
 		curHitPoint -= 15;
-		dx = -100;
+		dx = -50;
 		remainInvincibleTime = invincibleTime;
 		isInvincible = true;
 		
@@ -241,7 +241,7 @@ public class PlayerFish : MonoBehaviour
 			GameObject.Destroy(col.gameObject);
 		}
 		
-		if(col.gameObject.tag == "EnemyFish")
+		if(col.gameObject.tag == "EnemyFish" && isInvincible == false)
 		{
 			Bumped();
 		}
