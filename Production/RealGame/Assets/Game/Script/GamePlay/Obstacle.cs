@@ -46,20 +46,62 @@ public class Obstacle : MonoBehaviour {
 				sprite.transform.parent = transform;
 				sprite.Initialize("Obstacle_00");
 			break;
+			
+			case "STALACTITE":
+				velocity = new Vector3(0, 0, 0);
+				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
+				sprite.transform.parent = transform;
+				sprite.Initialize("Obstacle_01");
+			break;
+				
+			case "STALAGMITE":
+				velocity = new Vector3(0, 0, 0);
+				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
+				sprite.transform.parent = transform;
+				sprite.Initialize("Obstacle_02");
+			break;
 		}
 	}
 	
 	private void SubInitializeAboutTransforms(Transform parent, Vector3 pos, string kind){
 		transform.parent = parent;
 		transform.localPosition = pos;
-		transform.localPosition += new Vector3(sprite.Width() / 2, sprite.Height() / 2, -1.0f);
+		
+		switch(kind){
+			case "KIND1":
+			Debug.Log(sprite.Width());
+				transform.localPosition += new Vector3(sprite.Width() / 2, sprite.Height() / 2, -1.0f);
+			break;
+			
+			case "STALACTITE":
+			Debug.Log(sprite.Width());
+				transform.localPosition += new Vector3(sprite.Width() / 2, -sprite.Height(), -1.0f);
+			break;
+			
+			case "STALAGMITE":
+			Debug.Log(sprite.Width());
+				transform.localPosition += new Vector3(sprite.Width() / 2, sprite.Height() / 2, -1.0f);
+			break;
+		}
+		
 	}
 	
 	public void SubInitializeAboutCollider(string kind){
 		factory = GetComponent<ObstacleColliderFactory>();
+		tk2dSprite col;
 		switch(kind){
 			case "KIND1":
-				tk2dSprite col = factory.MakeCollider(0);
+				col = factory.MakeCollider(0);
+				col.transform.parent = transform;
+			break;
+			
+			case "STALACTITE":
+				col = factory.MakeCollider(1);
+				col.transform.parent = transform;
+			break;
+			
+			case "STALAGMITE":
+				col = factory.MakeCollider(2);
 				col.transform.parent = transform;
 			break;
 		}
@@ -68,6 +110,14 @@ public class Obstacle : MonoBehaviour {
 	private void SubInitializeAboutAction(string kind){
 		switch(kind){	
 			case "KIND1":
+				action = new Kind1_Action_(this);
+			break;
+			
+			case "STALACTITE":
+				action = new Kind1_Action_(this);
+			break;
+			
+			case "STALAGMITE":
 				action = new Kind1_Action_(this);
 			break;
 		}

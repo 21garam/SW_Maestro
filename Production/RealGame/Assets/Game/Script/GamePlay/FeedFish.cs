@@ -25,7 +25,7 @@ public class FeedFish : MonoBehaviour
 		public void Update()
 		{
 			time += Time.deltaTime;
-			Strategy_.GoSignPattern(me.gameObject, signSize, strPos, me.velocity.x, time);		
+			Strategy_.GoSinePatternEx(me.gameObject, signSize, strPos, me.velocity.x, time, 1.5f);		
 		}
 	}
 	
@@ -50,18 +50,18 @@ public class FeedFish : MonoBehaviour
 		public void Update()
 		{
 			time += Time.deltaTime;
-			Strategy_.GoSignPattern(me.gameObject, signSize, strPos, me.velocity.x, time);
+			Strategy_.GoSinePatternEx(me.gameObject, signSize, strPos, me.velocity.x, time, 2.0f);
 		}
 	}
 	
-	class Type3 : Action_
+	class FeedSmall : Action_
 	{
 		FeedFish me;
 		Vector2 strPos;
 		Vector2 signSize;
 		float time;
 		
-		public Type3(FeedFish _me)
+		public FeedSmall(FeedFish _me)
 		{
 			me = _me;
 			me.transform.localScale = new Vector3(0.4f, 0.4f, 1.0f);
@@ -75,7 +75,50 @@ public class FeedFish : MonoBehaviour
 		public void Update()
 		{
 			time += Time.deltaTime;
-			Strategy_.GoSignPattern(me.gameObject, signSize, strPos, me.velocity.x, time);
+			Strategy_.GoCosinePatternEx(me.gameObject, signSize, strPos, me.velocity.x, time, 1.5f);
+		}
+	}
+	
+	class FeedRandom : Action_
+	{
+		FeedFish me;
+		Vector2 strPos;
+		Vector2 signSize;
+		float time;
+		
+		int type;
+		
+		public FeedRandom(FeedFish _me)
+		{
+			me = _me;
+			me.sizeOfFish = 0.4f + Random.Range(0, 2) * 0.05f;
+			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);			
+			
+			type = Random.Range(0, 2);
+			time = 0;
+			strPos = new Vector2(me.gameObject.transform.localPosition.x,
+								me.gameObject.transform.localPosition.y);
+			signSize = new Vector2(80+Random.Range(0, 40), 25+Random.Range(0, 50));
+		}
+		
+		public void Update()
+		{
+			time += Time.deltaTime;
+			switch(type)
+			{
+			case 0:
+				Strategy_.GoCosinePatternEx(me.gameObject, signSize, strPos, me.velocity.x, time, 1.5f);
+				break;
+			
+			case 1:
+				Strategy_.GoSinePatternEx(me.gameObject, signSize, strPos, me.velocity.x, time, 1.5f);
+				break;
+				
+			case 2:
+				Strategy_.GoCosinePatternEx(me.gameObject, signSize, strPos, me.velocity.x, time, 3.0f);
+				break;
+			}
+			
 		}
 	}
 	
@@ -84,6 +127,8 @@ public class FeedFish : MonoBehaviour
 	Vector3 velocity;
 	Action_ action;
 	CapsuleCollider col;
+
+	private float sizeOfFish;
 	
 	void Update () 
 	{
@@ -131,6 +176,15 @@ public class FeedFish : MonoBehaviour
 				col = transform.collider as CapsuleCollider;
 				col.radius = sprite.Width() / 5;
 			break;
+			
+			case "FEED_RANDOM":
+				velocity = new Vector3(-200.0f, 0, 0);
+				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
+				sprite.transform.parent = transform;
+				sprite.Initialize("FeedFish");
+				col = transform.collider as CapsuleCollider;
+				col.radius = sprite.Width() / 5;
+			break;
 		}
 	}
 	
@@ -147,7 +201,11 @@ public class FeedFish : MonoBehaviour
 			break;
 			
 			case "FEED_SMALL":
-				action = new Type3(this);
+				action = new FeedSmall(this);
+			break;
+			
+			case "FEED_RANDOM":
+				action = new FeedRandom(this);
 			break;
 		}
 	}

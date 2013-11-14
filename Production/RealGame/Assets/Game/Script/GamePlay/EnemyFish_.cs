@@ -28,7 +28,7 @@ public class EnemyFish_ : MonoBehaviour {
 		
 		public void Update(){
 			time += Time.deltaTime;
-			Strategy_.GoSignPattern(me.gameObject, signSize, strPos, me.velocity.x, time);
+			Strategy_.GoSinePattern(me.gameObject, signSize, strPos, me.velocity.x, time);
 		}
 	}
 	
