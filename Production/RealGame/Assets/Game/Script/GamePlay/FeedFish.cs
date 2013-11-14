@@ -14,7 +14,8 @@ public class FeedFish : MonoBehaviour
 		public Type1(FeedFish _me)
 		{
 			me = _me;
-			me.transform.localScale = new Vector3(0.5f, 0.5f, 1.0f);
+			me.sizeOfFish = 0.5f;
+			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
 			
 			time = 0;
 			strPos = new Vector2(me.gameObject.transform.localPosition.x,
@@ -39,7 +40,8 @@ public class FeedFish : MonoBehaviour
 		public Type2(FeedFish _me)
 		{
 			me = _me;
-			me.transform.localScale = new Vector3(0.45f, 0.45f, 1.0f);
+			me.sizeOfFish = 0.45f;
+			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
 			
 			time = 0;
 			strPos = new Vector2(me.gameObject.transform.localPosition.x,
@@ -64,7 +66,8 @@ public class FeedFish : MonoBehaviour
 		public FeedSmall(FeedFish _me)
 		{
 			me = _me;
-			me.transform.localScale = new Vector3(0.4f, 0.4f, 1.0f);
+			me.sizeOfFish = 0.4f;
+			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
 			
 			time = 0;
 			strPos = new Vector2(me.gameObject.transform.localPosition.x,
@@ -222,5 +225,14 @@ public class FeedFish : MonoBehaviour
 	public void DestroyItself()
 	{
 		Destroy(this.gameObject);
+	}
+	
+	void OnTriggerEnter(Collider col)
+	{
+		if(col.gameObject.tag == "Player")
+		{
+			PlayerFish.Instance.EatFeedFish(sizeOfFish);
+			DestroyItself();
+		}
 	}
 }

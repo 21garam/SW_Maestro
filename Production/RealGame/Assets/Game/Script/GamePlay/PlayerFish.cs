@@ -216,7 +216,7 @@ public class PlayerFish : MonoBehaviour
 	
 	public bool Bumped()
 	{
-		if(bFeverTime == true)
+		if(bFeverTime == true && isInvincible == true)
 		{
 			return true;
 		}
@@ -232,23 +232,5 @@ public class PlayerFish : MonoBehaviour
 		}
 
 		return true;
-	}
-	
-	void OnTriggerEnter(Collider col){
-		if(col.gameObject.tag == "FeedFish")
-		{
-			EatFeedFish(1);
-			GameObject.Destroy(col.gameObject);
-		}
-		
-		if(col.gameObject.tag == "EnemyFish" && isInvincible == false)
-		{
-			Bumped();
-		}
-		
-		if(col.gameObject.tag == "Obstacle" && isInvincible == false)
-		{
-			Bumped();
-		}
 	}
 }

@@ -98,4 +98,12 @@ public class EnemyFish_ : MonoBehaviour {
 	public void DestroyItself(){
 		Destroy(this.gameObject);
 	}
+	
+	void OnTriggerEnter(Collider col)
+	{
+		if(col.gameObject.tag == "Player")
+		{
+			PlayerFish.Instance.Bumped();
+		}
+	}
 }
