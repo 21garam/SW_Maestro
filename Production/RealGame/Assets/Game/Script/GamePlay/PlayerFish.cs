@@ -187,7 +187,8 @@ public class PlayerFish : MonoBehaviour
 		}
 		
 		remainInvincibleTime -= Time.deltaTime;
-		isInvincible = false;
+		if(remainInvincibleTime < 0)
+			isInvincible = false;
 	}
 
 	public bool EatFeedFish(float feedFishSize)
@@ -216,7 +217,7 @@ public class PlayerFish : MonoBehaviour
 	
 	public bool Bumped()
 	{
-		if(bFeverTime == true && isInvincible == true)
+		if(bFeverTime == true || isInvincible == true)
 		{
 			return true;
 		}

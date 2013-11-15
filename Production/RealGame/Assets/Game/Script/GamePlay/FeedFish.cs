@@ -132,6 +132,8 @@ public class FeedFish : MonoBehaviour
 	CapsuleCollider col;
 
 	private float sizeOfFish;
+	private bool isGoldFish;
+	public float goldFishRatio;
 	
 	void Update () 
 	{
@@ -151,42 +153,36 @@ public class FeedFish : MonoBehaviour
 	
 	private void SubInitializeAboutProperties(string kind)
 	{
+		velocity = new Vector3(-200.0f, 0, 0);
+		sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
+		sprite.transform.parent = transform;
+		
+		if(Random.Range(0, 100) > goldFishRatio)
+		{
+			isGoldFish = false;
+			sprite.Initialize("FeedFish");
+		}
+		else
+		{
+			isGoldFish = true;
+			sprite.Initialize("FeedFish_Gold");
+		}
+		
+		col = transform.collider as CapsuleCollider;
+		col.radius = sprite.Width() / 5;
+		
 		switch(kind)
 		{	
 			case "KIND1":
-				velocity = new Vector3(-200.0f, 0, 0);
-				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
-				sprite.transform.parent = transform;
-				sprite.Initialize("FeedFish");
-				col = transform.collider as CapsuleCollider;
-				col.radius = sprite.Width() / 5;
 			break;
 				
 			case "KIND2":
-				velocity = new Vector3(-200.0f, 0, 0);
-				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
-				sprite.transform.parent = transform;
-				sprite.Initialize("FeedFish");
-				col = transform.collider as CapsuleCollider;
-				col.radius = sprite.Width() / 5;
 			break;
 			
 			case "FEED_SMALL":
-				velocity = new Vector3(-200.0f, 0, 0);
-				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
-				sprite.transform.parent = transform;
-				sprite.Initialize("FeedFish");
-				col = transform.collider as CapsuleCollider;
-				col.radius = sprite.Width() / 5;
 			break;
 			
-			case "FEED_RANDOM":
-				velocity = new Vector3(-200.0f, 0, 0);
-				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
-				sprite.transform.parent = transform;
-				sprite.Initialize("FeedFish");
-				col = transform.collider as CapsuleCollider;
-				col.radius = sprite.Width() / 5;
+			case "FEED_RANDOM":				
 			break;
 		}
 	}

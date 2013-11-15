@@ -1,15 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Script\GamePlay\EnemyFish_.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Script\GamePlay\PlayerFish.cs">
     <Files>
-      <File FileName="Assets\Game\Script\GamePlay\FeedFish.cs" Line="230" Column="2" />
+      <File FileName="Assets\Game\Script\GamePlay\FeedFish.cs" Line="167" Column="22" />
       <File FileName="Assets\Game\Script\GamePlay\Stategy_.cs" Line="1" Column="1" />
-      <File FileName="Assets\Game\Script\GamePlay\EnemyFish_.cs" Line="71" Column="41" />
-      <File FileName="Assets\Game\Script\GamePlay\Obstacle.cs" Line="143" Column="3" />
+      <File FileName="Assets\Game\Script\GamePlay\EnemyFish_.cs" Line="72" Column="36" />
+      <File FileName="Assets\Game\Script\GamePlay\Obstacle.cs" Line="79" Column="22" />
       <File FileName="Assets\Game\Script\GamePlay\GameManager_.cs" Line="1" Column="1" />
       <File FileName="Assets\Game\Script\GamePlay\SingleSprite_.cs" Line="1" Column="1" />
-      <File FileName="Assets\Game\Script\GamePlay\PlayerFish.cs" Line="222" Column="4" />
-      <File FileName="Assets\Game\Script\GamePlay\Spawner.cs" Line="84" Column="56" />
+      <File FileName="Assets\Game\Script\GamePlay\PlayerFish.cs" Line="211" Column="3" />
+      <File FileName="Assets\Game\Script\GamePlay\Spawner.cs" Line="1" Column="1" />
       <File FileName="Assets\Game\Script\GamePlay\ObstacleColliderFactory.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
