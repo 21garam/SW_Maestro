@@ -177,6 +177,63 @@ public class FeedFish : MonoBehaviour
 		}
 	}
 	
+	class FeedBigSineEx : Action_
+	{
+		FeedFish me;
+		Vector2 strPos;
+		Vector2 sineSize;
+		float time;
+		static float correction;
+		
+		public FeedBigSineEx(FeedFish _me)
+		{
+			me = _me;
+			me.sizeOfFish = 0.5f;
+			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
+			
+			correction += 0.2f;
+			time = correction;
+			
+			strPos = new Vector2(me.gameObject.transform.localPosition.x,
+								me.gameObject.transform.localPosition.y);
+			sineSize = new Vector2(100, 150);
+		}
+		
+		public void Update()
+		{
+			time += Time.deltaTime;
+			Strategy_.GoSinePatternEx(me.gameObject, sineSize, strPos, me.velocity.x, time, 0.9f);
+		}
+	}
+	
+	class FeedBigCosineEx : Action_
+	{
+		FeedFish me;
+		Vector2 strPos;
+		Vector2 cosSize;
+		float time;
+		static float correction;
+		
+		public FeedBigCosineEx(FeedFish _me)
+		{
+			me = _me;
+			me.sizeOfFish = 0.5f;
+			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
+			
+			correction += 0.2f;
+			time = 2.8f + correction;
+			strPos = new Vector2(me.gameObject.transform.localPosition.x,
+								me.gameObject.transform.localPosition.y);
+			cosSize = new Vector2(100, 150);
+		}
+		
+		public void Update()
+		{
+			time += Time.deltaTime;
+			Strategy_.GoCosinePatternEx(me.gameObject, cosSize, strPos, me.velocity.x, time, 0.9f);
+		}
+	}
+	
 	public SingleSprite_ spritePrefabs;
 	SingleSprite_ sprite;
 	Vector3 velocity;
@@ -265,6 +322,14 @@ public class FeedFish : MonoBehaviour
 			
 			case "FEED_BIGCOSINE":
 				action = new FeedBigCosine(this);
+			break;
+			
+			case "FEED_BIGSINEEX":
+				action = new FeedBigSineEx(this);
+			break;
+			
+			case "FEED_BIGCOSINEEX":
+				action = new FeedBigCosineEx(this);
 			break;
 		}
 	}
