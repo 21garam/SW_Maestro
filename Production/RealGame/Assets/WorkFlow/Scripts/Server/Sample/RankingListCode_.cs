@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class RankingListCode_ : MonoBehaviour {
-	public string ID_TextInput;
-	
 	public WWW_ www;
 	//public MessageBox_ prefabsMsgBox;
 	//MessageBox_ msgBox;
+	//public TitleBackground_ titleBackgournd;
+	public WaitBackground_ waitBackground;
 	
 	public tk2dUIScrollableArea list;
 	
@@ -22,10 +22,12 @@ public class RankingListCode_ : MonoBehaviour {
 	
 	void Start(){
 		GetRankingList();
+		waitBackground.Initialize();
 	}
 	
 	public void GetRankingList(){
 		GameListClear();
+		www.GetRankingList(listCount, GUI_Setting_.PLAYER_ID, XMLParseToList);
 	}
 	
 	private void Test(string msg){

@@ -87,10 +87,10 @@ public class ItemTestCode_ : MonoBehaviour {
 		}
 		SetMyEquipmentC(bodyID, eyeID, mouthID, finID);
 		
-		/*SharedData.Instance.bodyId = bodyID;
+		SharedData.Instance.bodyId = bodyID;
 		SharedData.Instance.eyesId = eyeID;
 		SharedData.Instance.mouthId = mouthID;
-		SharedData.Instance.finId = finID;*/
+		SharedData.Instance.finId = finID;
 	}
 	
 	void Test(string msg){
