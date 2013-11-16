@@ -76,7 +76,6 @@ public class RankingListCode_ : MonoBehaviour {
 				listElement.transform.FindChild("Text_score").GetComponent<tk2dTextMesh>().text = XMLParser_.OtherUserRankingInfoList[i].score.ToString();
 				listElement.transform.FindChild("Text_score").GetComponent<tk2dTextMesh>().Commit();
 				
-				listElement.Commit();
 				gamelist.Add(listElement);
 			}
 		}
