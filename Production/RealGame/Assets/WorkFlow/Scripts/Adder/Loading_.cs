@@ -6,8 +6,9 @@ public class Loading_ : MonoBehaviour {
 	//public tk2dCamera cam;
 	Curtain_ curtain;
 	LoadingAni_ ani;
+	//Animation_.CallBackPtr endAniCallBackPtr = null;
 	//public bool isTest = false;
-	float testTime = 0;
+	//float testTime = 0;
 	
 	//public tk2dCamera SetCam{
 	//	set{
@@ -23,11 +24,11 @@ public class Loading_ : MonoBehaviour {
 	
 	//tk2dCamera cam
 	public void Initalize(tk2dCamera cam){
+		enabled = true;
 		curtain = transform.GetChild(0).GetComponent<Curtain_>();
 		ani = transform.GetChild(1).GetComponent<LoadingAni_>();
-		curtain.Initialize(cam.nativeResolutionWidth, cam.nativeResolutionHeight, cam.CameraSettings.orthographicPixelsPerMeter / 20);
+		curtain.Initialize(cam.nativeResolutionWidth, cam.nativeResolutionHeight, cam.CameraSettings.orthographicPixelsPerMeter);
 		ani.Initialize(cam.nativeResolutionWidth, cam.nativeResolutionHeight, cam.CameraSettings.orthographicPixelsPerMeter);
-		enabled = true;
 	}
 	
 	public void Update(){
@@ -47,9 +48,16 @@ public class Loading_ : MonoBehaviour {
 		ani.BeginLoadingAni();
 	}
 	
-	public void EndLoading(){
+	public void EndLoading(Animation_.CallBackPtr callbackPtr = null){
 		curtain.FadeOut();
-		ani.EndLoadingAni();
+		if(callbackPtr != null)
+			ani.EndLoadingAni(callbackPtr);
+		else
+			ani.EndLoadingAni();
+	}
+	
+	public bool IsEndBeginAni(){
+		return ani.IsEndBenginAni();
 	}
 	
 	public void DestroyItself(){

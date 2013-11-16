@@ -9,8 +9,8 @@ public class CreateAccountCode_ : MonoBehaviour{
 	public tk2dUIItem autoBtr;
 	
 	public WWW_ www;
-	public MessageBox_ prefabsMsgBox;
-	MessageBox_ msgBox;
+	//public MessageBox_ prefabsMsgBox;
+	//MessageBox_ msgBox;
 	
     void OnEnable() {
         acceptBtr.OnClick += CreateAccount;
@@ -46,10 +46,10 @@ public class CreateAccountCode_ : MonoBehaviour{
 	}
 	
 	public void CreateAccountMessageBox(string msg){
-		msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
-		if(msg == WWWMessage_.OK)
-			msgBox.Initalize(this, "Account Created");
-		else
-			msgBox.Initalize(this, WWWMessage_.FAIL_ID_DUP);
+	//	msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
+	//	if(msg == WWWMessage_.OK)
+	//		msgBox.Initalize(this, "Account Created");
+	//	else
+	//		msgBox.Initalize(this, WWWMessage_.FAIL_ID_DUP);
 	}
 }

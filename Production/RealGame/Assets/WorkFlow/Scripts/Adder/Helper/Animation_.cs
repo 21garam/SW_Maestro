@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Animation_ {
 	public delegate void CallBackPtr();
-	public static IEnumerator LerpColorAToB(tk2dSprite sprite, float time, Color targetColor){
+	public static IEnumerator LerpColorAToB(tk2dSprite sprite, float time, Color targetColor, CallBackPtr callbackPtr = null){
 		Color orinColor = sprite.color;
 		for(float t = 0; t < time; t += tk2dUITime.deltaTime){
 			float nt = Mathf.Clamp01( t / time );
@@ -12,6 +12,8 @@ public class Animation_ {
 			yield return 0;
 		}
 		sprite.color = targetColor;
+		if(callbackPtr != null)
+			callbackPtr();
 	}
 	
 	public static IEnumerator ScaleAToB(Transform trans, float time, Vector3 targetScale){
@@ -58,5 +60,20 @@ public class Animation_ {
         }
 		trans.localPosition = targetPos;
 		callbackPtr();
+	}
+	
+	public static IEnumerator ColorAToB(Material m_material, float time, Color targetColor){
+		Color orinColor = m_material.GetColor("_Color");
+		//Vector3 orinScale = trans.localScale;
+		for(float t = 0; t < time; t += tk2dUITime.deltaTime){
+            float nt = Mathf.Clamp01( t / time );
+			nt = Mathf.Sin(nt * Mathf.PI * 0.5f);
+			Color color = Color.Lerp(orinColor, targetColor, nt);
+			m_material.SetColor("_Color", color);
+			//trans.localScale = Vector3.Lerp(orinScale, targetScale, nt);
+            yield return 0;
+        }
+		m_material.SetColor("_Color", targetColor);
+		//trans.localScale = targetScale;
 	}
 }

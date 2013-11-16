@@ -25,8 +25,8 @@ public tk2dUITextInput ID_TextInput;
 	tk2dUIToggleControl[] finSetCheckBoxList;
 	public List<int> finKeyList = new List<int>();
 	
-	public MessageBox_ prefabsMsgBox;
-	MessageBox_ msgBox;
+	//public MessageBox_ prefabsMsgBox;
+	//MessageBox_ msgBox;
 	
 	void Start(){
 		bodySetCheckBoxList = bodySet.transform.GetComponentsInChildren<tk2dUIToggleControl>();
@@ -190,7 +190,7 @@ public tk2dUITextInput ID_TextInput;
 	}
 	
 	private void MessageBox(string msg){
-		msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
-		msgBox.Initalize(this, msg);
+		//msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
+		//msgBox.Initalize(this, msg);
 	}
 }

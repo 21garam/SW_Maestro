@@ -41,8 +41,8 @@ public class UpdateAccountCode_ : MonoBehaviour {
 	public tk2dUIItem searchBtr;
 	
 	public WWW_ www;
-	public MessageBox_ prefabsMsgBox;
-	MessageBox_ msgBox;
+	//public MessageBox_ prefabsMsgBox;
+	//MessageBox_ msgBox;
 	
     void OnEnable() {
         acceptBtr.OnClick += UpdateAccount;
@@ -161,7 +161,7 @@ public class UpdateAccountCode_ : MonoBehaviour {
 	}
 	
 	private void MessageBox(string msg){
-		msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
-		msgBox.Initalize(this, msg);
+		//msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
+		//msgBox.Initalize(this, msg);
 	}
 }

@@ -2,18 +2,28 @@
 using System.Collections;
 
 public class WaitBackground_ : MonoBehaviour {
-	public tk2dCamera cam;
 	public float m_velocity = 0.5f;
+	public tk2dCamera cam;
 	Material m_material;
 	
 	void Start () {
-		Initialize(cam.nativeResolutionWidth, cam.nativeResolutionHeight, cam.CameraSettings.orthographicPixelsPerMeter);
+		enabled = false;
 	}
 	
-	public void Initialize(float nativeResolutionX, float nativeResolutionY , float ratio){
-		float lenthUnit = 1 / ratio;
-		transform.localScale = new Vector3(lenthUnit * nativeResolutionX, lenthUnit * nativeResolutionY, 1);
+	public void Initialize(){
+		if(cam == null){
+			Debug.Log("cam is null");
+			return;
+		}
 		
+		float nativeResolutionX = cam.nativeResolutionWidth; 
+		float nativeResolutionY = cam.nativeResolutionHeight; 
+		float ratio = cam.CameraSettings.orthographicPixelsPerMeter;
+		
+		enabled = true;
+		float lenthUnit = 1 / ratio;
+		transform.localScale = new Vector3(lenthUnit * nativeResolutionX, 
+			lenthUnit * nativeResolutionY, 1);
 		m_material = gameObject.renderer.material;
 	}
 	

@@ -10,9 +10,18 @@ public class Curtain_ : MonoBehaviour {
 	}
 	
 	public void Initialize(float screenWidth, float screenHeight, float ratio){
+		//float nativeResolutionX = cam.nativeResolutionWidth; 
+		//float nativeResolutionY = cam.nativeResolutionHeight; 
+		//float ratio = cam.CameraSettings.orthographicPixelsPerMeter;
+		
+		//enabled = true;
+		float lenthUnit = 1 / ratio;
+		//transform.localScale = new Vector3(lenthUnit * nativeResolutionX, 
+		//	lenthUnit * nativeResolutionY, 1);
 		//screenSize = new Vector2(screenWidth, screenHeight);
 		white = transform.GetComponent<tk2dSprite>();
-		white.scale = new Vector3((screenWidth / 2) / ratio, (screenHeight / 2) / ratio, 1);
+		white.scale = new Vector3(lenthUnit * screenWidth / white.GetBounds().size.x, 
+			lenthUnit * screenHeight / white.GetBounds().size.y, 1);
 	}
 	
 	public void FadeOut(){

@@ -51,8 +51,9 @@ public class Equipment_ {
 	
 	static private void Initialize_TAG_TO_ID(){
 		//TAG_TO_ID.Add("Default", 0);
-		TAG_TO_ID.Add("Toy", 1);
-		TAG_TO_ID.Add("SuperMario", 2);
+		TAG_TO_ID.Add("cat", 1);
+		TAG_TO_ID.Add("round", 2);
+		TAG_TO_ID.Add("sharp", 3);
 		//TAG_TO_ID.Add("Robot", 3);
 	}
 

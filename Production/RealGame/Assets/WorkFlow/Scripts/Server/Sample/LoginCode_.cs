@@ -8,8 +8,8 @@ public class LoginCode_ : MonoBehaviour {
 	public tk2dUIItem acceptBtr; 
 	
 	public WWW_ www;
-	public MessageBox_ prefabsMsgBox;
-	MessageBox_ msgBox;
+	//public MessageBox_ prefabsMsgBox;
+	//MessageBox_ msgBox;
 	
 	void OnEnable() {
         acceptBtr.OnClick += Login;
@@ -33,14 +33,14 @@ public class LoginCode_ : MonoBehaviour {
 	}
 	
 	public void LoginMessageBox(string msg){
-		msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
-		if(msg == WWWMessage_.OK)
-			msgBox.Initalize(this, "Login Succeed");
-		else{
-			if(msg == WWWMessage_.FAIL_ID_NONE)
-				msgBox.Initalize(this, WWWMessage_.FAIL_ID_NONE);
-			else if(msg == WWWMessage_.FAIL_PS_WRONG)
-				msgBox.Initalize(this, WWWMessage_.FAIL_PS_WRONG);
-		}
+		//msgBox = GameObject.Instantiate(prefabsMsgBox) as MessageBox_; 
+		//if(msg == WWWMessage_.OK)
+		//	msgBox.Initalize(this, "Login Succeed");
+		//else{
+		//	if(msg == WWWMessage_.FAIL_ID_NONE)
+		//		msgBox.Initalize(this, WWWMessage_.FAIL_ID_NONE);
+		//	else if(msg == WWWMessage_.FAIL_PS_WRONG)
+		//		msgBox.Initalize(this, WWWMessage_.FAIL_PS_WRONG);
+		//}
 	}
 }
