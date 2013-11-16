@@ -69,15 +69,15 @@ public class Obstacle : MonoBehaviour {
 		
 		switch(kind){
 			case "KIND1":
-				transform.localPosition += new Vector3(sprite.Width() / 2, sprite.Height() / 2, -1.0f);
+				transform.localPosition += new Vector3(sprite.Width() / 2, sprite.Height() / 2 - Random.Range(0, sprite.Height()/10), -1.0f);
 			break;
 			
 			case "STALACTITE":
-				transform.localPosition += new Vector3(sprite.Width() / 2, -sprite.Height(), -1.0f);
+				transform.localPosition += new Vector3(sprite.Width() / 2, -sprite.Height() + Random.Range(0, sprite.Height()/10), -1.0f);
 			break;
 			
 			case "STALAGMITE":
-				transform.localPosition += new Vector3(sprite.Width() / 2, sprite.Height() / 2, -1.0f);
+				transform.localPosition += new Vector3(sprite.Width() / 2, sprite.Height() / 2 - Random.Range(0, sprite.Height()/10), -1.0f);
 			break;
 		}
 		

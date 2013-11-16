@@ -20,7 +20,7 @@ public class FeedFish : MonoBehaviour
 			time = 0;
 			strPos = new Vector2(me.gameObject.transform.localPosition.x,
 								me.gameObject.transform.localPosition.y);
-			signSize = new Vector2(100, 25);
+			signSize = new Vector2(100, 50);
 		}
 		
 		public void Update()
@@ -46,7 +46,7 @@ public class FeedFish : MonoBehaviour
 			time = 0;
 			strPos = new Vector2(me.gameObject.transform.localPosition.x,
 								me.gameObject.transform.localPosition.y);
-			signSize = new Vector2(100, 25);
+			signSize = new Vector2(100, 50);
 		}
 		
 		public void Update()
@@ -60,7 +60,7 @@ public class FeedFish : MonoBehaviour
 	{
 		FeedFish me;
 		Vector2 strPos;
-		Vector2 signSize;
+		Vector2 cosSize;
 		float time;
 		
 		public FeedSmall(FeedFish _me)
@@ -72,13 +72,13 @@ public class FeedFish : MonoBehaviour
 			time = 0;
 			strPos = new Vector2(me.gameObject.transform.localPosition.x,
 								me.gameObject.transform.localPosition.y);
-			signSize = new Vector2(100, 25);
+			cosSize = new Vector2(100, 50);
 		}
 		
 		public void Update()
 		{
 			time += Time.deltaTime;
-			Strategy_.GoCosinePatternEx(me.gameObject, signSize, strPos, me.velocity.x, time, 1.5f);
+			Strategy_.GoCosinePatternEx(me.gameObject, cosSize, strPos, me.velocity.x, time, 2.0f);
 		}
 	}
 	
@@ -122,6 +122,58 @@ public class FeedFish : MonoBehaviour
 				break;
 			}
 			
+		}
+	}
+	
+	class FeedBigSine : Action_
+	{
+		FeedFish me;
+		Vector2 strPos;
+		Vector2 sineSize;
+		float time;
+		
+		public FeedBigSine(FeedFish _me)
+		{
+			me = _me;
+			me.sizeOfFish = 0.5f;
+			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
+			
+			time = 0;
+			strPos = new Vector2(me.gameObject.transform.localPosition.x,
+								me.gameObject.transform.localPosition.y);
+			sineSize = new Vector2(100, 200);
+		}
+		
+		public void Update()
+		{
+			time += Time.deltaTime;
+			Strategy_.GoSinePatternEx(me.gameObject, sineSize, strPos, me.velocity.x, time, 0.8f);
+		}
+	}
+	
+	class FeedBigCosine : Action_
+	{
+		FeedFish me;
+		Vector2 strPos;
+		Vector2 cosSize;
+		float time;
+		
+		public FeedBigCosine(FeedFish _me)
+		{
+			me = _me;
+			me.sizeOfFish = 0.5f;
+			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
+			
+			time = 2.8f;
+			strPos = new Vector2(me.gameObject.transform.localPosition.x,
+								me.gameObject.transform.localPosition.y);
+			cosSize = new Vector2(100, 200);
+		}
+		
+		public void Update()
+		{
+			time += Time.deltaTime;
+			Strategy_.GoCosinePatternEx(me.gameObject, cosSize, strPos, me.velocity.x, time, 0.8f);
 		}
 	}
 	
@@ -205,6 +257,14 @@ public class FeedFish : MonoBehaviour
 			
 			case "FEED_RANDOM":
 				action = new FeedRandom(this);
+			break;
+				
+			case "FEED_BIGSINE":
+				action = new FeedBigSine(this);
+			break;
+			
+			case "FEED_BIGCOSINE":
+				action = new FeedBigCosine(this);
 			break;
 		}
 	}
