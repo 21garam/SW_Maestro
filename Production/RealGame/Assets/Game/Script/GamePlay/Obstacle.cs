@@ -44,17 +44,10 @@ public class Obstacle : MonoBehaviour {
 				velocity = new Vector3(0, 0, 0);
 				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
 				sprite.transform.parent = transform;
-				sprite.Initialize("Obstacle_00");
+				sprite.Initialize("Obstacle_01");
 			break;
 			
 			case "STALACTITE":
-				velocity = new Vector3(0, 0, 0);
-				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
-				sprite.transform.parent = transform;
-				sprite.Initialize("Obstacle_01");
-			break;
-				
-			case "STALAGMITE":
 				velocity = new Vector3(0, 0, 0);
 				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
 				sprite.transform.parent = transform;
@@ -69,15 +62,11 @@ public class Obstacle : MonoBehaviour {
 		
 		switch(kind){
 			case "KIND1":
-				transform.localPosition += new Vector3(sprite.Width() / 2, sprite.Height() / 2 - Random.Range(0, sprite.Height()/10), -1.0f);
+				transform.localPosition += new Vector3(sprite.Width() / 2, sprite.Height() / 2 - Random.Range(2, 7) * sprite.Height()/50, -1.0f);
 			break;
 			
 			case "STALACTITE":
-				transform.localPosition += new Vector3(sprite.Width() / 2, -sprite.Height() + Random.Range(0, sprite.Height()/10), -1.0f);
-			break;
-			
-			case "STALAGMITE":
-				transform.localPosition += new Vector3(sprite.Width() / 2, sprite.Height() / 2 - Random.Range(0, sprite.Height()/10), -1.0f);
+				transform.localPosition += new Vector3(sprite.Width() / 2, -sprite.Height() + Random.Range(1, 5) * sprite.Height()/50, -1.0f);
 			break;
 		}
 		
@@ -88,16 +77,11 @@ public class Obstacle : MonoBehaviour {
 		tk2dSprite col;
 		switch(kind){
 			case "KIND1":
-				col = factory.MakeCollider(0);
-				col.transform.parent = transform;
-			break;
-			
-			case "STALACTITE":
 				col = factory.MakeCollider(1);
 				col.transform.parent = transform;
 			break;
 			
-			case "STALAGMITE":
+			case "STALACTITE":
 				col = factory.MakeCollider(2);
 				col.transform.parent = transform;
 			break;
@@ -111,10 +95,6 @@ public class Obstacle : MonoBehaviour {
 			break;
 			
 			case "STALACTITE":
-				action = new Kind1_Action_(this);
-			break;
-			
-			case "STALAGMITE":
 				action = new Kind1_Action_(this);
 			break;
 		}

@@ -183,7 +183,7 @@ public class PlayerFish : MonoBehaviour
 		if(curHitPoint <= 0 && bFeverTime == false)
 		{
 			SharedDataInstance.score = ScoreScript.Score;
-			Application.LoadLevel("Loading_Scene");
+			Application.LoadLevel("Result_Scene");
 		}
 		
 		remainInvincibleTime -= Time.deltaTime;

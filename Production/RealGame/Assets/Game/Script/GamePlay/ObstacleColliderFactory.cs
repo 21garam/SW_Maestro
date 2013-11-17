@@ -5,6 +5,7 @@ public class ObstacleColliderFactory : MonoBehaviour {
 	public tk2dSprite obstacle00Prefabs;
 	public tk2dSprite obstacle01Prefabs;
 	public tk2dSprite obstacle02Prefabs;
+	public tk2dSprite obstacle03Prefabs;
 	
 	public tk2dSprite MakeCollider(int number){
 		tk2dSprite retSprite = null;
@@ -17,6 +18,9 @@ public class ObstacleColliderFactory : MonoBehaviour {
 			break;
 			case 2:
 				retSprite = GameObject.Instantiate(obstacle02Prefabs) as tk2dSprite;
+			break;
+			case 3:
+				retSprite = GameObject.Instantiate(obstacle03Prefabs) as tk2dSprite;
 			break;
 		}
 		return retSprite;
