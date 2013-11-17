@@ -13,7 +13,7 @@ public class Score : MonoBehaviour {
 		score.text = score_int.ToString();
 		if(GUI_Setting_.PLAYER_ID != ""){
 			//Debug.Log("ID : " + GUI_Setting_.PLAYER_ID);
-			www.UpdateAccount(GUI_Setting_.PLAYER_ID, WWW_.INTEGER_NULL, score_int);
+//			www.UpdateAccount(GUI_Setting_.PLAYER_ID, WWW_.INTEGER_NULL, score_int);
 		}
 	}
 }
