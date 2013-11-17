@@ -29,7 +29,7 @@ public class PlayerFish : MonoBehaviour
 	public float feverAcc;
 	private bool bFeverTime = false;
 	private float currentFeverTime = 0.0f;
-	private int feverCount = 0;
+	public int feverCount = 0;
 	private FeverGauge feverInstance;
 	
 	private bool isInvincible;

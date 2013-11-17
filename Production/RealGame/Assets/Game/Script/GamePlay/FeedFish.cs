@@ -14,7 +14,7 @@ public class FeedFish : MonoBehaviour
 		public Type1(FeedFish _me)
 		{
 			me = _me;
-			me.sizeOfFish = 0.5f;
+			me.sizeOfFish = 1.0f;
 			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
 			
 			time = 0;
@@ -40,7 +40,7 @@ public class FeedFish : MonoBehaviour
 		public Type2(FeedFish _me)
 		{
 			me = _me;
-			me.sizeOfFish = 0.45f;
+			me.sizeOfFish = 0.85f;
 			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
 			
 			time = 0;
@@ -66,7 +66,7 @@ public class FeedFish : MonoBehaviour
 		public FeedSmall(FeedFish _me)
 		{
 			me = _me;
-			me.sizeOfFish = 0.4f;
+			me.sizeOfFish = 0.7f;
 			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
 			
 			time = 0;
@@ -94,7 +94,7 @@ public class FeedFish : MonoBehaviour
 		public FeedRandom(FeedFish _me)
 		{
 			me = _me;
-			me.sizeOfFish = 0.4f + Random.Range(0, 2) * 0.05f;
+			me.sizeOfFish = 0.7f + Random.Range(0, 6) * 0.05f;
 			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);			
 			
 			type = Random.Range(0, 2);
@@ -135,7 +135,7 @@ public class FeedFish : MonoBehaviour
 		public FeedBigSine(FeedFish _me)
 		{
 			me = _me;
-			me.sizeOfFish = 0.5f;
+			me.sizeOfFish = 1.0f;
 			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
 			
 			time = 0;
@@ -161,7 +161,7 @@ public class FeedFish : MonoBehaviour
 		public FeedBigCosine(FeedFish _me)
 		{
 			me = _me;
-			me.sizeOfFish = 0.5f;
+			me.sizeOfFish = 1.0f;
 			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
 			
 			time = 2.8f;
@@ -188,7 +188,7 @@ public class FeedFish : MonoBehaviour
 		public FeedBigSineEx(FeedFish _me)
 		{
 			me = _me;
-			me.sizeOfFish = 0.5f;
+			me.sizeOfFish = 1.0f;
 			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
 			
 			correction += 0.2f;
@@ -217,7 +217,7 @@ public class FeedFish : MonoBehaviour
 		public FeedBigCosineEx(FeedFish _me)
 		{
 			me = _me;
-			me.sizeOfFish = 0.5f;
+			me.sizeOfFish = 1.0f;
 			me.transform.localScale = new Vector3(me.sizeOfFish, me.sizeOfFish, 1.0f);
 			
 			correction += 0.2f;
@@ -275,10 +275,7 @@ public class FeedFish : MonoBehaviour
 		{
 			isGoldFish = true;
 			sprite.Initialize("FeedFish_Gold");
-		}
-		
-		col = transform.collider as CapsuleCollider;
-		col.radius = sprite.Width() / 5;
+		}		
 		
 		switch(kind)
 		{	
@@ -332,6 +329,11 @@ public class FeedFish : MonoBehaviour
 				action = new FeedBigCosineEx(this);
 			break;
 		}
+		
+		col = transform.collider as CapsuleCollider;
+		col.radius = 16.0f * sizeOfFish;
+		col.height = 100.0f * sizeOfFish;
+		col.direction = 0;
 	}
 	
 	public void DestroyCheck()
