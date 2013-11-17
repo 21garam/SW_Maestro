@@ -149,6 +149,7 @@
      <Compile Include="Assets\WorkFlow\Scripts\Adder\Loading_.cs" />
      <Compile Include="Assets\WorkFlow\Scripts\Adder\MessageBox\MessageBox_.cs" />
      <Compile Include="Assets\WorkFlow\Scripts\Adder\OnStart_.cs" />
+     <Compile Include="Assets\WorkFlow\Scripts\Adder\Score.cs" />
      <Compile Include="Assets\WorkFlow\Scripts\Adder\Setting_.cs" />
      <Compile Include="Assets\WorkFlow\Scripts\Adder\Transformer_.cs" />
      <Compile Include="Assets\WorkFlow\Scripts\Adder\Window\SignUpWindow_.cs" />
