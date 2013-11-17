@@ -1,16 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Script\GamePlay\PlayerFish.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Script\GamePlay\EnemyFish_.cs">
     <Files>
-      <File FileName="Assets\Game\Script\GamePlay\FeedFish.cs" Line="1" Column="1" />
-      <File FileName="Assets\Game\Script\GamePlay\GameManager_.cs" Line="1" Column="1" />
+      <File FileName="Assets\Game\Script\GamePlay\GameManager_.cs" Line="72" Column="1" />
       <File FileName="Assets\WorkFlow\Scripts\Server\Sample\RankingListCode_.cs" Line="1" Column="1" />
       <File FileName="Assets\TK2DROOT\tk2d\Code\Sprites\tk2dBaseSprite.cs" Line="1" Column="1" />
-      <File FileName="Assets\WorkFlow\Scripts\Adder\Background\LogoBackground_.cs" Line="1" Column="1" />
       <File FileName="Assets\WorkFlow\Scripts\Adder\OnStart_.cs" Line="1" Column="1" />
       <File FileName="Assets\Game\Script\GamePlay\PlayerFish.cs" Line="1" Column="1" />
       <File FileName="Assets\Game\Script\GamePlay\SingleSprite_.cs" Line="10" Column="2" />
       <File FileName="Assets\WorkFlow\Scripts\Adder\AniSprite_.cs" Line="1" Column="1" />
+      <File FileName="Assets\WorkFlow\Scripts\Adder\Helper\Animation_.cs" Line="28" Column="3" />
+      <File FileName="Assets\WorkFlow\Scripts\Server\WWW_.cs" Line="30" Column="54" />
+      <File FileName="Assets\Game\Script\GamePlay\FeedFish.cs" Line="260" Column="76" />
+      <File FileName="Assets\Game\Script\GamePlay\EnemyFish_.cs" Line="55" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

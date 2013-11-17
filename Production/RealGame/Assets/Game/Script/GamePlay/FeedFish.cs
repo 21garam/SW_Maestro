@@ -234,8 +234,9 @@ public class FeedFish : MonoBehaviour
 		}
 	}
 	
-	public SingleSprite_ spritePrefabs;
-	SingleSprite_ sprite;
+	//public SingleSprite_ spritePrefabs;
+	//SingleSprite_ sprite
+	public tk2dSprite sprite;
 	Vector3 velocity;
 	Action_ action;
 	CapsuleCollider col;
@@ -255,7 +256,8 @@ public class FeedFish : MonoBehaviour
 		SubInitializeAboutProperties(kind);
 		transform.parent = parent;
 		transform.localPosition = pos;
-		transform.localPosition += new Vector3(sprite.Width() / 2, 0, -0.1f);
+		
+		transform.localPosition += new Vector3(sprite.GetUntrimmedBounds().size.x / 2, 0, -0.1f);
 		
 		SubInitializeAboutAction(kind);
 	}
@@ -263,18 +265,18 @@ public class FeedFish : MonoBehaviour
 	private void SubInitializeAboutProperties(string kind)
 	{
 		velocity = new Vector3(-200.0f, 0, 0);
-		sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
+		//sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
 		sprite.transform.parent = transform;
 		
 		if(Random.Range(0, 100) > goldFishRatio)
 		{
 			isGoldFish = false;
-			sprite.Initialize("FeedFish_0");
+			//sprite.Initialize("FeedFish_0");
 		}
 		else
 		{
 			isGoldFish = true;
-			sprite.Initialize("FeedFish_Gold");
+			//sprite.Initialize("FeedFish_Gold");
 		}		
 		
 		switch(kind)
@@ -295,6 +297,7 @@ public class FeedFish : MonoBehaviour
 	
 	private void SubInitializeAboutAction(string type)
 	{
+		Debug.Log(type);
 		switch(type)
 		{	
 			case "KIND1":
@@ -339,7 +342,7 @@ public class FeedFish : MonoBehaviour
 	public void DestroyCheck()
 	{
 		Vector3 worldPos = transform.TransformPoint(transform.position);
-		if(worldPos.x < -sprite.Width())
+		if(worldPos.x < -sprite.GetUntrimmedBounds().size.x)
 		{
 			DestroyItself();
 		}

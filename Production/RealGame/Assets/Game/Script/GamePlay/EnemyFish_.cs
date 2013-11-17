@@ -32,8 +32,8 @@ public class EnemyFish_ : MonoBehaviour {
 		}
 	}
 	
-	public SingleSprite_ spritePrefabs;
-	SingleSprite_ sprite;
+	//public SingleSprite_ spritePrefabs;
+	public tk2dSprite sprite;
 	Vector3 velocity;
 	Action_ action;
 	SphereCollider col;
@@ -50,7 +50,7 @@ public class EnemyFish_ : MonoBehaviour {
 		SubInitializeAboutProperties(kind);
 		transform.parent = parent;
 		transform.localPosition = pos;
-		transform.localPosition += new Vector3(sprite.Width() / 2, 0, -0.1f);
+		transform.localPosition += new Vector3(sprite.GetUntrimmedBounds().size.x / 2, 0, -0.1f);
 		SubInitializeAboutAction(kind);
 	}
 	
@@ -58,20 +58,20 @@ public class EnemyFish_ : MonoBehaviour {
 		switch(kind){	
 			case "KIND1":
 				velocity = new Vector3(-200.0f, 0, 0);
-				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
+				//sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
 				sprite.transform.parent = transform;
-				sprite.Initialize("EnemyFish");
+				//sprite.Initialize("EnemyFish");
 				col = transform.collider as SphereCollider;
-				col.radius = sprite.Width() / 2;
+				col.radius = sprite.GetUntrimmedBounds().size.x / 2;
 			break;
 				
 			case "KIND2":
 				velocity = new Vector3(-150.0f, 0, 0);
-				sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
+				//sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
 				sprite.transform.parent = transform;
-				sprite.Initialize("EnemyFish");
+				//sprite.Initialize("EnemyFish");
 				col = transform.collider as SphereCollider;
-				col.radius = sprite.Width() / 2;
+				col.radius = sprite.GetUntrimmedBounds().size.x / 2;
 			break;
 		}
 	}
@@ -90,7 +90,7 @@ public class EnemyFish_ : MonoBehaviour {
 	
 	public void DestroyCheck(){
 		Vector3 worldPos = transform.TransformPoint(transform.position);
-		if(worldPos.x < -sprite.Width()){
+		if(worldPos.x < -sprite.GetUntrimmedBounds().size.x){
 			DestroyItself();
 		}
 	}

@@ -147,9 +147,9 @@ public class Pattern_{
 		m_eventSet = new List<EventSet_>();
 		
 		m_eventSet.Add(new EventSet_());
-		m_eventSet[0].AddEvent(2.0f, "SpawnFeedFish", "0.70 3 0.3 FEED_RANDOM");
-		m_eventSet[0].AddEvent(3.5f, "SpawnFeedFish", "0.40 3 0.3 FEED_RANDOM");
-		m_eventSet[0].AddEvent(5.0f, "SpawnFeedFish", "0.30 3 0.3 FEED_RANDOM");
+		m_eventSet[0].AddEvent(2.0f, "SpawnFeedFish", "0.40 3 0.3 FEED_SMALL");
+		m_eventSet[0].AddEvent(3.5f, "SpawnFeedFish", "0.70 3 0.3 FEED_SMALL");
+		m_eventSet[0].AddEvent(5.0f, "SpawnFeedFish", "0.30 3 0.3 FEED_SMALL");
 		m_eventSet[0].AddEvent(6.0f, "EndOfChunk", "EndOfChunk");
 		
 		

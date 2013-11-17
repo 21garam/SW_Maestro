@@ -16,7 +16,7 @@ public class WWW_ : MonoBehaviour {
 	private string URL = "http://americanoninja86.appspot.com";
 	//private string URL = "http://localhost:8080/"; 
 	
-	public void Login(string id, string password, CallBackPtr func = null){
+	public void Login(string id, string password, CallBackPtr func){
 		WWWForm form = new WWWForm();
 		form.AddField("action", "login");
 		form.AddField("id",id);
@@ -32,7 +32,7 @@ public class WWW_ : MonoBehaviour {
 			form.AddField(key, 0);
 	}
 	
-	private void FormAddHelperToString(WWWForm form, string key, string val){
+	private void FormAddHelperToString(WWWForm form, string key, string val = null){
 		if(val != null)
 			form.AddField(key, val);
 		else
