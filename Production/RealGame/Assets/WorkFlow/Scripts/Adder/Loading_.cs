@@ -15,15 +15,18 @@ public class Loading_ : MonoBehaviour {
 	//		cam = value;
 	//	}
 	//}
+	bool isInit = false;
 	
 	void Start () {
-		enabled = false;
+		if(!isInit)
+			enabled = false;
 		//Initalize();
 		//BeginLoading();
 	}
 	
 	//tk2dCamera cam
 	public void Initalize(tk2dCamera cam){
+		isInit = true;
 		enabled = true;
 		curtain = transform.GetChild(0).GetComponent<Curtain_>();
 		ani = transform.GetChild(1).GetComponent<LoadingAni_>();
@@ -39,6 +42,8 @@ public class Loading_ : MonoBehaviour {
 		//		isTest = false;
 		//	}
 		//}
+		//Debug.Log(ani.IsEndLoading);
+		
 		if(ani.IsEndLoading)
 			DestroyItself();
 	}

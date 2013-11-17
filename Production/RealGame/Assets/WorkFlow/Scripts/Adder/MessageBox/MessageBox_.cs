@@ -9,7 +9,7 @@ public class MessageBox_ : MonoBehaviour {
 	
 	public void Initalize(MonoBehaviour parent, string text, Animation_.CallBackPtr callback = null){
 		transform.position = parent.transform.position;
-		transform.position -= Vector3.forward * 2;
+		transform.position -= Vector3.forward * 6;
 		this.parent = parent;
 		Helper__.SetLayer(parent.gameObject, "DisalbedUI");
 		message.text = text;

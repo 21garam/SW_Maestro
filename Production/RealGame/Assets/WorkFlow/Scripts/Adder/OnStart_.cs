@@ -28,12 +28,11 @@ public class OnStart_ : MonoBehaviour {
 	
 	void PreInitialze(){
 		waitBackground.Initialize();
-		//titleBackgournd.Initialize();
 	}
 	
 	void Initialize(){
 		firstWindow = GetComponent<Transformer_>();
-		//titleBackgournd.Initialize();
+		
 		BeginLaoding();
 		
 		string retStr = FileIO_.ReadStringFromFile(Setting_.settingFileName);
@@ -43,7 +42,6 @@ public class OnStart_ : MonoBehaviour {
 		if(parseStrList.Count <= 0){
 			FileIO_.WriteStringToFile("null null", Setting_.settingFileName);
 			EndLoading(EndLoadingType.SHOW_SIGN_UP_WINDOW);
-			//ShowSignUpWindow();
 		}
 		else
 			Login();
@@ -133,6 +131,7 @@ public class OnStart_ : MonoBehaviour {
 	}
 	
 	void ShowSignUpWindow(){
+		//Debug.Log("aa");
 		StartCoroutine(Animation_.TransformAToB(signUpWindow.transform, 1, new Vector3(0, 0, 0)));
 	}
 }
