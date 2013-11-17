@@ -1,13 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Script\GamePlay\GameManager_.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Script\GamePlay\PlayerFish.cs">
     <Files>
-      <File FileName="Assets\Game\Script\GamePlay\GameManager_.cs" Line="308" Column="44" />
+      <File FileName="Assets\Game\Script\GamePlay\FeedFish.cs" Line="1" Column="1" />
+      <File FileName="Assets\Game\Script\GamePlay\GameManager_.cs" Line="1" Column="1" />
       <File FileName="Assets\WorkFlow\Scripts\Server\Sample\RankingListCode_.cs" Line="1" Column="1" />
       <File FileName="Assets\TK2DROOT\tk2d\Code\Sprites\tk2dBaseSprite.cs" Line="1" Column="1" />
       <File FileName="Assets\WorkFlow\Scripts\Adder\Background\LogoBackground_.cs" Line="1" Column="1" />
-      <File FileName="Assets\WorkFlow\Scripts\Adder\OnStart_.cs" Line="38" Column="3" />
-      <File FileName="Assets\Game\Script\GamePlay\PlayerFish.cs" Line="32" Column="8" />
+      <File FileName="Assets\WorkFlow\Scripts\Adder\OnStart_.cs" Line="1" Column="1" />
+      <File FileName="Assets\Game\Script\GamePlay\PlayerFish.cs" Line="1" Column="1" />
+      <File FileName="Assets\Game\Script\GamePlay\SingleSprite_.cs" Line="10" Column="2" />
+      <File FileName="Assets\WorkFlow\Scripts\Adder\AniSprite_.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

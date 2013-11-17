@@ -269,7 +269,7 @@ public class FeedFish : MonoBehaviour
 		if(Random.Range(0, 100) > goldFishRatio)
 		{
 			isGoldFish = false;
-			sprite.Initialize("FeedFish");
+			sprite.Initialize("FeedFish_0");
 		}
 		else
 		{
