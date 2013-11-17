@@ -7,7 +7,7 @@ public class WaitBackground_ : MonoBehaviour {
 	Material m_material;
 	
 	void Start () {
-		enabled = false;
+		enabled = true;
 	}
 	
 	public void Initialize(){
