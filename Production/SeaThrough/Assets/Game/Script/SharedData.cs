@@ -9,6 +9,15 @@ public class SharedData {//: MonoBehaviour {
 	public static int finId;
 	public static int score;
 	
+	public static readonly int DEFAULT_HP = 100;
+	public static readonly int MAX_HP = 1000;
+	
+	public static readonly int DEFAULT_SCORE = 100;
+	public static readonly int MAX_SCORE = 1000;
+	
+	public static readonly int DEFAULT_FEVER = 100;
+	public static readonly int MAX_FEVER = 1000;
+	
 	static SharedData(){
 	}
 	

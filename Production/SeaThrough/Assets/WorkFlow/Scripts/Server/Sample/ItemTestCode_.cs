@@ -13,10 +13,16 @@ public class ItemTestCode_ : MonoBehaviour {
 	public static int mouthID = 0;
 	public static int finID = 0 ;
 	
+	public tk2dUIProgressBar hp;
+	public tk2dUIProgressBar score;
+	public tk2dUIProgressBar fever;
+	
 	bool a = true;
 	
 	//public MessageBox_ prefabsMsgBox;
 	//MessageBox_ msgBox;
+	
+	public tk2dUIItem backBtr;
 	
 	//Item Button
 	public tk2dUIItem C_1_1;
@@ -42,6 +48,8 @@ public class ItemTestCode_ : MonoBehaviour {
 	
 	public void Initialize(){
 		Search();
+		SetProgressbar();
+		//hp.Value = XMLParser_.PlayerAccountInfo.hp_lv;
 	}
 	
 	void OnEnable() {
@@ -61,7 +69,17 @@ public class ItemTestCode_ : MonoBehaviour {
 		C_4_2.OnClick += SetC_4_2;
 		C_4_3.OnClick += SetC_4_3;
 		C_4_4.OnClick += SetC_4_4;
+		
+		backBtr.OnClick += Back;
     }
+	
+	void Back(){
+		//backBtr.GetComponent<Transformer_>().BeginTransform();
+		Transformer_ trans = backBtr.GetComponent<Transformer_>();
+		trans.m_target.gameObject.transform.GetChild(0).GetComponent<RankingListCode_>().SetPlayerCostume();
+		trans.BeginTransform();
+		//Debug.Log("aaa");
+	}
 	
 	void OnDisable() {
 		C_1_1.OnClick -= SetC_1_1;
@@ -80,11 +98,14 @@ public class ItemTestCode_ : MonoBehaviour {
 		C_4_2.OnClick -= SetC_4_2;
 		C_4_3.OnClick -= SetC_4_3;
 		C_4_4.OnClick -= SetC_4_4;
+		
+		backBtr.OnClick -= Back;
     }
 	
 	void Accept(){
 		//int equipment = Equipment_.GetEquipmentValueFromID(bodySet, eyeSet, 
 		//	Equipment_.GetMouthValue_FromEquipment(mouthSet),Equipment_.GetFinValue_FromEquipment(finSet));
+		Debug.Log("bodyID : " + bodyID.ToString() + ", eyeID : " + eyeID.ToString() + ", mouthID : " + mouthID.ToString() + ", finID : " + finID.ToString());
 		int equipment = Equipment_.GetEquipmentValueFromID(bodyID, eyeID, mouthID, finID);
 		if(GUI_Setting_.PLAYER_ID != ""){
 			Debug.Log("ID : " + GUI_Setting_.PLAYER_ID);
@@ -92,12 +113,28 @@ public class ItemTestCode_ : MonoBehaviour {
 							  WWW_.INTEGER_NULL, WWW_.INTEGER_NULL, WWW_.INTEGER_NULL, 
 							  equipment);
 		}
-		SetMyEquipmentC(bodyID, eyeID, mouthID, finID);
+		SetMyEquipmentC(equipment);
+		//SetMyEquipmentC(bodyID, eyeID, mouthID, finID);
 		
 		SharedData.bodyId = bodyID;
 		SharedData.eyesId = eyeID;
 		SharedData.mouthId = mouthID;
 		SharedData.finId = finID;
+		
+		SetProgressbar();
+	}
+	
+	void SetProgressbar(){
+		float bodyRate = (float)(SharedData.DEFAULT_HP + (SharedData.MAX_HP - SharedData.DEFAULT_HP) *  (float)(bodyID+1)/4);
+		float scoreRate = (float)(SharedData.DEFAULT_HP + (SharedData.MAX_SCORE - SharedData.DEFAULT_SCORE) *  (float)(mouthID+1)/4);
+		float feverRate = (float)(SharedData.DEFAULT_HP + (SharedData.MAX_FEVER - SharedData.DEFAULT_FEVER) *  (float)(finID+1)/4);
+		bodyRate = bodyRate / SharedData.MAX_HP;
+		hp.Value = bodyRate;
+		scoreRate = scoreRate / SharedData.MAX_SCORE;
+		score.Value = scoreRate;
+		feverRate = feverRate / SharedData.MAX_FEVER;
+		fever.Value = feverRate;
+		//Debug.Log("SetProgressbar : " + bodyRate.ToString());
 	}
 	
 	void Test(string msg){
@@ -109,14 +146,11 @@ public class ItemTestCode_ : MonoBehaviour {
 	}
 	
 	private void Search(){
-		//while(a)
-		//{
-			if(GUI_Setting_.PLAYER_ID != ""){
-				//break;
-			}
-			//Debug.Log("ID : ");
-		//}
-		www.GetPlayerInfo(GUI_Setting_.PLAYER_ID, SetEquipmentInfo);
+		if(GUI_Setting_.PLAYER_ID != ""){
+			www.GetPlayerInfo(GUI_Setting_.PLAYER_ID, SetEquipmentInfo);
+		}else{
+			
+		}
 		//SetMyEquipmentC(bodySet,eyeSet,mouthSet,finSet);
 	}
 	
@@ -124,11 +158,12 @@ public class ItemTestCode_ : MonoBehaviour {
 		if(XMLParser_.PlayerInfoXMLParse(xml)){
 			//Debug.Log(XMLParser_.PlayerAccountInfo.ToString());
 			int equipment = XMLParser_.PlayerAccountInfo.equipment;
-			int body = Equipment_.GetBodyValue_FromEquipment(equipment);
-			int eye = Equipment_.GetEyeValue_FromEquipment(equipment);
-			int mouth = Equipment_.GetMouthValue_FromEquipment(equipment);
-			int fin = Equipment_.GetFinValue_FromEquipment(equipment);//GetFinVale_FromEquipment(equipment);
-			SetMyEquipmentC(body, eye, mouth, fin);
+			//int body = Equipment_.GetBodyValue_FromEquipment(equipment);
+			//int eye = Equipment_.GetEyeValue_FromEquipment(equipment);
+			//int mouth = Equipment_.GetMouthValue_FromEquipment(equipment);
+			//int fin = Equipment_.GetFinValue_FromEquipment(equipment);//GetFinVale_FromEquipment(equipment);
+			//Debug.Log("SetEquipmentInfo : " + equipment.ToString());
+			SetMyEquipmentC(equipment);
 			//bodySet = body;
 			//eyeSet = eye;
 			//mouthSet = mouth;
@@ -137,6 +172,16 @@ public class ItemTestCode_ : MonoBehaviour {
 		else{
 			Debug.Log("ID is not existed");
 		}
+	}
+	
+	void SetMyEquipmentC(int equipment){
+		int body = Equipment_.GetBodyValue_FromEquipment(equipment);
+		int eye = Equipment_.GetEyeValue_FromEquipment(equipment);
+		int mouth = Equipment_.GetMouthValue_FromEquipment(equipment);
+		int fin = Equipment_.GetFinValue_FromEquipment(equipment);//GetFinVale_FromEquipment(equipment);
+		//Debug.Log("BODY : " + body.ToString() + ", EYE : " + eye.ToString() + ", MOUTH : " + mouth.ToString() + ", FIN" + fin.ToString());
+		//Debug.Log("" + Equipment_.GetBodyValue_FromTag("round").ToString());
+		SetMyEquipmentC(body, eye, mouth, fin);
 	}
 	
 	void SetMyEquipmentC(int body, int eye, int mouth, int fin){
@@ -181,88 +226,104 @@ public class ItemTestCode_ : MonoBehaviour {
 	}
 	
 	void SetMyeye(int eye){
-		if(eye == Equipment_.GetBodyValue_FromTag("Defualt")){
+		if(eye == Equipment_.GetEyeValue_FromTag("Defualt")){
 			MyC.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_1");	
 			MyC2.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_1");	
 			MyC3.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_1");	
+			eyeID = 0;
 		}
-		else if(eye == Equipment_.GetBodyValue_FromTag("cat")){
+		else if(eye == Equipment_.GetEyeValue_FromTag("cat")){
 			MyC.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_2");	
 			MyC2.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_2");	
 			MyC3.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_2");	
+			eyeID = 1;
 		}
-		else if(eye == Equipment_.GetBodyValue_FromTag("round")){
+		else if(eye == Equipment_.GetEyeValue_FromTag("round")){
 			MyC.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_3");	
 			MyC2.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_3");	
 			MyC3.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_3");	
+			eyeID = 2;
 		}
-		else if(eye == Equipment_.GetBodyValue_FromTag("sharp")){
+		else if(eye == Equipment_.GetEyeValue_FromTag("sharp")){
 			MyC.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_4");
 			MyC2.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_4");	
 			MyC3.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_4");	
+			eyeID = 3;
 		}
 		else{
 			MyC.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_1");
 			MyC2.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_1");	
 			MyC3.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_1");	
+			eyeID = 0;
 			Debug.Log("eye Value : " + eye.ToString());
 		}
+		Debug.Log("SetMyeye : " + eyeID.ToString());
 	}
 	
 	void SetMymouth(int mouth){
-		if(mouth == Equipment_.GetBodyValue_FromTag("Defualt")){
+		if(mouth == Equipment_.GetMouthValue_FromTag("Defualt")){
 			MyC.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_1");	
 			MyC2.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_1");
 			MyC3.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_1");
+			mouthID = 0;
 		}
-		else if(mouth == Equipment_.GetBodyValue_FromTag("cat")){
+		else if(mouth == Equipment_.GetMouthValue_FromTag("cat")){
 			MyC.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_2");
 			MyC2.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_2");
 			MyC3.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_2");
+			mouthID = 1;
 		}
-		else if(mouth == Equipment_.GetBodyValue_FromTag("round")){
+		else if(mouth == Equipment_.GetMouthValue_FromTag("round")){
 			MyC.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_3");
 			MyC2.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_3");
 			MyC3.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_3");
+			mouthID = 2;
 		}
-		else if(mouth == Equipment_.GetBodyValue_FromTag("sharp")){
+		else if(mouth == Equipment_.GetMouthValue_FromTag("sharp")){
 			MyC.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_4");
 			MyC2.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_4");
 			MyC3.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_4");
+			mouthID = 3;
 		}
 		else{
 			MyC.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_1");
 			MyC2.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_1");
 			MyC3.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_1");
+			mouthID = 0;
 			Debug.Log("mouth Value : " + mouth.ToString());
 		}
 	}
 	
 	void SetMyfin(int fin){
-		if(fin == Equipment_.GetBodyValue_FromTag("Defualt")){
+		if(fin == Equipment_.GetFinValue_FromTag("Defualt")){
 			MyC.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_1");
 			MyC2.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_1");
 			MyC3.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_1");
+			finID = 0;
 		}
-		else if(fin == Equipment_.GetBodyValue_FromTag("cat")){
+		else if(fin == Equipment_.GetFinValue_FromTag("cat")){
 			MyC.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_2");	
 			MyC2.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_2");
 			MyC3.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_2");
+			finID = 1;
 		}
-		else if(fin == Equipment_.GetBodyValue_FromTag("round")){
+		else if(fin == Equipment_.GetFinValue_FromTag("round")){
 			MyC.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_3");
 			MyC2.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_3");
 			MyC3.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_3");
+			finID = 2;
 		}
-		else if(fin == Equipment_.GetBodyValue_FromTag("sharp")){
+		else if(fin == Equipment_.GetFinValue_FromTag("sharp")){
 			MyC.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_4");
 			MyC2.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_4");
 			MyC3.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_4");
+			finID = 3;
 		}
 		else{
 			MyC.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_1");
 			MyC2.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_1");
 			MyC3.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_1");
+			finID = 0;
 			Debug.Log("fin Value : " + fin.ToString());
 		}
 	}
