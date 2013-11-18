@@ -13,7 +13,7 @@ public tk2dTextMesh gameOverText;
 	
 	void Update(){
 		if(Input.GetMouseButton(0)){
-			Application.LoadLevel("Loading_Scene");
+			Application.LoadLevel("Result_Scene");
 		}
 	}
 	

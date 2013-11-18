@@ -5,9 +5,6 @@ public class Effect_ {
 	public delegate void CallBackPtr();
 	public static IEnumerator Roatate(Transform trans, float time, Vector3 targetRoatate, CallBackPtr callbackPtr = null){
 		Vector3 orinRotate = trans.localEulerAngles;
-		//Debug.Log(orinRotate);
-		//Debug.Log(targetRoatate);
-		//Debug.Log(time);
 		for(float t = 0; t < time; t += tk2dUITime.deltaTime){
 			float nt = Mathf.Clamp01( t / time );
 			nt = Mathf.Sin(nt * Mathf.PI * 0.5f);

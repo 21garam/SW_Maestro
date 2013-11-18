@@ -4,12 +4,20 @@ using System.Collections;
 public class EnemyFish_ : MonoBehaviour {
 	class Kind1_Action_ : Action_{
 		EnemyFish_ me;
+		Vector2 strPos;
+		Vector2 sineSize;
+		float time;
 		public Kind1_Action_(EnemyFish_ me_){
 			this.me = me_;
+			time = 0;
+			strPos = new Vector2(me_.gameObject.transform.localPosition.x,
+								me_.gameObject.transform.localPosition.y);
+			sineSize = new Vector2(50, 25);
 		}
 		
 		public void Update(){
-			Strategy_.GoStraight(me.gameObject, me.velocity);		
+			time += Time.deltaTime;
+			Strategy_.GoSinePatternEx(me.gameObject, sineSize, strPos, me.velocity.x, time, 0.5f);		
 		}
 	}
 	
@@ -23,7 +31,7 @@ public class EnemyFish_ : MonoBehaviour {
 			time = 0;
 			strPos = new Vector2(me_.gameObject.transform.localPosition.x,
 								me_.gameObject.transform.localPosition.y);
-			signSize = new Vector2(100, 100);
+			signSize = new Vector2(80, 100);
 		}
 		
 		public void Update(){
@@ -34,11 +42,22 @@ public class EnemyFish_ : MonoBehaviour {
 	
 	//public SingleSprite_ spritePrefabs;
 	public tk2dSprite sprite;
+	public tk2dSpriteAnimator ani;
 	Vector3 velocity;
 	Action_ action;
-	SphereCollider col;
+	CapsuleCollider col;
+	string typeName;
 	
 	void Start () {
+		switch(typeName){	
+			case "KIND1":
+				ani.PlayFromFrame(ani.GetClipByName("Enemy_Shark"), 0);
+			break;
+			
+			case "KIND2":
+				ani.PlayFromFrame(ani.GetClipByName("Enemy_Football"), 0);
+			break;
+		}
 	}
 	
 	void Update () {
@@ -47,6 +66,7 @@ public class EnemyFish_ : MonoBehaviour {
 	}
 	
 	public void Initialize(Transform parent, Vector3 pos, string kind){//EnemyFish_.Kind kind){
+		typeName = kind;
 		SubInitializeAboutProperties(kind);
 		transform.parent = parent;
 		transform.localPosition = pos;
@@ -61,17 +81,21 @@ public class EnemyFish_ : MonoBehaviour {
 				//sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
 				sprite.transform.parent = transform;
 				//sprite.Initialize("EnemyFish");
-				col = transform.collider as SphereCollider;
-				col.radius = sprite.GetUntrimmedBounds().size.x / 2;
+				col = transform.collider as CapsuleCollider;
+				col.radius = 45.0f;
+				col.height = 220.0f;
+				col.direction = 0;
 			break;
 				
 			case "KIND2":
-				velocity = new Vector3(-150.0f, 0, 0);
+				velocity = new Vector3(-100.0f, 0, 0);
 				//sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
 				sprite.transform.parent = transform;
 				//sprite.Initialize("EnemyFish");
-				col = transform.collider as SphereCollider;
-				col.radius = sprite.GetUntrimmedBounds().size.x / 2;
+				col = transform.collider as CapsuleCollider;
+				col.radius = 80.0f;
+				col.height = 200.0f;
+				col.direction = 0;
 			break;
 		}
 	}

@@ -129,26 +129,16 @@ public class PlayerFish : MonoBehaviour
 		sprFin.SetSprite(string.Format("fin_{0}", SharedDataInstance.finId));
 		
 		curHitPoint = maxHitPoint;
-		//Initialize();
-		//ScaleUp();
-		//BeTransparent();
-		//Die();
-		//particle.SetEmitterMinMax(160, 320);
-		//particle.SetXVelocity(-400);
-		//ScaleUp();
-		//feverCount = 10000000;
-		//bFeverTime = true;
-		//currentFeverTime = -10.0f;
 	}
 	//--
 	void ScaleDown(){
 		gameObject.transform.localScale = new Vector3(2, 2, 1);
-		StartCoroutine(Effect_.ScaledDown(gameObject.transform, 2, new Vector3(1, 1, 1)));
+		StartCoroutine(Effect_.ScaledDown(gameObject.transform, 3, new Vector3(1, 1, 1)));
 	}
 	
 	void ScaleUp(){
 		gameObject.transform.localScale = new Vector3(1, 1, 1);
-		StartCoroutine(Effect_.ScaledUp(gameObject.transform, 2, new Vector3(2, 2, 2)));
+		StartCoroutine(Effect_.ScaledUp(gameObject.transform, 3, new Vector3(2, 2, 2)));
 	}
 	
 	void BeTransparent(){
@@ -168,12 +158,12 @@ public class PlayerFish : MonoBehaviour
 		float yPos = transform.position.y;
 		float zRot = 0;
 		while(true){
-			if(transform.position.y > cam.nativeResolutionHeight + col.radius * 2)
+			if(transform.position.y > cam.nativeResolutionHeight + col.radius * 4)
 				break;
 			transform.localEulerAngles = new Vector3(0, 0, zRot); 
 			transform.localPosition = new Vector3(transform.position.x, yPos, transform.position.z);
-			yPos += Time.deltaTime * 200;
-			zRot += Time.deltaTime * 1000;
+			yPos += Time.deltaTime * 175;
+			zRot += Time.deltaTime * 750;
 			zRot = zRot % 360;
 			yield return 0; 
 		}
@@ -249,13 +239,12 @@ public class PlayerFish : MonoBehaviour
 			PlayerFish.instance.transform.position = tra;
 		}
 		
-		//curHitPoint -= nibbleHitPointPerSec * Time.deltaTime;
+		curHitPoint -= nibbleHitPointPerSec * Time.deltaTime;
 		
 		if(curHitPoint <= 0 && bFeverTime == false)
 		{
 			SharedDataInstance.score = ScoreScript.Score;
 			Die();
-			//Application.LoadLevel("Loading_Scene");
 		}
 		
 		remainInvincibleTime -= Time.deltaTime;
@@ -276,9 +265,8 @@ public class PlayerFish : MonoBehaviour
 				ScaleUp();
 				feverCount++;
 				bFeverTime = true;
-				currentFeverTime = -10.0f;
+				currentFeverTime = -feverLimit;
 			}
-			//transform.localScale = new Vector3(3.0f, 3.0f, transform.localScale.z);
 		}
 		else
 		{
@@ -287,7 +275,7 @@ public class PlayerFish : MonoBehaviour
 			transform.localScale = new Vector3(sizeOfFish, sizeOfFish, transform.localScale.z);
 		}
 		ScoreScript.Score += (int)Mathf.Pow(feedFishSize*10, 2);
-		curHitPoint += feedFishSize/5;
+		curHitPoint += feedFishSize/10;
 		
 		return true;
 	}
@@ -298,7 +286,6 @@ public class PlayerFish : MonoBehaviour
 		{
 			return true;
 		}
-		//sound.Play();
 		BeTransparent();
 		curHitPoint -= 15;
 		dx = -50;

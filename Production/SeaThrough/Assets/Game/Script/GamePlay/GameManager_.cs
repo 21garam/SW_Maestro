@@ -162,21 +162,21 @@ public class Pattern_{
 		m_eventSet[0].AddEvent(6.0f, "EndOfChunk", "EndOfChunk");
 		
 		m_eventSet.Add(new EventSet_());
-		m_eventSet[1].AddEvent(0.0f, "SpawnObstacle", "0.0 2 2.0 KIND1");
-		m_eventSet[1].AddEvent(1.0f, "SpawnObstacle", "1.0 2 2.0 STALACTITE");
-		m_eventSet[1].AddEvent(2.5f, "SpawnFeedFish", "0.80 2 0.3 KIND1");
-		m_eventSet[1].AddEvent(3.55f, "SpawnFeedFish", "0.20 2 0.3 KIND1");
+		m_eventSet[1].AddEvent(0.0f, "SpawnObstacle", "0.0 2 2.6 KIND1");
+		m_eventSet[1].AddEvent(1.3f, "SpawnObstacle", "1.0 1 2.6 STALACTITE");
+		m_eventSet[1].AddEvent(1.0f, "SpawnFeedFish", "0.50 8 0.4 FEED_SMALL");
+		m_eventSet[1].AddEvent(2.0f, "SpawnFeedFish", "0.80 2 0.3 KIND1");
+		m_eventSet[1].AddEvent(3.5f, "SpawnFeedFish", "0.20 2 0.3 KIND1");
 		m_eventSet[1].AddEvent(4.6f, "SpawnFeedFish", "0.80 2 0.3 KIND1");
-		m_eventSet[1].AddEvent(5.65f, "SpawnFeedFish", "0.20 2 0.3 KIND1");
 		m_eventSet[1].AddEvent(6.0f, "EndOfChunk", "EndOfChunk");
 		
 		m_eventSet.Add(new EventSet_());
 		m_eventSet[2].AddEvent(0.0f, "SpawnObstacle", "0.0 2 2.0 KIND1");
 		m_eventSet[2].AddEvent(1.0f, "SpawnObstacle", "1.0 2 2.0 STALACTITE");
-		m_eventSet[2].AddEvent(2.5f, "SpawnFeedFish", "0.80 2 0.3 KIND1");
-		m_eventSet[2].AddEvent(3.55f, "SpawnFeedFish", "0.20 2 0.3 KIND1");
-		m_eventSet[2].AddEvent(4.6f, "SpawnFeedFish", "0.80 2 0.3 KIND1");
-		m_eventSet[2].AddEvent(5.65f, "SpawnFeedFish", "0.20 2 0.3 KIND1");
+		m_eventSet[2].AddEvent(2.0f, "SpawnFeedFish", "0.80 2 0.3 KIND1");
+		m_eventSet[2].AddEvent(3.1f, "SpawnFeedFish", "0.20 2 0.3 KIND1");
+		m_eventSet[2].AddEvent(4.2f, "SpawnFeedFish", "0.80 2 0.3 KIND1");
+		m_eventSet[2].AddEvent(5.3f, "SpawnFeedFish", "0.20 2 0.3 KIND1");
 		m_eventSet[2].AddEvent(6.0f, "EndOfChunk", "EndOfChunk");
 		
 		m_eventSet.Add(new EventSet_());
@@ -193,15 +193,15 @@ public class Pattern_{
 		m_eventSet[4].AddEvent(0.2f, "SpawnFeedFish", "0.50 6 0.3 FEED_SMALL");
 		m_eventSet[4].AddEvent(0.4f, "SpawnFeedFish", "0.60 5 0.3 FEED_SMALL");
 		m_eventSet[4].AddEvent(0.4f, "SpawnFeedFish", "0.40 5 0.3 FEED_SMALL");
-		m_eventSet[4].AddEvent(2.2f, "SpawnEnemyFish", "0.5 1 0 KIND1");
+		m_eventSet[4].AddEvent(2.0f, "SpawnEnemyFish", "0.5 1 0 KIND1");
 		m_eventSet[4].AddEvent(2.8f, "SpawnFeedFish", "0.65 3 0.5 FEED_RANDOM");
 		m_eventSet[4].AddEvent(3.0f, "SpawnFeedFish", "0.50 3 0.5 FEED_RANDOM");
 		m_eventSet[4].AddEvent(2.8f, "SpawnFeedFish", "0.35 3 0.5 FEED_RANDOM");
 		m_eventSet[4].AddEvent(6.0f, "EndOfChunk", "EndOfChunk");
 		
 		m_eventSet.Add(new EventSet_());
-		m_eventSet[5].AddEvent(2.5f, "SpawnEnemyFish", "0.8 1 0 KIND1");
-		m_eventSet[5].AddEvent(3.5f, "SpawnEnemyFish", "0.2 1 0 KIND1");
+		m_eventSet[5].AddEvent(2.0f, "SpawnEnemyFish", "0.8 1 0 KIND1");
+		m_eventSet[5].AddEvent(3.0f, "SpawnEnemyFish", "0.2 1 0 KIND1");
 		m_eventSet[5].AddEvent(0.4f, "SpawnFeedFish", "0.15 7 0.6 KIND1");
 		m_eventSet[5].AddEvent(0.6f, "SpawnFeedFish", "0.25 7 0.6 KIND1");
 		m_eventSet[5].AddEvent(0.4f, "SpawnFeedFish", "0.85 7 0.6 KIND1");
@@ -214,7 +214,7 @@ public class Pattern_{
 		m_eventSet[6].AddEvent(2.2f, "SpawnFeedFish", "0.70 10 0.3 FEED_RANDOM");
 		m_eventSet[6].AddEvent(2.0f, "SpawnFeedFish", "0.60 10 0.3 FEED_RANDOM");
 		m_eventSet[6].AddEvent(1.8f, "SpawnFeedFish", "0.50 10 0.3 FEED_RANDOM");
-		m_eventSet[6].AddEvent(3f, "SpawnEnemyFish", "0.15 1 0 KIND1");
+		m_eventSet[6].AddEvent(3f, "SpawnEnemyFish", "0.15 1 0 KIND2");
 		m_eventSet[6].AddEvent(6.0f, "EndOfChunk", "EndOfChunk");
 		
 		
@@ -250,16 +250,16 @@ public class Pattern_{
 		m_eventSet.Add(new EventSet_());
 		m_eventSet[11].AddEvent(0.4f, "SpawnFeedFish", "0.5 10 0.4 FEED_BIGSINE");
 		m_eventSet[11].AddEvent(0.4f, "SpawnFeedFish", "0.5 10 0.4 FEED_BIGCOSINE");
-		m_eventSet[11].AddEvent(2.0f, "SpawnEnemyFish", "0.5 1 0 KIND1");
+		m_eventSet[11].AddEvent(2.0f, "SpawnEnemyFish", "0.5 1 0 KIND2");
 		m_eventSet[11].AddEvent(6.0f, "EndOfChunk", "EndOfChunk");
 		
 		m_eventSet.Add(new EventSet_());
 		m_eventSet[12].AddEvent(0.5f, "SpawnFeedFish", "0.50 10 0.5 FEED_SMALL");
 		m_eventSet[12].AddEvent(0.0f, "SpawnObstacle", "1.0 2 3 STALACTITE");
 		m_eventSet[12].AddEvent(1.5f, "SpawnObstacle", "0.0 1 0 KIND1");
-		m_eventSet[12].AddEvent(2.5f, "SpawnFeedFish", "0.20 2 0.3 KIND1");
-		m_eventSet[12].AddEvent(4.5f, "SpawnFeedFish", "0.80 2 0.3 KIND1");
-		m_eventSet[12].AddEvent(5.5f, "SpawnFeedFish", "0.20 2 0.3 KIND1");
+		m_eventSet[12].AddEvent(2.2f, "SpawnFeedFish", "0.20 2 0.3 KIND1");
+		m_eventSet[12].AddEvent(4.0f, "SpawnFeedFish", "0.80 2 0.3 KIND1");
+		m_eventSet[12].AddEvent(4.9f, "SpawnFeedFish", "0.20 2 0.3 KIND1");
 		m_eventSet[12].AddEvent(6.0f, "EndOfChunk", "EndOfChunk");
 	}
 	
@@ -319,7 +319,7 @@ public class GameManager_ : MonoBehaviour {
 			case State_.InitPattern:
 			m_eventSetCursor = m_pattern.GetEventSet(patternIDX);
 			m_time = 0;
-			patternIDX = chunkFlow.getNextChunk();/*(patternIDX + 1) % m_pattern.GetEventSize();*/
+			patternIDX = chunkFlow.getNextChunk();
 			state = State_.PlayPattern;
 			break;
 			

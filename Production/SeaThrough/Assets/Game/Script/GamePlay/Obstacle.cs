@@ -115,7 +115,6 @@ public class Obstacle : MonoBehaviour {
 	bool isTriggered = false;
 	void OnTriggerEnter(Collider col)
 	{
-		//Debug.Log(thisKind);
 		if(isTriggered)
 			return;
 		if(col.gameObject.tag == "Player"){
@@ -128,18 +127,14 @@ public class Obstacle : MonoBehaviour {
 				switch(thisKind){	
 				case "KIND1":
 					BreakDown();
-					//action = new Kind1_Action_(this);
 				break;
 				
 				case "STALACTITE":
-					//FlyUp();
 					BreakUp();
-					//action = new Kind1_Action_(this);
 				break;
 				
 				case "STALAGMITE":
 					BreakUp();
-					//action = new Kind1_Action_(this);
 				break;
 				}
 			}
@@ -195,11 +190,11 @@ public class Obstacle : MonoBehaviour {
 	void Out(string str){
 		switch(str){
 			case "UP":
-			StartCoroutine(Animation_.TransformAToB(transform, 1, new Vector3(960 + sprite.Width(), 640, transform.position.z), DestroyItself));
+			StartCoroutine(Animation_.TransformAToB(transform, 1.3f, new Vector3(960 + sprite.Width(), 840, transform.position.z), DestroyItself));
 			break;
 			
 			case "DOWN":
-			StartCoroutine(Animation_.TransformAToB(transform, 1, new Vector3(960 + sprite.Width(), 0,transform.position.z), DestroyItself));
+			StartCoroutine(Animation_.TransformAToB(transform, 1.3f, new Vector3(960 + sprite.Width(), -200,transform.position.z), DestroyItself));
 			break;
 		}
 	}

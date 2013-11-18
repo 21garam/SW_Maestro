@@ -237,6 +237,7 @@ public class FeedFish : MonoBehaviour
 	//public SingleSprite_ spritePrefabs;
 	//SingleSprite_ sprite
 	public tk2dSprite sprite;
+	public tk2dSpriteAnimator ani;
 	Vector3 velocity;
 	Action_ action;
 	CapsuleCollider col;
@@ -244,6 +245,20 @@ public class FeedFish : MonoBehaviour
 	private float sizeOfFish;
 	private bool isGoldFish;
 	public float goldFishRatio;
+	
+	void Start(){
+		
+		if(Random.Range(0, 100) > goldFishRatio)
+		{
+			isGoldFish = false;
+			ani.PlayFromFrame(ani.GetClipByName("FeedFish"), 0);
+		}
+		else
+		{
+			isGoldFish = true;
+			ani.PlayFromFrame(ani.GetClipByName("FeedFish"), 0);
+		}		
+	}
 	
 	void Update () 
 	{
@@ -265,19 +280,8 @@ public class FeedFish : MonoBehaviour
 	private void SubInitializeAboutProperties(string kind)
 	{
 		velocity = new Vector3(-200.0f, 0, 0);
-		//sprite = GameObject.Instantiate(spritePrefabs) as SingleSprite_;
-		sprite.transform.parent = transform;
 		
-		if(Random.Range(0, 100) > goldFishRatio)
-		{
-			isGoldFish = false;
-			//sprite.Initialize("FeedFish_0");
-		}
-		else
-		{
-			isGoldFish = true;
-			//sprite.Initialize("FeedFish_Gold");
-		}		
+		sprite.transform.parent = transform;
 		
 		switch(kind)
 		{	
@@ -297,7 +301,6 @@ public class FeedFish : MonoBehaviour
 	
 	private void SubInitializeAboutAction(string type)
 	{
-		Debug.Log(type);
 		switch(type)
 		{	
 			case "KIND1":
