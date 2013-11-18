@@ -3,11 +3,11 @@ using System.Collections;
 
 public class SharedData {//: MonoBehaviour {
 	
-	public static int bodyId;
-	public static int eyesId;
-	public static int mouthId;
-	public static int finId;
-	public static int score;
+	public static int bodyId = 3;
+	public static int eyesId = 3;
+	public static int mouthId = 3;
+	public static int finId = 3;
+	public static int score = 0;
 	
 	static SharedData(){
 	}

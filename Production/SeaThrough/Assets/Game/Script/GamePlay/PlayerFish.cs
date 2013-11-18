@@ -41,6 +41,9 @@ public class PlayerFish : MonoBehaviour
 	public tk2dSprite sprEyes;
 	public tk2dSprite sprMouth;
 	public tk2dSprite sprFin;
+	public tk2dSpriteAnimator aniEyes;
+	public tk2dSpriteAnimator aniMouth;
+	public tk2dSpriteAnimator aniFin;
 	
 	private static PlayerFish instance;	
 	
@@ -121,9 +124,11 @@ public class PlayerFish : MonoBehaviour
 	void Start () {
 		feverInstance = FeverGauge.Instance;
 		sprBody.SetSprite(string.Format("body_{0}", SharedData.bodyId));
-		sprEyes.SetSprite(string.Format("eyes_{0}", SharedData.eyesId));
-		sprMouth.SetSprite(string.Format("mouth_{0}", SharedData.mouthId));
-		sprFin.SetSprite(string.Format("fin_{0}", SharedData.finId));
+		aniEyes.Play(string.Format("Hurt_{0}", SharedData.eyesId));
+		aniEyes.Stop();
+		aniFin.Play(string.Format("Swimming_{0}", SharedData.finId));
+		aniMouth.Play(string.Format("Eat_{0}", SharedData.mouthId));
+		aniMouth.Stop();
 		
 		curHitPoint = maxHitPoint;
 	}
@@ -274,6 +279,11 @@ public class PlayerFish : MonoBehaviour
 		ScoreScript.Score += (int)Mathf.Pow(feedFishSize*10, 2);
 		curHitPoint += feedFishSize/10;
 		
+		if(aniMouth.Playing == false)
+		{
+			aniMouth.Play();
+		}
+		
 		return true;
 	}
 	
@@ -288,6 +298,8 @@ public class PlayerFish : MonoBehaviour
 		dx = -50;
 		remainInvincibleTime = invincibleTime;
 		isInvincible = true;
+		
+		aniEyes.Play();
 		
 		if(curHitPoint <= 0)
 		{
