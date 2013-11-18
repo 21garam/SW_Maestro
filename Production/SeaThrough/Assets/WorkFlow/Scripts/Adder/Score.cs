@@ -9,7 +9,7 @@ public class Score : MonoBehaviour {
 	public int score_int;
 	// Use this for initialization
 	void Start () {
-		score_int = SharedData.Instance.score;
+		score_int = SharedData.score;
 		score.text = score_int.ToString();
 		if(GUI_Setting_.PLAYER_ID != ""){
 			//Debug.Log("ID : " + GUI_Setting_.PLAYER_ID);

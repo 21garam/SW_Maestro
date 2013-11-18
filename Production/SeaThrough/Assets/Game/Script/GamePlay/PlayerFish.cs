@@ -42,8 +42,6 @@ public class PlayerFish : MonoBehaviour
 	public tk2dSprite sprMouth;
 	public tk2dSprite sprFin;
 	
-	private SharedData SharedDataInstance;
-	
 	private static PlayerFish instance;	
 	
 	public bool Stop = true;
@@ -122,11 +120,10 @@ public class PlayerFish : MonoBehaviour
 	
 	void Start () {
 		feverInstance = FeverGauge.Instance;
-		SharedDataInstance = SharedData.Instance;
-		sprBody.SetSprite(string.Format("body_{0}", SharedDataInstance.bodyId));
-		sprEyes.SetSprite(string.Format("eyes_{0}", SharedDataInstance.eyesId));
-		sprMouth.SetSprite(string.Format("mouth_{0}", SharedDataInstance.mouthId));
-		sprFin.SetSprite(string.Format("fin_{0}", SharedDataInstance.finId));
+		sprBody.SetSprite(string.Format("body_{0}", SharedData.bodyId));
+		sprEyes.SetSprite(string.Format("eyes_{0}", SharedData.eyesId));
+		sprMouth.SetSprite(string.Format("mouth_{0}", SharedData.mouthId));
+		sprFin.SetSprite(string.Format("fin_{0}", SharedData.finId));
 		
 		curHitPoint = maxHitPoint;
 	}
@@ -243,7 +240,7 @@ public class PlayerFish : MonoBehaviour
 		
 		if(curHitPoint <= 0 && bFeverTime == false)
 		{
-			SharedDataInstance.score = ScoreScript.Score;
+			SharedData.score = ScoreScript.Score;
 			Die();
 		}
 		

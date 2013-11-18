@@ -1,17 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Game\Script\GamePlay\GameManager_.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\TK2DROOT\tk2dUI\Code\Core\tk2dUIManager.cs">
     <Files>
-      <File FileName="Assets\Game\Script\GamePlay\Adder\Effect_.cs" Line="7" Column="47" />
-      <File FileName="Assets\Game\Script\GamePlay\Obstacle.cs" Line="137" Column="16" />
-      <File FileName="Assets\Game\Script\GamePlay\Adder\Sound_.cs" Line="19" Column="4" />
-      <File FileName="Assets\Game\Script\GamePlay\Spawner.cs" Line="71" Column="38" />
-      <File FileName="Assets\Game\Script\GamePlay\FeedFish.cs" Line="29" Column="4" />
-      <File FileName="Assets\Game\Script\GamePlay\EnemyFish_.cs" Line="34" Column="29" />
-      <File FileName="Assets\Game\Script\GamePlay\Adder\ParticleFactory_.cs" Line="9" Column="36" />
-      <File FileName="Assets\Game\Script\GamePlay\PlayerFish.cs" Line="166" Column="32" />
-      <File FileName="Assets\Game\Script\GamePlay\Adder\GUI\GameOverBox_.cs" Line="39" Column="1" />
-      <File FileName="Assets\Game\Script\GamePlay\GameManager_.cs" Line="322" Column="42" />
+      <File FileName="Assets\Game\Script\SharedData.cs" Line="12" Column="21" />
+      <File FileName="Assets\WorkFlow\Scripts\Result_Script.cs" Line="1" Column="1" />
+      <File FileName="Assets\WorkFlow\Scripts\Adder\Score.cs" Line="8" Column="2" />
+      <File FileName="Assets\Game\Script\GamePlay\PlayerFish.cs" Line="243" Column="41" />
+      <File FileName="Assets\WorkFlow\Scripts\Server\Sample\ItemTestCode_.cs" Line="93" Column="13" />
+      <File FileName="Assets\TK2DROOT\tk2dUI\Code\Core\tk2dUIManager.cs" Line="255" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

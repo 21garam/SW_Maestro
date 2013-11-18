@@ -324,32 +324,20 @@ public class GameManager_ : MonoBehaviour {
 			break;
 			
 			case State_.PlayPattern:
-			//if(PlayerFish.Instance.)
 			float incTime = 0;
 			float incRate = 1.0f;
 			if(PlayerFish.Instance.FeverTime > 0){
-				//if(!timeCheck){
-					//incTime = +Time.deltaTime; //* PlayerFish.Instance.dx;	
-				//	timeCheck = true;
-				//}
-				//if(!timeCheck){
-				//	incTime = +PlayerFish.Instance.feverLimit;
-				//	timeCheck = true;
-				//}
 				incRate = PlayerFish.Instance.feverLimit / 2;
 				timeCheck = false;
 			}
 			else if(PlayerFish.Instance.isInvincible){
 				if(!timeCheck){
-				//	Debug.Log("aaa");
 					incTime = -PlayerFish.Instance.invincibleTime;;//-Time.deltaTime; //* PlayerFish.Instance.dx;
 					timeCheck = true;
 				}
 			}
 			else{
-				//if(timeCheck){
 				timeCheck = false;
-				//}
 			}
 			
 			m_time += Time.deltaTime * incRate + incTime;//(Time.deltaTime + incTime);
@@ -381,8 +369,7 @@ public class GameManager_ : MonoBehaviour {
 				float screenHeight = m_cam.NativeResolution.y;
 				
 				m_bg.Initialize(screenWidth, screenHeight,  0.5f);
-				
-				//m_spawner = transform.GetChild(0).GetComponent<Spawner_>();				
+						
 				m_spawner.Initialize(screenWidth, screenHeight);
 				break;
 			}else
