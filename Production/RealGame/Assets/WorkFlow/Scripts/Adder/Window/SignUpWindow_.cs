@@ -39,7 +39,11 @@ public class SignUpWindow_ : MonoBehaviour {
 	public void CreateAccountMessageBox(string msg){
 		if(msg == WWWMessage_.OK){
 			string writeStr = "";
+			PS_TextInput.isPasswordField = false;
+			//PS_TextInput.GetComponent<tk2dUITextInput>().Commit();
+			//PS_TextInput.GetComponent<tk2dTextMesh>().Commit();
 			writeStr = ID_TextInput.Text + " " + PS_TextInput.Text;
+			PS_TextInput.isPasswordField = true;
 			//Debug.Log(writeStr);
 			FileIO_.WriteStringToFile(writeStr, Setting_.settingFileName);
 			//string id = parseStrList[0];

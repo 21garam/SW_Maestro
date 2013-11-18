@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class ItemTestCode_ : MonoBehaviour {
-	public WWW_ www;
+	public static WWW_ www;
 	
 	public GameObject MyC;
 	public GameObject MyC2;
@@ -101,7 +101,7 @@ public class ItemTestCode_ : MonoBehaviour {
 		Debug.Log(msg);
 	}
 	
-	void Search(){
+	public static void Search(){
 		if(GUI_Setting_.PLAYER_ID == ""){
 			Debug.Log("Search : GUI_Setting_.PLAYER_ID is null");
 			return;
@@ -110,7 +110,7 @@ public class ItemTestCode_ : MonoBehaviour {
 		//SetMyEquipmentC(bodySet,eyeSet,mouthSet,finSet);
 	}
 	
-	void SetEquipmentInfo(string xml){
+	public static void SetEquipmentInfo(string xml){
 		if(XMLParser_.PlayerInfoXMLParse(xml)){
 			//Debug.Log(XMLParser_.PlayerAccountInfo.ToString());
 			int equipment = XMLParser_.PlayerAccountInfo.equipment;

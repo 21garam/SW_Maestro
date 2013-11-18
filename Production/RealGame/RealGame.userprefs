@@ -1,6 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/WorkFlow/Scripts/Server/Sample/ItemTestCode_.cs">
+    <Files>
+      <File FileName="Assets/WorkFlow/Scripts/Adder/Window/SignUpWindow_.cs" Line="36" Column="12" />
+      <File FileName="../../../dev/unity/testProject/Assets/Resources/Scripts/loginscript.cs" Line="38" Column="28" />
+      <File FileName="Assets/WorkFlow/Scripts/Server/Sample/ItemTestCode_.cs" Line="105" Column="20" />
+      <File FileName="Assets/WorkFlow/Scripts/Server/Sample/RankingListCode_.cs" Line="63" Column="89" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
