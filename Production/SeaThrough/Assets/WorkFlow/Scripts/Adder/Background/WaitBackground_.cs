@@ -16,8 +16,8 @@ public class WaitBackground_ : MonoBehaviour {
 			return;
 		}
 		
-		float nativeResolutionX = cam.nativeResolutionWidth; 
-		float nativeResolutionY = cam.nativeResolutionHeight; 
+		float nativeResolutionX = cam.forceResolution.x;//cam.nativeResolutionWidth; 
+		float nativeResolutionY = cam.forceResolution.y;//cam.nativeResolutionHeight; 
 		float ratio = cam.CameraSettings.orthographicPixelsPerMeter;
 		
 		enabled = true;

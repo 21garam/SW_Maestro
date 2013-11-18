@@ -30,8 +30,8 @@ public class Loading_ : MonoBehaviour {
 		enabled = true;
 		curtain = transform.GetChild(0).GetComponent<Curtain_>();
 		ani = transform.GetChild(1).GetComponent<LoadingAni_>();
-		curtain.Initialize(cam.nativeResolutionWidth, cam.nativeResolutionHeight, cam.CameraSettings.orthographicPixelsPerMeter);
-		ani.Initialize(cam.nativeResolutionWidth, cam.nativeResolutionHeight, cam.CameraSettings.orthographicPixelsPerMeter);
+		curtain.Initialize(cam.forceResolution.x, cam.forceResolution.y, cam.CameraSettings.orthographicPixelsPerMeter);
+		ani.Initialize(cam.forceResolution.x, cam.forceResolution.y, cam.CameraSettings.orthographicPixelsPerMeter);
 	}
 	
 	public void Update(){

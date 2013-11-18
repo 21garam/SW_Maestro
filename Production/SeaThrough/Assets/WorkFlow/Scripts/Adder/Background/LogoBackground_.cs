@@ -20,8 +20,8 @@ public class LogoBackground_ : MonoBehaviour {
 			return;
 		}
 		
-		float nativeResolutionX = cam.nativeResolutionWidth; 
-		float nativeResolutionY = cam.nativeResolutionHeight; 
+		float nativeResolutionX = cam.forceResolution.x; 
+		float nativeResolutionY = cam.forceResolution.y; 
 		float ratio = cam.CameraSettings.orthographicPixelsPerMeter;
 		//Debug.Log(nativeResolutionX);
 		sprite = GetComponent<tk2dSprite>();
