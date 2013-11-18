@@ -59,7 +59,7 @@ public class Loading_ : MonoBehaviour {
 			ani.EndLoadingAni(callbackPtr);
 		else
 			ani.EndLoadingAni();
-		ItemTestCode_.Search();
+		//ItemTestCode_.Search();
 	}
 	
 	public bool IsEndBeginAni(){

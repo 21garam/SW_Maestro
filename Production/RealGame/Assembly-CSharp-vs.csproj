@@ -167,6 +167,7 @@
      <Compile Include="Assets\WorkFlow\Scripts\Server\Sample\ItemTestCode_.cs" />
      <Compile Include="Assets\WorkFlow\Scripts\Server\Sample\LoginCode_.cs" />
      <Compile Include="Assets\WorkFlow\Scripts\Server\Sample\RankingListCode_.cs" />
+     <Compile Include="Assets\WorkFlow\Scripts\Server\Sample\ReadyCode_.cs" />
      <Compile Include="Assets\WorkFlow\Scripts\Server\Sample\UpdateAccountCode_.cs" />
      <Compile Include="Assets\WorkFlow\Scripts\Server\Set_.cs" />
      <Compile Include="Assets\WorkFlow\Scripts\Server\Static_.cs" />
@@ -181,6 +182,7 @@
      <None Include="Assets\TK2DROOT\tk2d\Shaders\PremulVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2d_demo\Credits.txt" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\goodies\PackedTextMesh.shader" />
+     <None Include="Assets\WorkFlow\font\gamefont.fnt" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\Blend2TexVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2dUI\Shaders\DepthMaskSolid.shader" />
      <None Include="Assets\TK2DROOT\tk2dUI_demo\Assets\Dark\Fonts\Nunito24.fnt" />

@@ -127,6 +127,9 @@ public class OnStart_ : MonoBehaviour {
 	void CallFirstWindow(){
 		//Debug.Log("CallFirstWindow");
 		StartCoroutine(Animation_.TransformAToB(bar.transform, 0.5f, new Vector3(0, 1.15f, 0)));
+		firstWindow.m_target.transform.GetChild(0).GetComponent<RankingListCode_>().Initialize();
+		GameObject.Find("Custom").transform.FindChild("CustomScript").GetComponent<ItemTestCode_>().Initialize();
+		GameObject.Find("Ready").transform.FindChild("ReadyScript").GetComponent<ReadyCode_>().Initialize();
 		firstWindow.BeginTransform();
 	}
 	

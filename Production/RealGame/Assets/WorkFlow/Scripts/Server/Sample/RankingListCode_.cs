@@ -21,11 +21,16 @@ public class RankingListCode_ : MonoBehaviour {
 	List<tk2dTextMesh> textList = new List<tk2dTextMesh>(listCount);
 	
 	void Start(){
-		GetRankingList();
+		//GetRankingList();
 		waitBackground.Initialize();
 	}
 	
-	public void GetRankingList(){
+	public void Initialize(){
+		//Debug.Log("RankingListCode_ : Initialize is called");
+		GetRankingList();
+	}
+	
+	private void GetRankingList(){
 		GameListClear();
 		www.GetRankingList(listCount, GUI_Setting_.PLAYER_ID, XMLParseToList);
 	}
