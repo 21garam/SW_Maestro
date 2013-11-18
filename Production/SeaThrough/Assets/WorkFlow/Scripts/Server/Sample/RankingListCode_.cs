@@ -25,7 +25,12 @@ public class RankingListCode_ : MonoBehaviour {
 		waitBackground.Initialize();
 	}
 	
-	public void GetRankingList(){
+	public void Initialize(){
+		//Debug.Log("RankingListCode_ : Initialize is called");
+		GetRankingList();
+	}
+	
+	private void GetRankingList(){
 		GameListClear();
 		www.GetRankingList(listCount, GUI_Setting_.PLAYER_ID, XMLParseToList);
 	}
@@ -64,6 +69,7 @@ public class RankingListCode_ : MonoBehaviour {
 				
 				gamelist.Add(listElement);
 			}
+			Debug.Log("hi");
 		}
 		else{
 			UpdateAccountMessageBox(WWWMessage_.FAIL_ID_NONE);

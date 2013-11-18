@@ -6,11 +6,14 @@ public class ItemTestCode_ : MonoBehaviour {
 	
 	public GameObject MyC;
 	public GameObject MyC2;
+	public GameObject MyC3;
 	
-	int bodyID = 0;
-	int eyeID = 0;
-	int mouthID = 0;
-	int finID = 0 ;
+	public static int bodyID = 0;
+	public static int eyeID = 0;
+	public static int mouthID = 0;
+	public static int finID = 0 ;
+	
+	bool a = true;
 	
 	//public MessageBox_ prefabsMsgBox;
 	//MessageBox_ msgBox;
@@ -34,6 +37,10 @@ public class ItemTestCode_ : MonoBehaviour {
 	public tk2dUIItem C_4_4;
 	
 	void Start(){
+		//Search();
+	}
+	
+	public void Initialize(){
 		Search();
 	}
 	
@@ -101,11 +108,14 @@ public class ItemTestCode_ : MonoBehaviour {
 		Debug.Log(msg);
 	}
 	
-	void Search(){
-		if(GUI_Setting_.PLAYER_ID == ""){
-			Debug.Log("Search : GUI_Setting_.PLAYER_ID is null");
-			return;
-		}
+	private void Search(){
+		//while(a)
+		//{
+			if(GUI_Setting_.PLAYER_ID != ""){
+				//break;
+			}
+			//Debug.Log("ID : ");
+		//}
 		www.GetPlayerInfo(GUI_Setting_.PLAYER_ID, SetEquipmentInfo);
 		//SetMyEquipmentC(bodySet,eyeSet,mouthSet,finSet);
 	}
@@ -140,26 +150,31 @@ public class ItemTestCode_ : MonoBehaviour {
 		if(body == Equipment_.GetBodyValue_FromTag("Defualt")){
 			MyC.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_1");
 			MyC2.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_1");
+			MyC3.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_1");
 			bodyID = 0;
 		}
 		else if(body == Equipment_.GetBodyValue_FromTag("cat")){
 			MyC.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_2");	
 			MyC2.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_2");
+			MyC3.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_2");
 			bodyID = 1;
 		}
 		else if(body == Equipment_.GetBodyValue_FromTag("round")){
 			MyC.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_3");	
 			MyC2.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_3");
+			MyC3.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_3");
 			bodyID = 2;
 		}
 		else if(body == Equipment_.GetBodyValue_FromTag("sharp")){
 			MyC.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_4");
 			MyC2.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_4");
+			MyC3.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_4");
 			bodyID = 3;
 		}
 		else{
 			MyC.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_1");	
 			MyC2.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_1");
+			MyC3.transform.FindChild("body").GetComponent<tk2dSprite>().SetSprite("Body_1");
 			Debug.Log("Body Value : " + body.ToString());
 			bodyID = 0;
 		}
@@ -169,22 +184,27 @@ public class ItemTestCode_ : MonoBehaviour {
 		if(eye == Equipment_.GetBodyValue_FromTag("Defualt")){
 			MyC.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_1");	
 			MyC2.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_1");	
+			MyC3.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_1");	
 		}
 		else if(eye == Equipment_.GetBodyValue_FromTag("cat")){
 			MyC.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_2");	
 			MyC2.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_2");	
+			MyC3.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_2");	
 		}
 		else if(eye == Equipment_.GetBodyValue_FromTag("round")){
 			MyC.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_3");	
 			MyC2.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_3");	
+			MyC3.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_3");	
 		}
 		else if(eye == Equipment_.GetBodyValue_FromTag("sharp")){
 			MyC.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_4");
 			MyC2.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_4");	
+			MyC3.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_4");	
 		}
 		else{
 			MyC.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_1");
 			MyC2.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_1");	
+			MyC3.transform.FindChild("eye").GetComponent<tk2dSprite>().SetSprite("Eye_1");	
 			Debug.Log("eye Value : " + eye.ToString());
 		}
 	}
@@ -193,22 +213,27 @@ public class ItemTestCode_ : MonoBehaviour {
 		if(mouth == Equipment_.GetBodyValue_FromTag("Defualt")){
 			MyC.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_1");	
 			MyC2.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_1");
+			MyC3.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_1");
 		}
 		else if(mouth == Equipment_.GetBodyValue_FromTag("cat")){
 			MyC.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_2");
 			MyC2.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_2");
+			MyC3.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_2");
 		}
 		else if(mouth == Equipment_.GetBodyValue_FromTag("round")){
 			MyC.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_3");
 			MyC2.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_3");
+			MyC3.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_3");
 		}
 		else if(mouth == Equipment_.GetBodyValue_FromTag("sharp")){
 			MyC.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_4");
 			MyC2.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_4");
+			MyC3.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_4");
 		}
 		else{
 			MyC.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_1");
 			MyC2.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_1");
+			MyC3.transform.FindChild("mouth").GetComponent<tk2dSprite>().SetSprite("Mouth_1");
 			Debug.Log("mouth Value : " + mouth.ToString());
 		}
 	}
@@ -217,22 +242,27 @@ public class ItemTestCode_ : MonoBehaviour {
 		if(fin == Equipment_.GetBodyValue_FromTag("Defualt")){
 			MyC.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_1");
 			MyC2.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_1");
+			MyC3.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_1");
 		}
 		else if(fin == Equipment_.GetBodyValue_FromTag("cat")){
 			MyC.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_2");	
 			MyC2.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_2");
+			MyC3.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_2");
 		}
 		else if(fin == Equipment_.GetBodyValue_FromTag("round")){
 			MyC.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_3");
 			MyC2.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_3");
+			MyC3.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_3");
 		}
 		else if(fin == Equipment_.GetBodyValue_FromTag("sharp")){
 			MyC.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_4");
 			MyC2.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_4");
+			MyC3.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_4");
 		}
 		else{
 			MyC.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_1");
 			MyC2.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_1");
+			MyC3.transform.FindChild("fin").GetComponent<tk2dSprite>().SetSprite("Fin_1");
 			Debug.Log("fin Value : " + fin.ToString());
 		}
 	}

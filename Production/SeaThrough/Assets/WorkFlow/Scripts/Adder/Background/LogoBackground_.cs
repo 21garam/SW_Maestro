@@ -64,7 +64,7 @@ public class LogoBackground_ : MonoBehaviour {
 	}
 	
 	void EndAni(){
-		Debug.Log("aaa");
+		//Debug.Log("aaa");
 		if(callBackPtr != null)
 			callBackPtr();
 		SelfDestroy();

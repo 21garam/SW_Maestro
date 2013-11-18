@@ -6,14 +6,14 @@ public class Score : MonoBehaviour {
 	
 	public WWW_ www;
 	
-	public int score_int;
+	int score_int;
 	// Use this for initialization
 	void Start () {
 		score_int = SharedData.score;
 		score.text = score_int.ToString();
 		if(GUI_Setting_.PLAYER_ID != ""){
 			//Debug.Log("ID : " + GUI_Setting_.PLAYER_ID);
-//			www.UpdateAccount(GUI_Setting_.PLAYER_ID, WWW_.INTEGER_NULL, score_int);
+			www.UpdateAccount(GUI_Setting_.PLAYER_ID, null, score_int);
 		}
 	}
 }
