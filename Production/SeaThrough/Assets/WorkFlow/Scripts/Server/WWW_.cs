@@ -11,6 +11,8 @@ public class WWWMessage_{
 
 public class WWW_ : MonoBehaviour {
 	public delegate void CallBackPtr(string str);
+	public delegate void CallBackPtr2(GameObject gm, string str);
+	
 	public const int INTEGER_NULL = -1;
 	public const string STRING_NULL = null;
 	private string URL = "http://americanoninja86.appspot.com";
@@ -81,6 +83,15 @@ public class WWW_ : MonoBehaviour {
 		form.AddField("id", id);
 		
 		StartCoroutine(WaitingForResponse(new WWW(URL, form), func));
+		form = null;
+	}
+	
+	public void GetPlayerInfo(string id, GameObject gm, CallBackPtr2 func){
+		WWWForm form = new WWWForm();
+		form.AddField("action", "getPlayerInfo");
+		form.AddField("id", id);
+		
+		StartCoroutine(WaitingForResponse(new WWW(URL, form), gm, func));
 		form = null;
 	}
 	
@@ -174,6 +185,23 @@ public class WWW_ : MonoBehaviour {
 		if(callBackPtr != null){
 			callBackPtr(www.text);
 			callBackPtr = null;
+		}
+		
+		www.Dispose();
+	}
+	
+	public IEnumerator WaitingForResponse(WWW www, GameObject gm, CallBackPtr2 callBackPtr2){
+		yield return www;
+		if(www.error == null){
+			//Debug.Log("WWW Link is Successful.");
+			//Debug.Log(www.text);
+		}
+		else
+			Debug.Log("WWW Link is Failed.");
+		
+		if(callBackPtr2 != null){
+			callBackPtr2(gm, www.text);
+			callBackPtr2 = null;
 		}
 		
 		www.Dispose();
