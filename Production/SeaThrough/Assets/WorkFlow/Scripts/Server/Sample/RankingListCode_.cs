@@ -18,6 +18,8 @@ public class RankingListCode_ : MonoBehaviour {
 	const int listCount = 10;
 	
 	GameObject playerMyC = null;
+	public GameObject thisListMyc;
+	
 	List<GameObject> gamelist = new List<GameObject>(listCount);
 	List<tk2dTextMesh> textList = new List<tk2dTextMesh>(listCount);
 	
@@ -29,6 +31,10 @@ public class RankingListCode_ : MonoBehaviour {
 	public void Initialize(){
 		//Debug.Log("RankingListCode_ : Initialize is called");
 		GetRankingList();
+		//SharedData.bodyId = ItemTestCode_.bodyID;
+		//SharedData.eyesId = ItemTestCode_.eyeID;
+		//SharedData.finId= ItemTestCode_.finID;
+		//SharedData.mouthId = ItemTestCode_.mouthID;
 	}
 	
 	private void GetRankingList(){
@@ -187,6 +193,8 @@ public class RankingListCode_ : MonoBehaviour {
 			
 			playerMyC = listElement.transform.FindChild("MyC").gameObject;
 			SetCostume(XMLParser_.PlayerUserRankingInfo.id, playerMyC);
+			if(thisListMyc != null)
+				SetCostume(XMLParser_.PlayerUserRankingInfo.id, thisListMyc);
 			//listElement.transform.FindChild("MyC").GetComponent<GameObject>().transform.FindChild("");
 			
 			gamelist.Add(listElement);
