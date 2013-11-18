@@ -14,6 +14,8 @@ public class Score : MonoBehaviour {
 		if(GUI_Setting_.PLAYER_ID != ""){
 			//Debug.Log("ID : " + GUI_Setting_.PLAYER_ID);
 			www.UpdateAccount(GUI_Setting_.PLAYER_ID, null, score_int);
+			GameObject.Find("Main").transform.FindChild("MainListCode").GetComponent<RankingListCode_>().Initialize();
 		}
+		GameObject.Find("Main").transform.FindChild("MainListCode").GetComponent<RankingListCode_>().Initialize();
 	}
 }

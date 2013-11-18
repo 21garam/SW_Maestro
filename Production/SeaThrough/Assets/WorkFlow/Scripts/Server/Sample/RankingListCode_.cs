@@ -63,7 +63,9 @@ public class RankingListCode_ : MonoBehaviour {
 				listElement.transform.FindChild("Text_rank").GetComponent<tk2dTextMesh>().text = XMLParser_.OtherUserRankingInfoList[i].ranking.ToString();
 				listElement.transform.FindChild("Text_rank").GetComponent<tk2dTextMesh>().Commit();
 				
-				listElement.transform.FindChild("Text_Score").localPosition = new Vector3(1.94f, -0.03f, 0);
+				listElement.transform.FindChild("Text_id").GetComponent<tk2dTextMesh>().text = XMLParser_.OtherUserRankingInfoList[i].id.ToString();
+				listElement.transform.FindChild("Text_id").GetComponent<tk2dTextMesh>().Commit();
+				
 				listElement.transform.FindChild("Text_Score").GetComponent<tk2dTextMesh>().text = XMLParser_.OtherUserRankingInfoList[i].score.ToString();
 				listElement.transform.FindChild("Text_Score").GetComponent<tk2dTextMesh>().Commit();
 				
