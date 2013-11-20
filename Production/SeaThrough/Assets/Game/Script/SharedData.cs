@@ -3,10 +3,10 @@ using System.Collections;
 
 public class SharedData {//: MonoBehaviour {
 	
-	public static int bodyId = 3;
-	public static int eyesId = 3;
-	public static int mouthId = 3;
-	public static int finId = 3;
+	public static int bodyId = 0;
+	public static int eyesId = 0;
+	public static int mouthId = 0;
+	public static int finId = 0;
 	public static int score = 0;
 	
 	public static readonly int DEFAULT_HP = 100;

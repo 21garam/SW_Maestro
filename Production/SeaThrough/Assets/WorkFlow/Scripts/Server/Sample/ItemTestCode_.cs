@@ -49,6 +49,7 @@ public class ItemTestCode_ : MonoBehaviour {
 	public void Initialize(){
 		Search();
 		SetProgressbar();
+		
 		//hp.Value = XMLParser_.PlayerAccountInfo.hp_lv;
 	}
 	
@@ -158,11 +159,12 @@ public class ItemTestCode_ : MonoBehaviour {
 		if(XMLParser_.PlayerInfoXMLParse(xml)){
 			//Debug.Log(XMLParser_.PlayerAccountInfo.ToString());
 			int equipment = XMLParser_.PlayerAccountInfo.equipment;
-			//int body = Equipment_.GetBodyValue_FromEquipment(equipment);
-			//int eye = Equipment_.GetEyeValue_FromEquipment(equipment);
-			//int mouth = Equipment_.GetMouthValue_FromEquipment(equipment);
-			//int fin = Equipment_.GetFinValue_FromEquipment(equipment);//GetFinVale_FromEquipment(equipment);
+			int body = Equipment_.GetBodyValue_FromEquipment(equipment);
+			int eye = Equipment_.GetEyeValue_FromEquipment(equipment);
+			int mouth = Equipment_.GetMouthValue_FromEquipment(equipment);
+			int fin = Equipment_.GetFinValue_FromEquipment(equipment);//GetFinVale_FromEquipment(equipment);
 			//Debug.Log("SetEquipmentInfo : " + equipment.ToString());
+			
 			SetMyEquipmentC(equipment);
 			//bodySet = body;
 			//eyeSet = eye;
@@ -223,6 +225,7 @@ public class ItemTestCode_ : MonoBehaviour {
 			Debug.Log("Body Value : " + body.ToString());
 			bodyID = 0;
 		}
+		SharedData.bodyId = bodyID;
 	}
 	
 	void SetMyeye(int eye){
@@ -257,6 +260,7 @@ public class ItemTestCode_ : MonoBehaviour {
 			eyeID = 0;
 			Debug.Log("eye Value : " + eye.ToString());
 		}
+		SharedData.eyesId = eyeID;
 		Debug.Log("SetMyeye : " + eyeID.ToString());
 	}
 	
@@ -292,6 +296,7 @@ public class ItemTestCode_ : MonoBehaviour {
 			mouthID = 0;
 			Debug.Log("mouth Value : " + mouth.ToString());
 		}
+		SharedData.mouthId = mouthID;
 	}
 	
 	void SetMyfin(int fin){
@@ -326,6 +331,7 @@ public class ItemTestCode_ : MonoBehaviour {
 			finID = 0;
 			Debug.Log("fin Value : " + fin.ToString());
 		}
+		SharedData.finId = finID;
 	}
 	
 	void SetC_1_1(){
